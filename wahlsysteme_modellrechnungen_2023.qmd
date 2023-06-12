@@ -1,0 +1,124 @@
+---
+language: "_language-de.yml"
+title: "Modellrechnungen Wahlsysteme zur Bürgerschaftswahl im Land Bremen 2023"
+author: "Jan Lorenz"
+institute: "Constructor University Bremen"
+date: "last-modified"
+date-format: "D. MMMM YYYY"
+abstract: |
+    Welche Kandidatiinen und Kandidaten würden in die Bürgerschaft kommen, wenn zuerst die Listenmandate vergeben würde und dann die Personenmandate im Vergleich zum aktuellen Verfahren, zur reinen Listenwahl und zur Vergabe nur nach Personenstimmenrangliste. 
+format: 
+  html:
+    toc: true                   # This creates the table of context menu
+    toc-depth: 2                # Increase if you want to have subsections in the table of context menu
+    number-sections: true
+    code-fold: true
+execute: 
+  echo: false
+---
+
+```{r}
+#| warning: false
+source("wahl2023_data_preparation.R")
+library(gt)
+partycols <- tibble(Partei = c("SPD","CDU","GRÜNE","FDP","DIE LINKE","BIW","AfD"), 
+                    Farbe = c("#ff0000", "#000000", "#009933","#e6e600","#990033", "#ff9900", "#0099ff" ))
+```
+
+
+[**Hinweis: Zur Funktionsweise des Bremischen Wahlsystems siehe die Präsentation hier  <https://janlorenz.github.io/PolitischeLandschaftenBremen>.**]{style='color:red;'}
+
+## Mandatkontingente
+
+Grundlage der Modellrechnung ist die Aufteilung der der 72 Mandate in Bremen und 15 in Bremerhaven auf die Listenbänke und Personenbänke der Parteien (die über 5% der Stimmen erhalten haben). 
+
+::: {.panel-tabset}
+
+### Bremen 2023
+```{r}
+bre2 |> slice(c(3,4,11,12,9,10,5,6,7,8,1,2)) |> 
+  rename(`Mandate (ideal)` = Ideal_Mandate) |> 
+  mutate(Partei = factor(Partei)) |> 
+  group_by(Partei, Parteimandate) |> gt(rowname_col = "Stimmenart") |> 
+  fmt_integer("Stimmen", sep_mark = ".") |> 
+  fmt_number(`Mandate (ideal)`, decimals = 2) |> 
+  data_color("Partei",
+             method = "factor",
+             palette = partycols$Farbe) |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = Mandate)) |> 
+  tab_style(style = list(cell_fill(color = partycols$Farbe[2]), cell_text(color = "white")), locations = cells_row_groups(1)) |> 
+  tab_style(style = list(cell_fill(color = partycols$Farbe[1]), cell_text(color = "white")), locations = cells_row_groups(2)) |> 
+  tab_style(style = list(cell_fill(color = partycols$Farbe[3]), cell_text(color = "white")), locations = cells_row_groups(3)) |> 
+  tab_style(style = list(cell_fill(color = partycols$Farbe[5]), cell_text(color = "white")), locations = cells_row_groups(4)) |> 
+  tab_style(style = list(cell_fill(color = partycols$Farbe[4])), locations = cells_row_groups(5)) |> 
+  tab_style(style = list(cell_fill(color = partycols$Farbe[6]), cell_text(color = "white")), locations = cells_row_groups(6)) |> 
+tab_options(data_row.padding = px(2))
+```
+
+### Bremerhaven 2023
+
+```{r}
+bhv2 |> slice(c(3,4,11,12,9,10,5,6,7,8,1,2)) |> 
+  rename(`Mandate (ideal)` = Ideal_Mandate) |> 
+  #select(-Farbe, -type) |> 
+  mutate(Partei = factor(Partei)) |> 
+  group_by(Partei, Parteimandate) |> gt(rowname_col = "Stimmenart") |> 
+  fmt_integer("Stimmen", sep_mark = ".") |> 
+  fmt_number(`Mandate (ideal)`, decimals = 2) |> 
+  data_color("Partei",
+             method = "factor",
+             palette = partycols$Farbe) |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = Mandate)) |> 
+  tab_style(style = list(cell_fill(color = partycols$Farbe[2]), cell_text(color = "white")), locations = cells_row_groups(1)) |> 
+  tab_style(style = list(cell_fill(color = partycols$Farbe[1]), cell_text(color = "white")), locations = cells_row_groups(2)) |> 
+  tab_style(style = list(cell_fill(color = partycols$Farbe[3]), cell_text(color = "white")), locations = cells_row_groups(3)) |> 
+  tab_style(style = list(cell_fill(color = partycols$Farbe[5]), cell_text(color = "white")), locations = cells_row_groups(4)) |> 
+  tab_style(style = list(cell_fill(color = partycols$Farbe[4])), locations = cells_row_groups(5)) |> 
+  tab_style(style = list(cell_fill(color = partycols$Farbe[6]), cell_text(color = "white")), locations = cells_row_groups(6)) |> 
+tab_options(data_row.padding = px(2))
+```
+
+:::
+
+
+## Mandatevergabe an Personen: Vier Modelle
+
+::: {.column-screen-inset-left}
+::: {.panel-tabset}
+
+### Bremen 2023
+```{r}
+bre3 |> filter(!is.na(Listenbank)) |> select(-Listenbank, -Personenbank) |> 
+  select(Partei, Name, Listenplatz, Stimmenrang,Stimmen, Mandat, `vor 2019`=Mandat_vor_2019,
+         `vor 2011` = Mandat_vor_2011, `nur Stimmenrang` = Mandat_Stimmenrang) |> 
+  gt() |> 
+  opt_interactive(
+    use_filters = TRUE,
+    use_highlight = TRUE,
+    use_resizers = TRUE,
+    use_page_size_select = TRUE, 
+    page_size_default = 72
+  )
+```
+
+### Bremerhaven 2023
+```{r}
+bhv3 |> filter(!is.na(Listenbank)) |> select(-Listenbank, -Personenbank) |> 
+  select(Partei, Name, Listenplatz, Stimmenrang,Stimmen, Mandat, `vor 2019`=Mandat_vor_2019,
+         `vor 2011` = Mandat_vor_2011, `nur Stimmenrang` = Mandat_Stimmenrang) |> 
+  gt() |> 
+  opt_interactive(
+    use_filters = TRUE,
+    use_highlight = TRUE,
+    use_resizers = TRUE,
+    use_page_size_select = TRUE, 
+    page_size_default = 15
+  )
+```
+
+:::
+:::
