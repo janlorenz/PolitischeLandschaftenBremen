@@ -1,5 +1,6 @@
 library(tidyverse)
 library(rvest)
+library(writexl)
 
 zuteilen_nach_hoechstzahlen <- function(N, Stimmen, divisorfolge="saintlague", ersterdivisor=NA, output="Mandate") {
   Stimmen <- Stimmen/sum(Stimmen)
@@ -38,6 +39,7 @@ if (!file.exists("bhv2023.csv")) {
 }  
 bre <- read_csv("bre2023.csv")
 bhv <- read_csv("bhv2023.csv")
+
   
 # Schritt 1: Parteimandate
 schritt1 <- function(df, Sitze) df |> group_by(Partei) |> 
@@ -63,6 +65,7 @@ schritt2 <- function(df, Sitze) df |>
 bre2 <- bre |> schritt2(72)
 bhv2 <- bhv |> schritt2(15)
 
+
 # Schritt 3: Personen
 n_lowest <- function(v, n) ifelse(length(sort(v)[n])==0,0,sort(v)[n])
 schritt3 <- function(df,Sitze) df |> filter(Name != "Parteistimmen") |> group_by(Partei) |> 
@@ -85,4 +88,8 @@ schritt3 <- function(df,Sitze) df |> filter(Name != "Parteistimmen") |> group_by
 bre3 <- bre |> schritt3(72)  
 bhv3 <- bhv |> schritt3(15)  
 
+write_csv(bre3, "Bremen2023.csv")
+write_csv(bhv3, "Bremerhaven2023.csv")
+write_xlsx(bre3, "Bremen2023.xlsx")
+write_xlsx(bhv3, "Bremerhaven2023.xlsx")
 

@@ -19,14 +19,22 @@ execute:
 
 ```{r}
 #| warning: false
-source("wahl2023_data_preparation.R")
 library(gt)
+library(tidyverse)
+library(readxl)
+source(file = "wahl2023_data_preparation.R")
+bre3 <- read_xlsx("Bremen2023WM.xlsx") |> rename(Geschlecht = weiblich) |> 
+  mutate(Geschlecht = case_match(Geschlecht, NA ~ "m", "ja" ~ "w"))
+bhv3 <- read_xlsx("Bremerhaven2023WM.xlsx") |> rename(Geschlecht = `weibl.`) |> 
+  mutate(Geschlecht = case_match(Geschlecht, NA ~ "m", "ja" ~ "w"))
+
 partycols <- tibble(Partei = c("SPD","CDU","GRÜNE","FDP","DIE LINKE","BIW","AfD"), 
                     Farbe = c("#ff0000", "#000000", "#009933","#e6e600","#990033", "#ff9900", "#0099ff" ))
 ```
 
 
 [**Hinweis: Zur Funktionsweise des Bremischen Wahlsystems siehe die Präsentation hier  <https://janlorenz.github.io/PolitischeLandschaftenBremen>.**]{style='color:red;'}
+
 
 ## Mandatkontingente
 
@@ -85,6 +93,110 @@ tab_options(data_row.padding = px(2))
 :::
 
 
+## Effekt der Personenstimmen
+
+```{r}
+#| message: false
+#| warning: false
+library(scales)
+group_with_Spitzenkand <- function(df) df |> 
+  left_join(partycols, by = join_by(Partei)) |> 
+  mutate(Partei = Partei |> str_remove("DIE ") |> factor(levels = c("SPD","CDU","GRÜNE","LINKE","BIW","FDP")), 
+         Stimmenart = as_factor(Listenplatz) |> 
+           fct_other(keep = c("0","1","2")) |> 
+           fct_recode(Liste = "0", `Platz 1` = "1", `Platz 2` = "2", `Hintere Plätze` = "Other") |> 
+           fct_rev()) |> 
+  summarize(Stimmen = sum(Stimmen ), Farbe = Farbe[1], .by = c(Partei,Stimmenart))
+plot_listenpersonen <- function(df, Sitze) df |>  
+  ggplot(aes(Partei, Stimmen, fill = Farbe, alpha = Stimmenart)) + geom_col(width = 0.8, color = "white") +
+  scale_fill_identity() + scale_alpha_discrete(range = c(0.2,1)) +
+  scale_y_continuous(labels = number, 
+                     breaks = round(c(seq(sum(df$Stimmen)/Sitze, 24*sum(df$Stimmen)/Sitze, by=sum(df$Stimmen)/Sitze))), 
+                     sec.axis = 
+                       sec_axis(~ ., breaks = round(c(seq(sum(df$Stimmen)/Sitze, 24*sum(df$Stimmen)/Sitze,
+                                                          by=sum(df$Stimmen)/Sitze))), labels = 1:24,
+                                name = "Mandate (ungefähr)")) +
+  xlab("") +
+  theme_minimal() +
+  theme(panel.grid.minor.y = element_blank(), panel.grid.major.x = element_blank())
+bre |> filter(Partei %in% bre2$Partei) |> group_with_Spitzenkand() |> plot_listenpersonen(Sitze=72) + 
+  labs(title = "Wahl zur Bremischen Bürgerschaft 2023:\nWahlbereich Bremen")
+bhv |> filter(Partei %in% bhv2$Partei) |> group_with_Spitzenkand() |> plot_listenpersonen(Sitze=15) + 
+  labs(title = "Wahl zur Bremischen Bürgerschaft 2023:\nWahlbereich Bremerhaven")
+
+
+```
+
+<!-- ## Wieviel Stimmen repräsentiert ein Mandat? -->
+
+```{r}
+#| include: false
+sum(bre$Stimmen)/72
+sum(bre2$Stimmen)/72
+sum(bre3$Stimmen)/72
+
+sum(bhv$Stimmen)/15
+sum(bhv2$Stimmen)/15
+sum(bhv3$Stimmen)/15
+
+
+bre |> arrange(desc(Stimmen)) |> filter(Name != "Parteistimmen") |> head(20)
+```
+
+
+## Frauenanteil 
+
+```{r}
+bind_rows(bre3,bhv3) |> 
+  rename(`Nur Stimmenrang` = Mandat_Stimmenrang, 
+         `Nur Liste` = Mandat_vor_2011, 
+         `Liste zuerst (vor 2019)` = Mandat_vor_2019, 
+         `Personen zuerst (aktuell)` = Mandat, 
+         ) |>
+  pivot_longer(c(`Nur Stimmenrang`, `Nur Liste`, `Liste zuerst (vor 2019)`, `Personen zuerst (aktuell)`), 
+               names_to = "Wahlsystem", values_to = "Mandat") |>
+  mutate(Mandat = Mandat == "Listen" | Mandat == "Personen") |> 
+  count(Wahlsystem, Mandat, Geschlecht) |> na.omit() |> 
+  mutate(Prozent = n/sum(n), .by = "Wahlsystem") |> 
+  select(-Mandat) |> 
+  pivot_wider(names_from = c("Geschlecht"), values_from = c("Prozent","n")) |> 
+  slice(c(4,2,3,1)) |> 
+  gt() |> 
+  fmt_percent(c(Prozent_m, Prozent_w), decimals = 1) |> 
+  tab_spanner("N", starts_with("n")) |> 
+  tab_spanner("Prozent", starts_with("Prozent")) |> 
+  cols_label(ends_with("_w") ~ "w", ends_with("_m") ~ "m")
+```
+
+## Anteil Migration
+
+```{r}
+bind_rows(bre3,bhv3) |> 
+  rename(`Nur Stimmenrang` = Mandat_Stimmenrang, 
+         `Nur Liste` = Mandat_vor_2011, 
+         `Liste zuerst (vor 2019)` = Mandat_vor_2019, 
+         `Personen zuerst (aktuell)` = Mandat, 
+         ) |>
+  pivot_longer(c(`Nur Stimmenrang`, `Nur Liste`, `Liste zuerst (vor 2019)`, `Personen zuerst (aktuell)`), 
+               names_to = "Wahlsystem", values_to = "Mandat") |>
+  mutate(Mandat = Mandat == "Listen" | Mandat == "Personen") |> 
+  count(Wahlsystem, Mandat, Migration) |> 
+  replace_na(list(Migration = "nein")) |> na.omit() |> 
+  mutate(Prozent = n/sum(n), .by = "Wahlsystem") |> 
+  select(-Mandat) |> 
+  pivot_wider(names_from = c("Migration"), values_from = c("Prozent","n")) |> 
+  slice(c(4,2,3,1)) |> 
+  gt() |> 
+  fmt_percent(c(Prozent_ja, Prozent_nein), decimals = 1) |> 
+  tab_spanner("N", starts_with("n")) |> 
+  tab_spanner("Prozent", starts_with("Prozent")) |> 
+  cols_label(ends_with("_ja") ~ "ja", ends_with("_nein") ~ "nein")
+```
+
+
+
+
+
 ## Mandatevergabe an Personen: Vier Modelle
 
 ::: {.column-screen-inset-left}
@@ -122,3 +234,6 @@ bhv3 |> filter(!is.na(Listenbank)) |> select(-Listenbank, -Personenbank) |>
 
 :::
 :::
+
+
+
