@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,7 +18,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="wahlsysteme_modellrechnungen_2023_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 <script src="wahlsysteme_modellrechnungen_2023_files/libs/core-js-2.5.3/shim.min.js"></script>
-<script src="wahlsysteme_modellrechnungen_2023_files/libs/react-17.0.0/react.min.js"></script>
-<script src="wahlsysteme_modellrechnungen_2023_files/libs/react-17.0.0/react-dom.min.js"></script>
+<script src="wahlsysteme_modellrechnungen_2023_files/libs/react-18.2.0/react.min.js"></script>
+<script src="wahlsysteme_modellrechnungen_2023_files/libs/react-18.2.0/react-dom.min.js"></script>
 <script src="wahlsysteme_modellrechnungen_2023_files/libs/reactwidget-1.0.0/react-tools.js"></script>
 <script src="wahlsysteme_modellrechnungen_2023_files/libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="wahlsysteme_modellrechnungen_2023_files/libs/reactable-0.4.4/reactable.css" rel="stylesheet">
@@ -54,11 +54,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul class="collapse">
-  <li><a href="#mandatkontingente" id="toc-mandatkontingente" class="nav-link active" data-scroll-target="#mandatkontingente"><span class="toc-section-number">1</span>  Mandatkontingente</a></li>
-  <li><a href="#effekt-der-personenstimmen" id="toc-effekt-der-personenstimmen" class="nav-link" data-scroll-target="#effekt-der-personenstimmen"><span class="toc-section-number">2</span>  Effekt der Personenstimmen</a></li>
-  <li><a href="#frauenanteil" id="toc-frauenanteil" class="nav-link" data-scroll-target="#frauenanteil"><span class="toc-section-number">3</span>  Frauenanteil</a></li>
-  <li><a href="#anteil-migration" id="toc-anteil-migration" class="nav-link" data-scroll-target="#anteil-migration"><span class="toc-section-number">4</span>  Anteil Migration</a></li>
-  <li><a href="#mandatevergabe-an-personen-vier-modelle" id="toc-mandatevergabe-an-personen-vier-modelle" class="nav-link" data-scroll-target="#mandatevergabe-an-personen-vier-modelle"><span class="toc-section-number">5</span>  Mandatevergabe an Personen: Vier Modelle</a></li>
+  <li><a href="#mandatkontingente" id="toc-mandatkontingente" class="nav-link active" data-scroll-target="#mandatkontingente"><span class="header-section-number">1</span> Mandatkontingente</a></li>
+  <li><a href="#effekt-der-personenstimmen" id="toc-effekt-der-personenstimmen" class="nav-link" data-scroll-target="#effekt-der-personenstimmen"><span class="header-section-number">2</span> Effekt der Personenstimmen</a></li>
+  <li><a href="#listen--vs.-personenstimmen" id="toc-listen--vs.-personenstimmen" class="nav-link" data-scroll-target="#listen--vs.-personenstimmen"><span class="header-section-number">3</span> Listen- vs.&nbsp;Personenstimmen</a></li>
+  <li><a href="#frauenanteil" id="toc-frauenanteil" class="nav-link" data-scroll-target="#frauenanteil"><span class="header-section-number">4</span> Frauenanteil</a></li>
+  <li><a href="#anteil-migration" id="toc-anteil-migration" class="nav-link" data-scroll-target="#anteil-migration"><span class="header-section-number">5</span> Anteil Migration</a></li>
+  <li><a href="#stadtteile" id="toc-stadtteile" class="nav-link" data-scroll-target="#stadtteile"><span class="header-section-number">6</span> Stadtteile</a></li>
+  <li><a href="#mandatevergabe-an-personen-vier-modelle" id="toc-mandatevergabe-an-personen-vier-modelle" class="nav-link" data-scroll-target="#mandatevergabe-an-personen-vier-modelle"><span class="header-section-number">7</span> Mandatevergabe an Personen: Vier Modelle</a></li>
   </ul>
 </nav>
 </div>
@@ -75,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-meta-heading">Zugehörigkeit</div>
   
     <div class="quarto-title-meta-contents">
-    Jan Lorenz 
+    <p class="author">Jan Lorenz </p>
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -90,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">11. September 2023</p>
+      <p class="date">11. November 2023</p>
     </div>
   </div>
   
@@ -100,43 +102,40 @@ ul.task-list li input[type="checkbox"] {
 <div>
   <div class="abstract">
     <div class="abstract-title">Zusammenfassung</div>
-    <p>Welche Kandidatiinen und Kandidaten würden in die Bürgerschaft kommen, wenn zuerst die Listenmandate vergeben würde und dann die Personenmandate im Vergleich zum aktuellen Verfahren, zur reinen Listenwahl und zur Vergabe nur nach Personenstimmenrangliste.</p>
+    <p>Welche Kandidatinnen und Kandidaten würden in die Bürgerschaft kommen, wenn zuerst die Listenmandate vergeben würde und dann die Personenmandate im Vergleich zum aktuellen Verfahren, zur reinen Listenwahl und zur Vergabe nur nach Personenstimmenrangliste.</p>
   </div>
 </div>
 
 </header>
 
-<div class="cell">
-
-</div>
 <p><span style="color:red;"><strong>Hinweis: Zur Funktionsweise des Bremischen Wahlsystems siehe die Präsentation hier <a href="https://janlorenz.github.io/PolitischeLandschaftenBremen" class="uri">https://janlorenz.github.io/PolitischeLandschaftenBremen</a>.</strong></span></p>
 <section id="mandatkontingente" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="mandatkontingente"><span class="header-section-number">1</span> Mandatkontingente</h2>
 <p>Grundlage der Modellrechnung ist die Aufteilung der der 72 Mandate in Bremen und 15 in Bremerhaven auf die Listenbänke und Personenbänke der Parteien (die über 5% der Stimmen erhalten haben).</p>
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Bremen 2023</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Bremerhaven 2023</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="sjybhatkbe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#sjybhatkbe table {
+<div id="qsoeeflifl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qsoeeflifl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#sjybhatkbe thead, #sjybhatkbe tbody, #sjybhatkbe tfoot, #sjybhatkbe tr, #sjybhatkbe td, #sjybhatkbe th {
+#qsoeeflifl thead, #qsoeeflifl tbody, #qsoeeflifl tfoot, #qsoeeflifl tr, #qsoeeflifl td, #qsoeeflifl th {
   border-style: none;
 }
 
-#sjybhatkbe p {
+#qsoeeflifl p {
   margin: 0;
   padding: 0;
 }
 
-#sjybhatkbe .gt_table {
+#qsoeeflifl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -162,12 +161,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#sjybhatkbe .gt_caption {
+#qsoeeflifl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#sjybhatkbe .gt_title {
+#qsoeeflifl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -179,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#sjybhatkbe .gt_subtitle {
+#qsoeeflifl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -191,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#sjybhatkbe .gt_heading {
+#qsoeeflifl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -203,13 +202,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#sjybhatkbe .gt_bottom_border {
+#qsoeeflifl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#sjybhatkbe .gt_col_headings {
+#qsoeeflifl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -224,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#sjybhatkbe .gt_col_heading {
+#qsoeeflifl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -244,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#sjybhatkbe .gt_column_spanner_outer {
+#qsoeeflifl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -256,15 +255,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#sjybhatkbe .gt_column_spanner_outer:first-child {
+#qsoeeflifl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#sjybhatkbe .gt_column_spanner_outer:last-child {
+#qsoeeflifl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#sjybhatkbe .gt_column_spanner {
+#qsoeeflifl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -276,11 +275,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#sjybhatkbe .gt_spanner_row {
+#qsoeeflifl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#sjybhatkbe .gt_group_heading {
+#qsoeeflifl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -306,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#sjybhatkbe .gt_empty_group_heading {
+#qsoeeflifl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -321,15 +320,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#sjybhatkbe .gt_from_md > :first-child {
+#qsoeeflifl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#sjybhatkbe .gt_from_md > :last-child {
+#qsoeeflifl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#sjybhatkbe .gt_row {
+#qsoeeflifl .gt_row {
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 5px;
@@ -348,7 +347,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#sjybhatkbe .gt_stub {
+#qsoeeflifl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -361,7 +360,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#sjybhatkbe .gt_stub_row_group {
+#qsoeeflifl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -375,15 +374,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#sjybhatkbe .gt_row_group_first td {
+#qsoeeflifl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#sjybhatkbe .gt_row_group_first th {
+#qsoeeflifl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#sjybhatkbe .gt_summary_row {
+#qsoeeflifl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -393,16 +392,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#sjybhatkbe .gt_first_summary_row {
+#qsoeeflifl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#sjybhatkbe .gt_first_summary_row.thick {
+#qsoeeflifl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#sjybhatkbe .gt_last_summary_row {
+#qsoeeflifl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -412,7 +411,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#sjybhatkbe .gt_grand_summary_row {
+#qsoeeflifl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -422,7 +421,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#sjybhatkbe .gt_first_grand_summary_row {
+#qsoeeflifl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -432,7 +431,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#sjybhatkbe .gt_last_grand_summary_row_top {
+#qsoeeflifl .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -442,11 +441,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#sjybhatkbe .gt_striped {
+#qsoeeflifl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#sjybhatkbe .gt_table_body {
+#qsoeeflifl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -455,7 +454,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#sjybhatkbe .gt_footnotes {
+#qsoeeflifl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -469,7 +468,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#sjybhatkbe .gt_footnote {
+#qsoeeflifl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -478,7 +477,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#sjybhatkbe .gt_sourcenotes {
+#qsoeeflifl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -492,7 +491,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#sjybhatkbe .gt_sourcenote {
+#qsoeeflifl .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -500,63 +499,63 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#sjybhatkbe .gt_left {
+#qsoeeflifl .gt_left {
   text-align: left;
 }
 
-#sjybhatkbe .gt_center {
+#qsoeeflifl .gt_center {
   text-align: center;
 }
 
-#sjybhatkbe .gt_right {
+#qsoeeflifl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#sjybhatkbe .gt_font_normal {
+#qsoeeflifl .gt_font_normal {
   font-weight: normal;
 }
 
-#sjybhatkbe .gt_font_bold {
+#qsoeeflifl .gt_font_bold {
   font-weight: bold;
 }
 
-#sjybhatkbe .gt_font_italic {
+#qsoeeflifl .gt_font_italic {
   font-style: italic;
 }
 
-#sjybhatkbe .gt_super {
+#qsoeeflifl .gt_super {
   font-size: 65%;
 }
 
-#sjybhatkbe .gt_footnote_marks {
+#qsoeeflifl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#sjybhatkbe .gt_asterisk {
+#qsoeeflifl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#sjybhatkbe .gt_indent_1 {
+#qsoeeflifl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#sjybhatkbe .gt_indent_2 {
+#qsoeeflifl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#sjybhatkbe .gt_indent_3 {
+#qsoeeflifl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#sjybhatkbe .gt_indent_4 {
+#qsoeeflifl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#sjybhatkbe .gt_indent_5 {
+#qsoeeflifl .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -649,23 +648,23 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="ewgaiesyfl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ewgaiesyfl table {
+<div id="cjblehrwyy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cjblehrwyy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ewgaiesyfl thead, #ewgaiesyfl tbody, #ewgaiesyfl tfoot, #ewgaiesyfl tr, #ewgaiesyfl td, #ewgaiesyfl th {
+#cjblehrwyy thead, #cjblehrwyy tbody, #cjblehrwyy tfoot, #cjblehrwyy tr, #cjblehrwyy td, #cjblehrwyy th {
   border-style: none;
 }
 
-#ewgaiesyfl p {
+#cjblehrwyy p {
   margin: 0;
   padding: 0;
 }
 
-#ewgaiesyfl .gt_table {
+#cjblehrwyy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -691,12 +690,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#ewgaiesyfl .gt_caption {
+#cjblehrwyy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ewgaiesyfl .gt_title {
+#cjblehrwyy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -708,7 +707,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#ewgaiesyfl .gt_subtitle {
+#cjblehrwyy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -720,7 +719,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#ewgaiesyfl .gt_heading {
+#cjblehrwyy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -732,13 +731,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ewgaiesyfl .gt_bottom_border {
+#cjblehrwyy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ewgaiesyfl .gt_col_headings {
+#cjblehrwyy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -753,7 +752,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ewgaiesyfl .gt_col_heading {
+#cjblehrwyy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -773,7 +772,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#ewgaiesyfl .gt_column_spanner_outer {
+#cjblehrwyy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -785,15 +784,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#ewgaiesyfl .gt_column_spanner_outer:first-child {
+#cjblehrwyy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ewgaiesyfl .gt_column_spanner_outer:last-child {
+#cjblehrwyy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ewgaiesyfl .gt_column_spanner {
+#cjblehrwyy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -805,11 +804,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#ewgaiesyfl .gt_spanner_row {
+#cjblehrwyy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ewgaiesyfl .gt_group_heading {
+#cjblehrwyy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -835,7 +834,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#ewgaiesyfl .gt_empty_group_heading {
+#cjblehrwyy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -850,15 +849,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#ewgaiesyfl .gt_from_md > :first-child {
+#cjblehrwyy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ewgaiesyfl .gt_from_md > :last-child {
+#cjblehrwyy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ewgaiesyfl .gt_row {
+#cjblehrwyy .gt_row {
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 5px;
@@ -877,7 +876,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#ewgaiesyfl .gt_stub {
+#cjblehrwyy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -890,7 +889,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ewgaiesyfl .gt_stub_row_group {
+#cjblehrwyy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -904,15 +903,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#ewgaiesyfl .gt_row_group_first td {
+#cjblehrwyy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ewgaiesyfl .gt_row_group_first th {
+#cjblehrwyy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ewgaiesyfl .gt_summary_row {
+#cjblehrwyy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -922,16 +921,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ewgaiesyfl .gt_first_summary_row {
+#cjblehrwyy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ewgaiesyfl .gt_first_summary_row.thick {
+#cjblehrwyy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ewgaiesyfl .gt_last_summary_row {
+#cjblehrwyy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -941,7 +940,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#ewgaiesyfl .gt_grand_summary_row {
+#cjblehrwyy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -951,7 +950,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ewgaiesyfl .gt_first_grand_summary_row {
+#cjblehrwyy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -961,7 +960,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#ewgaiesyfl .gt_last_grand_summary_row_top {
+#cjblehrwyy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -971,11 +970,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#ewgaiesyfl .gt_striped {
+#cjblehrwyy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ewgaiesyfl .gt_table_body {
+#cjblehrwyy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -984,7 +983,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#ewgaiesyfl .gt_footnotes {
+#cjblehrwyy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -998,7 +997,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ewgaiesyfl .gt_footnote {
+#cjblehrwyy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1007,7 +1006,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ewgaiesyfl .gt_sourcenotes {
+#cjblehrwyy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1021,7 +1020,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ewgaiesyfl .gt_sourcenote {
+#cjblehrwyy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1029,63 +1028,63 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ewgaiesyfl .gt_left {
+#cjblehrwyy .gt_left {
   text-align: left;
 }
 
-#ewgaiesyfl .gt_center {
+#cjblehrwyy .gt_center {
   text-align: center;
 }
 
-#ewgaiesyfl .gt_right {
+#cjblehrwyy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ewgaiesyfl .gt_font_normal {
+#cjblehrwyy .gt_font_normal {
   font-weight: normal;
 }
 
-#ewgaiesyfl .gt_font_bold {
+#cjblehrwyy .gt_font_bold {
   font-weight: bold;
 }
 
-#ewgaiesyfl .gt_font_italic {
+#cjblehrwyy .gt_font_italic {
   font-style: italic;
 }
 
-#ewgaiesyfl .gt_super {
+#cjblehrwyy .gt_super {
   font-size: 65%;
 }
 
-#ewgaiesyfl .gt_footnote_marks {
+#cjblehrwyy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ewgaiesyfl .gt_asterisk {
+#cjblehrwyy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ewgaiesyfl .gt_indent_1 {
+#cjblehrwyy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ewgaiesyfl .gt_indent_2 {
+#cjblehrwyy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ewgaiesyfl .gt_indent_3 {
+#cjblehrwyy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ewgaiesyfl .gt_indent_4 {
+#cjblehrwyy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ewgaiesyfl .gt_indent_5 {
+#cjblehrwyy .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1187,30 +1186,37 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="wahlsysteme_modellrechnungen_2023_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<!-- ## Wieviel Stimmen repräsentiert ein Mandat? -->
 </section>
-<section id="frauenanteil" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="frauenanteil"><span class="header-section-number">3</span> Frauenanteil</h2>
+<section id="listen--vs.-personenstimmen" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="listen--vs.-personenstimmen"><span class="header-section-number">3</span> Listen- vs.&nbsp;Personenstimmen</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="wahlsysteme_modellrechnungen_2023_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="frauenanteil" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="frauenanteil"><span class="header-section-number">4</span> Frauenanteil</h2>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="pbwbhxseam" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pbwbhxseam table {
+<div id="jhaciikdwn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jhaciikdwn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pbwbhxseam thead, #pbwbhxseam tbody, #pbwbhxseam tfoot, #pbwbhxseam tr, #pbwbhxseam td, #pbwbhxseam th {
+#jhaciikdwn thead, #jhaciikdwn tbody, #jhaciikdwn tfoot, #jhaciikdwn tr, #jhaciikdwn td, #jhaciikdwn th {
   border-style: none;
 }
 
-#pbwbhxseam p {
+#jhaciikdwn p {
   margin: 0;
   padding: 0;
 }
 
-#pbwbhxseam .gt_table {
+#jhaciikdwn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1236,12 +1242,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#pbwbhxseam .gt_caption {
+#jhaciikdwn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pbwbhxseam .gt_title {
+#jhaciikdwn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1253,7 +1259,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#pbwbhxseam .gt_subtitle {
+#jhaciikdwn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1265,7 +1271,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#pbwbhxseam .gt_heading {
+#jhaciikdwn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1277,13 +1283,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#pbwbhxseam .gt_bottom_border {
+#jhaciikdwn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pbwbhxseam .gt_col_headings {
+#jhaciikdwn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1298,7 +1304,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#pbwbhxseam .gt_col_heading {
+#jhaciikdwn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1318,7 +1324,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#pbwbhxseam .gt_column_spanner_outer {
+#jhaciikdwn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1330,15 +1336,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#pbwbhxseam .gt_column_spanner_outer:first-child {
+#jhaciikdwn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pbwbhxseam .gt_column_spanner_outer:last-child {
+#jhaciikdwn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pbwbhxseam .gt_column_spanner {
+#jhaciikdwn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1350,11 +1356,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#pbwbhxseam .gt_spanner_row {
+#jhaciikdwn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pbwbhxseam .gt_group_heading {
+#jhaciikdwn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1380,7 +1386,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#pbwbhxseam .gt_empty_group_heading {
+#jhaciikdwn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1395,15 +1401,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#pbwbhxseam .gt_from_md > :first-child {
+#jhaciikdwn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pbwbhxseam .gt_from_md > :last-child {
+#jhaciikdwn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pbwbhxseam .gt_row {
+#jhaciikdwn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1422,7 +1428,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#pbwbhxseam .gt_stub {
+#jhaciikdwn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1435,7 +1441,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pbwbhxseam .gt_stub_row_group {
+#jhaciikdwn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1449,15 +1455,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#pbwbhxseam .gt_row_group_first td {
+#jhaciikdwn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pbwbhxseam .gt_row_group_first th {
+#jhaciikdwn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pbwbhxseam .gt_summary_row {
+#jhaciikdwn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1467,16 +1473,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pbwbhxseam .gt_first_summary_row {
+#jhaciikdwn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pbwbhxseam .gt_first_summary_row.thick {
+#jhaciikdwn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pbwbhxseam .gt_last_summary_row {
+#jhaciikdwn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1486,7 +1492,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#pbwbhxseam .gt_grand_summary_row {
+#jhaciikdwn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1496,7 +1502,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pbwbhxseam .gt_first_grand_summary_row {
+#jhaciikdwn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1506,7 +1512,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#pbwbhxseam .gt_last_grand_summary_row_top {
+#jhaciikdwn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1516,11 +1522,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#pbwbhxseam .gt_striped {
+#jhaciikdwn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pbwbhxseam .gt_table_body {
+#jhaciikdwn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1529,7 +1535,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#pbwbhxseam .gt_footnotes {
+#jhaciikdwn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1543,7 +1549,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#pbwbhxseam .gt_footnote {
+#jhaciikdwn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1552,7 +1558,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pbwbhxseam .gt_sourcenotes {
+#jhaciikdwn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1566,7 +1572,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#pbwbhxseam .gt_sourcenote {
+#jhaciikdwn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1574,63 +1580,63 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pbwbhxseam .gt_left {
+#jhaciikdwn .gt_left {
   text-align: left;
 }
 
-#pbwbhxseam .gt_center {
+#jhaciikdwn .gt_center {
   text-align: center;
 }
 
-#pbwbhxseam .gt_right {
+#jhaciikdwn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pbwbhxseam .gt_font_normal {
+#jhaciikdwn .gt_font_normal {
   font-weight: normal;
 }
 
-#pbwbhxseam .gt_font_bold {
+#jhaciikdwn .gt_font_bold {
   font-weight: bold;
 }
 
-#pbwbhxseam .gt_font_italic {
+#jhaciikdwn .gt_font_italic {
   font-style: italic;
 }
 
-#pbwbhxseam .gt_super {
+#jhaciikdwn .gt_super {
   font-size: 65%;
 }
 
-#pbwbhxseam .gt_footnote_marks {
+#jhaciikdwn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pbwbhxseam .gt_asterisk {
+#jhaciikdwn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pbwbhxseam .gt_indent_1 {
+#jhaciikdwn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pbwbhxseam .gt_indent_2 {
+#jhaciikdwn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pbwbhxseam .gt_indent_3 {
+#jhaciikdwn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pbwbhxseam .gt_indent_4 {
+#jhaciikdwn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pbwbhxseam .gt_indent_5 {
+#jhaciikdwn .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1682,28 +1688,28 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="anteil-migration" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="anteil-migration"><span class="header-section-number">4</span> Anteil Migration</h2>
+<section id="anteil-migration" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="anteil-migration"><span class="header-section-number">5</span> Anteil Migration</h2>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="cgvgqsdaye" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cgvgqsdaye table {
+<div id="xhozkjmrno" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xhozkjmrno table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cgvgqsdaye thead, #cgvgqsdaye tbody, #cgvgqsdaye tfoot, #cgvgqsdaye tr, #cgvgqsdaye td, #cgvgqsdaye th {
+#xhozkjmrno thead, #xhozkjmrno tbody, #xhozkjmrno tfoot, #xhozkjmrno tr, #xhozkjmrno td, #xhozkjmrno th {
   border-style: none;
 }
 
-#cgvgqsdaye p {
+#xhozkjmrno p {
   margin: 0;
   padding: 0;
 }
 
-#cgvgqsdaye .gt_table {
+#xhozkjmrno .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1729,12 +1735,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#cgvgqsdaye .gt_caption {
+#xhozkjmrno .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cgvgqsdaye .gt_title {
+#xhozkjmrno .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1746,7 +1752,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#cgvgqsdaye .gt_subtitle {
+#xhozkjmrno .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1758,7 +1764,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#cgvgqsdaye .gt_heading {
+#xhozkjmrno .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1770,13 +1776,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#cgvgqsdaye .gt_bottom_border {
+#xhozkjmrno .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cgvgqsdaye .gt_col_headings {
+#xhozkjmrno .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1791,7 +1797,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#cgvgqsdaye .gt_col_heading {
+#xhozkjmrno .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1811,7 +1817,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#cgvgqsdaye .gt_column_spanner_outer {
+#xhozkjmrno .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1823,15 +1829,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#cgvgqsdaye .gt_column_spanner_outer:first-child {
+#xhozkjmrno .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cgvgqsdaye .gt_column_spanner_outer:last-child {
+#xhozkjmrno .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cgvgqsdaye .gt_column_spanner {
+#xhozkjmrno .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1843,11 +1849,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#cgvgqsdaye .gt_spanner_row {
+#xhozkjmrno .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cgvgqsdaye .gt_group_heading {
+#xhozkjmrno .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1873,7 +1879,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#cgvgqsdaye .gt_empty_group_heading {
+#xhozkjmrno .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1888,15 +1894,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#cgvgqsdaye .gt_from_md > :first-child {
+#xhozkjmrno .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cgvgqsdaye .gt_from_md > :last-child {
+#xhozkjmrno .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cgvgqsdaye .gt_row {
+#xhozkjmrno .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1915,7 +1921,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#cgvgqsdaye .gt_stub {
+#xhozkjmrno .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1928,7 +1934,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#cgvgqsdaye .gt_stub_row_group {
+#xhozkjmrno .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1942,15 +1948,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#cgvgqsdaye .gt_row_group_first td {
+#xhozkjmrno .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cgvgqsdaye .gt_row_group_first th {
+#xhozkjmrno .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cgvgqsdaye .gt_summary_row {
+#xhozkjmrno .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1960,16 +1966,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#cgvgqsdaye .gt_first_summary_row {
+#xhozkjmrno .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cgvgqsdaye .gt_first_summary_row.thick {
+#xhozkjmrno .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cgvgqsdaye .gt_last_summary_row {
+#xhozkjmrno .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1979,7 +1985,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#cgvgqsdaye .gt_grand_summary_row {
+#xhozkjmrno .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1989,7 +1995,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#cgvgqsdaye .gt_first_grand_summary_row {
+#xhozkjmrno .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1999,7 +2005,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#cgvgqsdaye .gt_last_grand_summary_row_top {
+#xhozkjmrno .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2009,11 +2015,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#cgvgqsdaye .gt_striped {
+#xhozkjmrno .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cgvgqsdaye .gt_table_body {
+#xhozkjmrno .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2022,7 +2028,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#cgvgqsdaye .gt_footnotes {
+#xhozkjmrno .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2036,7 +2042,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#cgvgqsdaye .gt_footnote {
+#xhozkjmrno .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2045,7 +2051,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#cgvgqsdaye .gt_sourcenotes {
+#xhozkjmrno .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2059,7 +2065,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#cgvgqsdaye .gt_sourcenote {
+#xhozkjmrno .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2067,63 +2073,63 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#cgvgqsdaye .gt_left {
+#xhozkjmrno .gt_left {
   text-align: left;
 }
 
-#cgvgqsdaye .gt_center {
+#xhozkjmrno .gt_center {
   text-align: center;
 }
 
-#cgvgqsdaye .gt_right {
+#xhozkjmrno .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cgvgqsdaye .gt_font_normal {
+#xhozkjmrno .gt_font_normal {
   font-weight: normal;
 }
 
-#cgvgqsdaye .gt_font_bold {
+#xhozkjmrno .gt_font_bold {
   font-weight: bold;
 }
 
-#cgvgqsdaye .gt_font_italic {
+#xhozkjmrno .gt_font_italic {
   font-style: italic;
 }
 
-#cgvgqsdaye .gt_super {
+#xhozkjmrno .gt_super {
   font-size: 65%;
 }
 
-#cgvgqsdaye .gt_footnote_marks {
+#xhozkjmrno .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cgvgqsdaye .gt_asterisk {
+#xhozkjmrno .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cgvgqsdaye .gt_indent_1 {
+#xhozkjmrno .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cgvgqsdaye .gt_indent_2 {
+#xhozkjmrno .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cgvgqsdaye .gt_indent_3 {
+#xhozkjmrno .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cgvgqsdaye .gt_indent_4 {
+#xhozkjmrno .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cgvgqsdaye .gt_indent_5 {
+#xhozkjmrno .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2175,33 +2181,81 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="mandatevergabe-an-personen-vier-modelle" class="level2 page-columns page-full" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="mandatevergabe-an-personen-vier-modelle"><span class="header-section-number">5</span> Mandatevergabe an Personen: Vier Modelle</h2>
+<section id="stadtteile" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="stadtteile"><span class="header-section-number">6</span> Stadtteile</h2>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat &lt;- vroom(...)
+  problems(dat)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 27 Columns: 5</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr  (4): Gebietsschlüssel, Gebietseinheit, Alter von ... bis unter ... Jahr...
+date (1): Zeit
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `hb_stadtteile' from data source 
+  `/home/janlo/Documents/data/statistik_bremen/HB_pol_Grenzen_ETRS/ETRS/hb_stadtteile.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 23 features and 5 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 465403 ymin: 5873514 xmax: 499384.8 ymax: 5938942
+Projected CRS: ETRS89 / UTM zone 32N</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: attribute variables are assumed to be spatially constant throughout
+all geometries</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="wahlsysteme_modellrechnungen_2023_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="wahlsysteme_modellrechnungen_2023_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="mandatevergabe-an-personen-vier-modelle" class="level2 page-columns page-full" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="mandatevergabe-an-personen-vier-modelle"><span class="header-section-number">7</span> Mandatevergabe an Personen: Vier Modelle</h2>
 <div class="column-screen-inset-left">
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Bremen 2023</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Bremerhaven 2023</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="pkazuivpus" class=".gt_table" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pkazuivpus table {
+<div id="xehusxwpqg" class=".gt_table" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xehusxwpqg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pkazuivpus thead, #pkazuivpus tbody, #pkazuivpus tfoot, #pkazuivpus tr, #pkazuivpus td, #pkazuivpus th {
+#xehusxwpqg thead, #xehusxwpqg tbody, #xehusxwpqg tfoot, #xehusxwpqg tr, #xehusxwpqg td, #xehusxwpqg th {
   border-style: none;
 }
 
-#pkazuivpus p {
+#xehusxwpqg p {
   margin: 0;
   padding: 0;
 }
 
-#pkazuivpus .gt_table {
+#xehusxwpqg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2227,12 +2281,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#pkazuivpus .gt_caption {
+#xehusxwpqg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pkazuivpus .gt_title {
+#xehusxwpqg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2244,7 +2298,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#pkazuivpus .gt_subtitle {
+#xehusxwpqg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2256,7 +2310,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#pkazuivpus .gt_heading {
+#xehusxwpqg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2268,13 +2322,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#pkazuivpus .gt_bottom_border {
+#xehusxwpqg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pkazuivpus .gt_col_headings {
+#xehusxwpqg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2289,7 +2343,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#pkazuivpus .gt_col_heading {
+#xehusxwpqg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2309,7 +2363,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#pkazuivpus .gt_column_spanner_outer {
+#xehusxwpqg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2321,15 +2375,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#pkazuivpus .gt_column_spanner_outer:first-child {
+#xehusxwpqg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pkazuivpus .gt_column_spanner_outer:last-child {
+#xehusxwpqg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pkazuivpus .gt_column_spanner {
+#xehusxwpqg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2341,11 +2395,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#pkazuivpus .gt_spanner_row {
+#xehusxwpqg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pkazuivpus .gt_group_heading {
+#xehusxwpqg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2371,7 +2425,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#pkazuivpus .gt_empty_group_heading {
+#xehusxwpqg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2386,15 +2440,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#pkazuivpus .gt_from_md > :first-child {
+#xehusxwpqg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pkazuivpus .gt_from_md > :last-child {
+#xehusxwpqg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pkazuivpus .gt_row {
+#xehusxwpqg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2413,7 +2467,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#pkazuivpus .gt_stub {
+#xehusxwpqg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2426,7 +2480,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pkazuivpus .gt_stub_row_group {
+#xehusxwpqg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2440,15 +2494,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#pkazuivpus .gt_row_group_first td {
+#xehusxwpqg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pkazuivpus .gt_row_group_first th {
+#xehusxwpqg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pkazuivpus .gt_summary_row {
+#xehusxwpqg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2458,16 +2512,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pkazuivpus .gt_first_summary_row {
+#xehusxwpqg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pkazuivpus .gt_first_summary_row.thick {
+#xehusxwpqg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pkazuivpus .gt_last_summary_row {
+#xehusxwpqg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2477,7 +2531,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#pkazuivpus .gt_grand_summary_row {
+#xehusxwpqg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2487,7 +2541,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pkazuivpus .gt_first_grand_summary_row {
+#xehusxwpqg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2497,7 +2551,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#pkazuivpus .gt_last_grand_summary_row_top {
+#xehusxwpqg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2507,11 +2561,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#pkazuivpus .gt_striped {
+#xehusxwpqg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pkazuivpus .gt_table_body {
+#xehusxwpqg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2520,7 +2574,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#pkazuivpus .gt_footnotes {
+#xehusxwpqg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2534,7 +2588,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#pkazuivpus .gt_footnote {
+#xehusxwpqg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2543,7 +2597,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pkazuivpus .gt_sourcenotes {
+#xehusxwpqg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2557,7 +2611,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#pkazuivpus .gt_sourcenote {
+#xehusxwpqg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2565,68 +2619,68 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pkazuivpus .gt_left {
+#xehusxwpqg .gt_left {
   text-align: left;
 }
 
-#pkazuivpus .gt_center {
+#xehusxwpqg .gt_center {
   text-align: center;
 }
 
-#pkazuivpus .gt_right {
+#xehusxwpqg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pkazuivpus .gt_font_normal {
+#xehusxwpqg .gt_font_normal {
   font-weight: normal;
 }
 
-#pkazuivpus .gt_font_bold {
+#xehusxwpqg .gt_font_bold {
   font-weight: bold;
 }
 
-#pkazuivpus .gt_font_italic {
+#xehusxwpqg .gt_font_italic {
   font-style: italic;
 }
 
-#pkazuivpus .gt_super {
+#xehusxwpqg .gt_super {
   font-size: 65%;
 }
 
-#pkazuivpus .gt_footnote_marks {
+#xehusxwpqg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pkazuivpus .gt_asterisk {
+#xehusxwpqg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pkazuivpus .gt_indent_1 {
+#xehusxwpqg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pkazuivpus .gt_indent_2 {
+#xehusxwpqg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pkazuivpus .gt_indent_3 {
+#xehusxwpqg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pkazuivpus .gt_indent_4 {
+#xehusxwpqg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pkazuivpus .gt_indent_5 {
+#xehusxwpqg .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<div id="pkazuivpus" class="reactable html-widget " style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="pkazuivpus">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Partei":["CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW"],"Name":["Imhoff, Frank","Winter, Wiebke","Michalik, Martin","Ahrens, Sandra","Strohmann, Heiko","Hornhues, Bettina","Eckhoff, Jens","Grobien, Susanne Elisabeth","Lübke, Marco","Averwerser, Yvonne Marion","Jonitz, Michael","Neumeyer, Silvia Maria","Zeimke, Simon","Gröninger, Theresa Annalena","Rohmeyer, Claas","Grönert, Sigrid","Bensch, Rainer Holger","Eckardt, Kerstin","Bodeit, Hartmut","Tek, Hetav","Middendorf, Kay Johann","Morawietz, Melanie","Neumeyer, Maximilian Ernst","Mattern, Ann-Kathrin","Dr. Yazici, Oguzhan","Tunc, Eyfer","Müller-Arnecke, Jörg","Dumas, Hela","Gülke, Claus","Lutze-Scheibe, Dorothea Bozena","Dr. Kornek, Christian Michael","Kaufhold, Maria Elisabeth","Scharf, Detlef","Peters, Monika","Lindemann, Ole","Matschulla, Sarah","Fricke, Jannis","Dr. Kreiser-Saunders, Ingrid","Genç, Mehmet","Freitag, Alexandra Sophie","Tödtheide, Marcus","Teetzen, Simone","Kaya, Yunas","Müller, Mine","Schächter, Thomas","Seifert, Martina","Janko, Uwe","Albers, Sandra Manuela","Bergmann, Thomas","Wedler, Heidrun-Bärbel","Borgelt, Olaf","Krogemann, Birgit","Zander, Marcel","Bovenschulte, Andreas","Aulepp, Sascha Karolin","Mäurer, Ulrich","Grotheer, Antje","Güngör, Mustafa","Reimers-Bruns, Ute","Wagner, Falk-Constantin","Kähler, Katharina","Dr. Hess-Grunewald, Hubertus","Kretschmann, Heike","Lenkeit, Kevin","Arpaz, Selin Ece","Sator, Senihad","Schiemann, Anja","Stahmann, Volker","Sprehe, Heike","Gottschalk, Arno","Dehne, Stephanie","Striemer, Jan Moritz","Bredehorst, Gönül","Aytas, Recai","Tuchel, Valentina","Heide, Niels","Kozlowski, Anke","Eicke, Derik","Kapp, Sonja","Tokmak, Muhammet","Besecke, Lizza","Thatje, Aaron","Mahlert, Eva","Rose, Imran","Gronemeyer, Katharina","Seyrek, Mehmet Ali","Olbrich, Birgit","Bolayela, Elombo","Rahman, Azalea","Khan, Basem","Gerecke, Lara","Dennhardt, Jens","Wolter, Maren","Bries, Falko","Krümpfer, Larissa","Hölscher, Hans-Peter","Kamche Tebou, Virginie","Bienzeisler, Kay","Yildiz, Medine","Diestelmann, Jens","Jess, Antje","Tepe, Nurtekin","Nuske, Katarina","Stenner, Bernd","Dammrat-Tiefensee, Marcella","Kasper, Reimund","Faber, Kathrin","Walter, Kirsten","Ersöz, Rengin","Bohling, Katja","Blumenthal, Katy","Rosenbaum, Sabine","Dr. Schaefer, Maike","Fecker, Björn","Stahmann, Anja","Bruck, Philipp","Tell, Franziska","Menzel, Bithja","Dr. Müller, Henrike","Saxe, Ralph Richard","Görgü-Philipp, Sahhanim","Herold, Emanuel","Dr. Eschen, Solveig","Hupe, Christopher","Mittelstädt, Maike-Sophie","Wargalla, Kai-Lena","Osterkamp-Weber, Ilona Hilda","Taute, Fabian Georg","Terlohr, Sonja","Wewer, Marcus","Wiese, Kirsten","Pörschke, Thomas","Reichardt, Stina","Mysliwietz, Jens","Steinfatt, Hemavathany","Osterkamp, Johannes Christian","Kreuzer, Anna","Metzger, Simon Malte","Schirmer, Carola","Helsner, Marek","Fritsche-Ejemole, Petra","Schyska, Rafael Norbert","Schaudin-Fischer, Bärbel","Leon Henkle, Christian Marcelo","Vogt, Kristina","Bernhard, Claudia","Leonidakis, Sophia","Janßen, Nelson","Strunge, Miriam","Rupp, Klaus-Rainer","Tegeler, Maja","Tebje, Ingo","Schmitz, Charlotte","Hassanpour Fard Khorashad, Dariush","Emole-Bozukluhan, Friederike","Tuncel, Cindi","Port, Annika","Zimmer, Olaf","Fischer, Anna","Gloede, Christian","Sterra, Mara","Spehr, Christoph","Heuser, Sofia","Tegtmeier, Rainer","Nas, Fatma","Sültenfuß, Tim","Göbberd, Laila","Anders, Klaas","Schäck, Thore","Schröder, Marcel","Humpich, Ole","Voigt, Fynn Lukas","Linnemann, Ulla","Radke, Sabine Elisabeth","Kocas, Yasar","Sohns, Gwen Marei","Serbest, Julian","Drechsel, Ulf-Brün Gerhard","Lenkeit, Louis","Seidel, Frank","Tuchscherer, Björn","Schachtsiek, Florian","Acik, Kamber","Huch, Tobias Christoph","Kandaz, Fethi Ilkan","Juschkeit, Marco","Müller-Lang, Agnes Margaretha","Bollhagen, Peter","Leidreiter, Piet","Schellenberg, Sven","Minne, Andre Folkert","Degenhard, Cord","Fricke, Holger","Sagiroglu, Meltem","Nummensen, Ulf","Leidreiter, Alicia","Breitzke, Andreas","Köhler, Frank","Schmidt, Daniel","Jurgan, Jens-Rainer","Laue, Annefriede Jutta","Burichter, Martin","Hamen, Walter","Eckert, Jan Hendrik","Brzenza, Udo","Werner, Heiko","Peters, Philipp","Meier, Oliver"],"Listenplatz":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"Stimmenrang":[1,2,13,10,9,15,4,7,5,17,24,20,19,29,14,8,6,34,26,27,22,43,41,42,3,16,23,36,39,35,30,32,12,32,25,44,21,49,18,48,47,53,11,31,38,37,46,52,51,45,28,50,40,1,5,2,14,7,20,23,26,8,22,36,25,28,30,11,27,9,24,37,33,12,10,47,40,17,29,18,51,56,55,31,43,6,38,4,32,3,58,35,42,13,21,39,19,46,15,53,34,16,48,49,50,41,54,59,45,57,44,52,1,8,3,6,4,13,12,7,5,25,9,14,16,2,18,15,23,17,22,20,10,27,19,28,11,21,24,31,29,32,30,26,1,2,5,8,10,15,13,16,14,4,18,3,22,7,9,11,17,21,19,20,12,6,22,24,1,3,8,9,5,11,4,19,15,14,17,10,20,13,6,2,12,16,18,7,1,4,3,2,7,12,16,6,18,20,13,15,17,19,14,8,5,11,9,10],"Stimmen":[54033,20205,1380,1800,1830,1299,4671,2066,3517,1158,649,810,830,450,1359,1919,3462,407,613,568,768,322,343,324,5839,1285,735,397,360,400,430,413,1776,413,621,316,803,205,991,209,212,151,1794,427,370,373,300,152,178,301,480,181,353,141420,3092,16354,1465,2514,1013,800,728,2220,836,410,781,607,560,1614,702,1859,790,405,508,1593,1838,326,386,1322,589,1144,269,186,189,538,355,2960,396,3117,529,3118,142,422,356,1479,958,389,1036,332,1385,246,440,1329,290,284,283,380,230,85,336,153,344,251,7987,1410,4534,1759,2286,767,777,1583,1855,335,1188,752,667,4956,546,704,385,574,436,536,1038,282,538,198,859,504,363,182,191,150,184,332,26212,17681,2459,1420,1055,665,721,632,686,2879,530,2971,265,1746,1066,998,556,308,370,353,724,1804,265,197,7397,783,361,348,592,284,642,170,190,257,181,347,157,272,555,2080,276,189,174,485,5130,1141,1176,1319,829,564,524,843,451,332,544,528,481,397,532,757,893,650,710,698],"Mandat":["Personen","Personen","Listen","Listen","Personen","Listen","Personen","Personen","Personen","Listen","Listen","Listen","Listen","Listen","Listen","Personen","Personen","Listen","Listen","Listen",null,null,null,null,"Personen",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Personen","Personen","Personen","Personen","Personen","Listen","Listen","Listen","Personen","Listen","Listen","Listen","Listen","Listen","Personen",null,"Personen",null,null,null,"Personen","Personen",null,null,null,null,null,null,null,null,null,null,"Personen",null,"Personen",null,"Personen",null,null,null,"Personen",null,null,null,null,"Personen",null,null,null,null,null,null,null,null,null,null,null,null,null,"Personen","Listen","Personen","Listen","Listen","Listen","Listen","Listen",null,null,null,null,null,"Personen",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Personen","Personen","Personen","Listen","Listen","Listen","Listen",null,null,"Personen",null,"Personen",null,null,null,null,null,null,null,null,null,null,null,null,"Personen","Listen","Listen","Listen",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Personen","Listen","Listen","Listen","Listen","Listen",null,null,null,null,null,null,null,null,null,null,null,null,null,null],"vor 2019":["Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Personen",null,"Personen","Personen","Personen",null,null,null,null,null,null,null,"Personen","Personen",null,null,null,null,null,null,"Personen",null,null,null,null,null,"Personen",null,null,null,"Personen",null,null,null,null,null,null,null,null,null,null,"Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Personen",null,null,null,null,null,"Personen",null,"Personen",null,null,null,"Personen","Personen",null,null,"Personen",null,"Personen",null,null,null,null,null,"Personen",null,"Personen",null,"Personen",null,null,null,"Personen","Personen",null,"Personen",null,"Personen",null,null,"Personen",null,null,null,null,null,null,null,null,null,null,"Listen","Listen","Listen","Listen","Listen","Listen",null,"Personen","Personen",null,null,null,null,"Personen",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Listen","Listen","Listen","Listen",null,null,null,null,null,"Personen",null,"Personen",null,"Personen","Personen",null,null,null,null,null,null,"Personen",null,null,"Listen","Listen","Listen",null,null,null,null,null,null,null,null,null,null,null,null,"Personen",null,null,null,null,"Listen","Listen","Listen","Listen","Listen",null,null,null,null,null,null,null,null,null,null,null,"Personen",null,null,null],"vor 2011":["Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Listen","Listen","Listen","Listen",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Listen","Listen","Listen","Listen","Listen","Listen",null,null,null,null,null,null,null,null,null,null,null,null,null,null],"nur Stimmenrang":["Personen","Personen","Personen","Personen","Personen","Personen","Personen","Personen","Personen","Personen",null,"Personen","Personen",null,"Personen","Personen","Personen",null,null,null,null,null,null,null,"Personen","Personen",null,null,null,null,null,null,"Personen",null,null,null,"Personen",null,"Personen",null,null,null,"Personen",null,null,null,null,null,null,null,null,null,null,"Personen","Personen","Personen","Personen","Personen","Personen","Personen",null,"Personen","Personen",null,null,null,null,"Personen",null,"Personen",null,null,null,"Personen","Personen",null,null,"Personen",null,"Personen",null,null,null,null,null,"Personen",null,"Personen",null,"Personen",null,null,null,"Personen","Personen",null,"Personen",null,"Personen",null,null,"Personen",null,null,null,null,null,null,null,null,null,null,"Personen","Personen","Personen","Personen","Personen",null,null,"Personen","Personen",null,"Personen",null,null,"Personen",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Personen","Personen","Personen","Personen",null,null,null,null,null,"Personen",null,"Personen",null,"Personen","Personen",null,null,null,null,null,null,"Personen",null,null,"Personen","Personen",null,null,null,null,"Personen",null,null,null,null,null,null,null,null,"Personen",null,null,null,null,"Personen","Personen","Personen","Personen",null,null,null,"Personen",null,null,null,null,null,null,null,null,"Personen",null,null,null]},"columns":[{"id":"Partei","name":"Partei","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Name","name":"Name","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Imhoff, Frank","Winter, Wiebke","Michalik, Martin","Ahrens, Sandra","Strohmann, Heiko","Hornhues, Bettina","Eckhoff, Jens","Grobien, Susanne Elisabeth","Lübke, Marco","Averwerser, Yvonne Marion","Jonitz, Michael","Neumeyer, Silvia Maria","Zeimke, Simon","Gröninger, Theresa Annalena","Rohmeyer, Claas","Grönert, Sigrid","Bensch, Rainer Holger","Eckardt, Kerstin","Bodeit, Hartmut","Tek, Hetav","Middendorf, Kay Johann","Morawietz, Melanie","Neumeyer, Maximilian Ernst","Mattern, Ann-Kathrin","Dr. Yazici, Oguzhan","Tunc, Eyfer","Müller-Arnecke, Jörg","Dumas, Hela","Gülke, Claus","Lutze-Scheibe, Dorothea Bozena","Dr. Kornek, Christian Michael","Kaufhold, Maria Elisabeth","Scharf, Detlef","Peters, Monika","Lindemann, Ole","Matschulla, Sarah","Fricke, Jannis","Dr. Kreiser-Saunders, Ingrid","Genç, Mehmet","Freitag, Alexandra Sophie","Tödtheide, Marcus","Teetzen, Simone","Kaya, Yunas","Müller, Mine","Schächter, Thomas","Seifert, Martina","Janko, Uwe","Albers, Sandra Manuela","Bergmann, Thomas","Wedler, Heidrun-Bärbel","Borgelt, Olaf","Krogemann, Birgit","Zander, Marcel","Bovenschulte, Andreas","Aulepp, Sascha Karolin","Mäurer, Ulrich","Grotheer, Antje","Güngör, Mustafa","Reimers-Bruns, Ute","Wagner, Falk-Constantin","Kähler, Katharina","Dr. Hess-Grunewald, Hubertus","Kretschmann, Heike","Lenkeit, Kevin","Arpaz, Selin Ece","Sator, Senihad","Schiemann, Anja","Stahmann, Volker","Sprehe, Heike","Gottschalk, Arno","Dehne, Stephanie","Striemer, Jan Moritz","Bredehorst, Gönül","Aytas, Recai","Tuchel, Valentina","Heide, Niels","Kozlowski, Anke","Eicke, Derik","Kapp, Sonja","Tokmak, Muhammet","Besecke, Lizza","Thatje, Aaron","Mahlert, Eva","Rose, Imran","Gronemeyer, Katharina","Seyrek, Mehmet Ali","Olbrich, Birgit","Bolayela, Elombo","Rahman, Azalea","Khan, Basem","Gerecke, Lara","Dennhardt, Jens","Wolter, Maren","Bries, Falko","Krümpfer, Larissa","Hölscher, Hans-Peter","Kamche Tebou, Virginie","Bienzeisler, Kay","Yildiz, Medine","Diestelmann, Jens","Jess, Antje","Tepe, Nurtekin","Nuske, Katarina","Stenner, Bernd","Dammrat-Tiefensee, Marcella","Kasper, Reimund","Faber, Kathrin","Walter, Kirsten","Ersöz, Rengin","Bohling, Katja","Blumenthal, Katy","Rosenbaum, Sabine","Dr. Schaefer, Maike","Fecker, Björn","Stahmann, Anja","Bruck, Philipp","Tell, Franziska","Menzel, Bithja","Dr. Müller, Henrike","Saxe, Ralph Richard","Görgü-Philipp, Sahhanim","Herold, Emanuel","Dr. Eschen, Solveig","Hupe, Christopher","Mittelstädt, Maike-Sophie","Wargalla, Kai-Lena","Osterkamp-Weber, Ilona Hilda","Taute, Fabian Georg","Terlohr, Sonja","Wewer, Marcus","Wiese, Kirsten","Pörschke, Thomas","Reichardt, Stina","Mysliwietz, Jens","Steinfatt, Hemavathany","Osterkamp, Johannes Christian","Kreuzer, Anna","Metzger, Simon Malte","Schirmer, Carola","Helsner, Marek","Fritsche-Ejemole, Petra","Schyska, Rafael Norbert","Schaudin-Fischer, Bärbel","Leon Henkle, Christian Marcelo","Vogt, Kristina","Bernhard, Claudia","Leonidakis, Sophia","Janßen, Nelson","Strunge, Miriam","Rupp, Klaus-Rainer","Tegeler, Maja","Tebje, Ingo","Schmitz, Charlotte","Hassanpour Fard Khorashad, Dariush","Emole-Bozukluhan, Friederike","Tuncel, Cindi","Port, Annika","Zimmer, Olaf","Fischer, Anna","Gloede, Christian","Sterra, Mara","Spehr, Christoph","Heuser, Sofia","Tegtmeier, Rainer","Nas, Fatma","Sültenfuß, Tim","Göbberd, Laila","Anders, Klaas","Schäck, Thore","Schröder, Marcel","Humpich, Ole","Voigt, Fynn Lukas","Linnemann, Ulla","Radke, Sabine Elisabeth","Kocas, Yasar","Sohns, Gwen Marei","Serbest, Julian","Drechsel, Ulf-Brün Gerhard","Lenkeit, Louis","Seidel, Frank","Tuchscherer, Björn","Schachtsiek, Florian","Acik, Kamber","Huch, Tobias Christoph","Kandaz, Fethi Ilkan","Juschkeit, Marco","Müller-Lang, Agnes Margaretha","Bollhagen, Peter","Leidreiter, Piet","Schellenberg, Sven","Minne, Andre Folkert","Degenhard, Cord","Fricke, Holger","Sagiroglu, Meltem","Nummensen, Ulf","Leidreiter, Alicia","Breitzke, Andreas","Köhler, Frank","Schmidt, Daniel","Jurgan, Jens-Rainer","Laue, Annefriede Jutta","Burichter, Martin","Hamen, Walter","Eckert, Jan Hendrik","Brzenza, Udo","Werner, Heiko","Peters, Philipp","Meier, Oliver"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Listenplatz","name":"Listenplatz","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Stimmenrang","name":"Stimmenrang","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["1","2","13","10","9","15","4","7","5","17","24","20","19","29","14","8","6","34","26","27","22","43","41","42","3","16","23","36","39","35","30","32","12","32","25","44","21","49","18","48","47","53","11","31","38","37","46","52","51","45","28","50","40","1","5","2","14","7","20","23","26","8","22","36","25","28","30","11","27","9","24","37","33","12","10","47","40","17","29","18","51","56","55","31","43","6","38","4","32","3","58","35","42","13","21","39","19","46","15","53","34","16","48","49","50","41","54","59","45","57","44","52","1","8","3","6","4","13","12","7","5","25","9","14","16","2","18","15","23","17","22","20","10","27","19","28","11","21","24","31","29","32","30","26","1","2","5","8","10","15","13","16","14","4","18","3","22","7","9","11","17","21","19","20","12","6","22","24","1","3","8","9","5","11","4","19","15","14","17","10","20","13","6","2","12","16","18","7","1","4","3","2","7","12","16","6","18","20","13","15","17","19","14","8","5","11","9","10"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Stimmen","name":"Stimmen","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["54033","20205","1380","1800","1830","1299","4671","2066","3517","1158","649","810","830","450","1359","1919","3462","407","613","568","768","322","343","324","5839","1285","735","397","360","400","430","413","1776","413","621","316","803","205","991","209","212","151","1794","427","370","373","300","152","178","301","480","181","353","141420","3092","16354","1465","2514","1013","800","728","2220","836","410","781","607","560","1614","702","1859","790","405","508","1593","1838","326","386","1322","589","1144","269","186","189","538","355","2960","396","3117","529","3118","142","422","356","1479","958","389","1036","332","1385","246","440","1329","290","284","283","380","230","85","336","153","344","251","7987","1410","4534","1759","2286","767","777","1583","1855","335","1188","752","667","4956","546","704","385","574","436","536","1038","282","538","198","859","504","363","182","191","150","184","332","26212","17681","2459","1420","1055","665","721","632","686","2879","530","2971","265","1746","1066","998","556","308","370","353","724","1804","265","197","7397","783","361","348","592","284","642","170","190","257","181","347","157","272","555","2080","276","189","174","485","5130","1141","1176","1319","829","564","524","843","451","332","544","528","481","397","532","757","893","650","710","698"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Mandat","name":"Mandat","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Personen","Personen","Listen","Listen","Personen","Listen","Personen","Personen","Personen","Listen","Listen","Listen","Listen","Listen","Listen","Personen","Personen","Listen","Listen","Listen","NA","NA","NA","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","Personen","Personen","Personen","Personen","Listen","Listen","Listen","Personen","Listen","Listen","Listen","Listen","Listen","Personen","NA","Personen","NA","NA","NA","Personen","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","NA","Personen","NA","Personen","NA","NA","NA","Personen","NA","NA","NA","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","Listen","Personen","Listen","Listen","Listen","Listen","Listen","NA","NA","NA","NA","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","Personen","Personen","Listen","Listen","Listen","Listen","NA","NA","Personen","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","Listen","Listen","Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"vor 2019","name":"vor 2019","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Personen","NA","Personen","Personen","Personen","NA","NA","NA","NA","NA","NA","NA","Personen","Personen","NA","NA","NA","NA","NA","NA","Personen","NA","NA","NA","NA","NA","Personen","NA","NA","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Personen","NA","NA","NA","NA","NA","Personen","NA","Personen","NA","NA","NA","Personen","Personen","NA","NA","Personen","NA","Personen","NA","NA","NA","NA","NA","Personen","NA","Personen","NA","Personen","NA","NA","NA","Personen","Personen","NA","Personen","NA","Personen","NA","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Listen","Listen","Listen","Listen","Listen","Listen","NA","Personen","Personen","NA","NA","NA","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Listen","Listen","Listen","Listen","NA","NA","NA","NA","NA","Personen","NA","Personen","NA","Personen","Personen","NA","NA","NA","NA","NA","NA","Personen","NA","NA","Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","NA","NA","NA","NA","Listen","Listen","Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","NA","NA","NA"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"vor 2011","name":"vor 2011","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Listen","Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Listen","Listen","Listen","Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"nur Stimmenrang","name":"nur Stimmenrang","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Personen","Personen","Personen","Personen","Personen","Personen","Personen","Personen","Personen","Personen","NA","Personen","Personen","NA","Personen","Personen","Personen","NA","NA","NA","NA","NA","NA","NA","Personen","Personen","NA","NA","NA","NA","NA","NA","Personen","NA","NA","NA","Personen","NA","Personen","NA","NA","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","Personen","Personen","Personen","Personen","Personen","Personen","NA","Personen","Personen","NA","NA","NA","NA","Personen","NA","Personen","NA","NA","NA","Personen","Personen","NA","NA","Personen","NA","Personen","NA","NA","NA","NA","NA","Personen","NA","Personen","NA","Personen","NA","NA","NA","Personen","Personen","NA","Personen","NA","Personen","NA","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","Personen","Personen","Personen","Personen","NA","NA","Personen","Personen","NA","Personen","NA","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","Personen","Personen","Personen","NA","NA","NA","NA","NA","Personen","NA","Personen","NA","Personen","Personen","NA","NA","NA","NA","NA","NA","Personen","NA","NA","Personen","Personen","NA","NA","NA","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","Personen","NA","NA","NA","NA","Personen","Personen","Personen","Personen","NA","NA","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","Personen","NA","NA","NA"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}}],"resizable":true,"filterable":true,"defaultPageSize":72,"showPageSizeOptions":true,"pageSizeOptions":[10,25,50,100],"paginationType":"numbers","showPagination":true,"showPageInfo":true,"minRows":1,"highlight":true,"showSortable":true,"height":"auto","theme":{"color":"#333333","backgroundColor":"#FFFFFF","stripedColor":"rgba(128,128,128,0.05)","style":{"fontFamily":"system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"},"headerStyle":{"borderTopStyle":"solid","borderTopWidth":"2px","borderTopColor":"#D3D3D3","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"}},"elementId":"pkazuivpus","dataKey":"4562af40a121e253c7101eeee1f0c15d"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.style","tag.attribs.columns.1.style","tag.attribs.columns.2.style","tag.attribs.columns.3.style","tag.attribs.columns.4.style","tag.attribs.columns.5.style","tag.attribs.columns.6.style","tag.attribs.columns.7.style","tag.attribs.columns.8.style"],"jsHooks":[]}</script>
+<div id="xehusxwpqg" class="reactable html-widget " style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="xehusxwpqg">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Partei":["CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW"],"Name":["Imhoff, Frank","Winter, Wiebke","Michalik, Martin","Ahrens, Sandra","Strohmann, Heiko","Hornhues, Bettina","Eckhoff, Jens","Grobien, Susanne Elisabeth","Lübke, Marco","Averwerser, Yvonne Marion","Jonitz, Michael","Neumeyer, Silvia Maria","Zeimke, Simon","Gröninger, Theresa Annalena","Rohmeyer, Claas","Grönert, Sigrid","Bensch, Rainer Holger","Eckardt, Kerstin","Bodeit, Hartmut","Tek, Hetav","Middendorf, Kay Johann","Morawietz, Melanie","Neumeyer, Maximilian Ernst","Mattern, Ann-Kathrin","Dr. Yazici, Oguzhan","Tunc, Eyfer","Müller-Arnecke, Jörg","Dumas, Hela","Gülke, Claus","Lutze-Scheibe, Dorothea Bozena","Dr. Kornek, Christian Michael","Kaufhold, Maria Elisabeth","Scharf, Detlef","Peters, Monika","Lindemann, Ole","Matschulla, Sarah","Fricke, Jannis","Dr. Kreiser-Saunders, Ingrid","Genç, Mehmet","Freitag, Alexandra Sophie","Tödtheide, Marcus","Teetzen, Simone","Kaya, Yunas","Müller, Mine","Schächter, Thomas","Seifert, Martina","Janko, Uwe","Albers, Sandra Manuela","Bergmann, Thomas","Wedler, Heidrun-Bärbel","Borgelt, Olaf","Krogemann, Birgit","Zander, Marcel","Bovenschulte, Andreas","Aulepp, Sascha Karolin","Mäurer, Ulrich","Grotheer, Antje","Güngör, Mustafa","Reimers-Bruns, Ute","Wagner, Falk-Constantin","Kähler, Katharina","Dr. Hess-Grunewald, Hubertus","Kretschmann, Heike","Lenkeit, Kevin","Arpaz, Selin Ece","Sator, Senihad","Schiemann, Anja","Stahmann, Volker","Sprehe, Heike","Gottschalk, Arno","Dehne, Stephanie","Striemer, Jan Moritz","Bredehorst, Gönül","Aytas, Recai","Tuchel, Valentina","Heide, Niels","Kozlowski, Anke","Eicke, Derik","Kapp, Sonja","Tokmak, Muhammet","Besecke, Lizza","Thatje, Aaron","Mahlert, Eva","Rose, Imran","Gronemeyer, Katharina","Seyrek, Mehmet Ali","Olbrich, Birgit","Bolayela, Elombo","Rahman, Azalea","Khan, Basem","Gerecke, Lara","Dennhardt, Jens","Wolter, Maren","Bries, Falko","Krümpfer, Larissa","Hölscher, Hans-Peter","Kamche Tebou, Virginie","Bienzeisler, Kay","Yildiz, Medine","Diestelmann, Jens","Jess, Antje","Tepe, Nurtekin","Nuske, Katarina","Stenner, Bernd","Dammrat-Tiefensee, Marcella","Kasper, Reimund","Faber, Kathrin","Walter, Kirsten","Ersöz, Rengin","Bohling, Katja","Blumenthal, Katy","Rosenbaum, Sabine","Dr. Schaefer, Maike","Fecker, Björn","Stahmann, Anja","Bruck, Philipp","Tell, Franziska","Menzel, Bithja","Dr. Müller, Henrike","Saxe, Ralph Richard","Görgü-Philipp, Sahhanim","Herold, Emanuel","Dr. Eschen, Solveig","Hupe, Christopher","Mittelstädt, Maike-Sophie","Wargalla, Kai-Lena","Osterkamp-Weber, Ilona Hilda","Taute, Fabian Georg","Terlohr, Sonja","Wewer, Marcus","Wiese, Kirsten","Pörschke, Thomas","Reichardt, Stina","Mysliwietz, Jens","Steinfatt, Hemavathany","Osterkamp, Johannes Christian","Kreuzer, Anna","Metzger, Simon Malte","Schirmer, Carola","Helsner, Marek","Fritsche-Ejemole, Petra","Schyska, Rafael Norbert","Schaudin-Fischer, Bärbel","Leon Henkle, Christian Marcelo","Vogt, Kristina","Bernhard, Claudia","Leonidakis, Sophia","Janßen, Nelson","Strunge, Miriam","Rupp, Klaus-Rainer","Tegeler, Maja","Tebje, Ingo","Schmitz, Charlotte","Hassanpour Fard Khorashad, Dariush","Emole-Bozukluhan, Friederike","Tuncel, Cindi","Port, Annika","Zimmer, Olaf","Fischer, Anna","Gloede, Christian","Sterra, Mara","Spehr, Christoph","Heuser, Sofia","Tegtmeier, Rainer","Nas, Fatma","Sültenfuß, Tim","Göbberd, Laila","Anders, Klaas","Schäck, Thore","Schröder, Marcel","Humpich, Ole","Voigt, Fynn Lukas","Linnemann, Ulla","Radke, Sabine Elisabeth","Kocas, Yasar","Sohns, Gwen Marei","Serbest, Julian","Drechsel, Ulf-Brün Gerhard","Lenkeit, Louis","Seidel, Frank","Tuchscherer, Björn","Schachtsiek, Florian","Acik, Kamber","Huch, Tobias Christoph","Kandaz, Fethi Ilkan","Juschkeit, Marco","Müller-Lang, Agnes Margaretha","Bollhagen, Peter","Leidreiter, Piet","Schellenberg, Sven","Minne, Andre Folkert","Degenhard, Cord","Fricke, Holger","Sagiroglu, Meltem","Nummensen, Ulf","Leidreiter, Alicia","Breitzke, Andreas","Köhler, Frank","Schmidt, Daniel","Jurgan, Jens-Rainer","Laue, Annefriede Jutta","Burichter, Martin","Hamen, Walter","Eckert, Jan Hendrik","Brzenza, Udo","Werner, Heiko","Peters, Philipp","Meier, Oliver"],"Listenplatz":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"Stimmenrang":[1,2,13,10,9,15,4,7,5,17,24,20,19,29,14,8,6,34,26,27,22,43,41,42,3,16,23,36,39,35,30,32,12,32,25,44,21,49,18,48,47,53,11,31,38,37,46,52,51,45,28,50,40,1,5,2,14,7,20,23,26,8,22,36,25,28,30,11,27,9,24,37,33,12,10,47,40,17,29,18,51,56,55,31,43,6,38,4,32,3,58,35,42,13,21,39,19,46,15,53,34,16,48,49,50,41,54,59,45,57,44,52,1,8,3,6,4,13,12,7,5,25,9,14,16,2,18,15,23,17,22,20,10,27,19,28,11,21,24,31,29,32,30,26,1,2,5,8,10,15,13,16,14,4,18,3,22,7,9,11,17,21,19,20,12,6,22,24,1,3,8,9,5,11,4,19,15,14,17,10,20,13,6,2,12,16,18,7,1,4,3,2,7,12,16,6,18,20,13,15,17,19,14,8,5,11,9,10],"Stimmen":[54033,20205,1380,1800,1830,1299,4671,2066,3517,1158,649,810,830,450,1359,1919,3462,407,613,568,768,322,343,324,5839,1285,735,397,360,400,430,413,1776,413,621,316,803,205,991,209,212,151,1794,427,370,373,300,152,178,301,480,181,353,141420,3092,16354,1465,2514,1013,800,728,2220,836,410,781,607,560,1614,702,1859,790,405,508,1593,1838,326,386,1322,589,1144,269,186,189,538,355,2960,396,3117,529,3118,142,422,356,1479,958,389,1036,332,1385,246,440,1329,290,284,283,380,230,85,336,153,344,251,7987,1410,4534,1759,2286,767,777,1583,1855,335,1188,752,667,4956,546,704,385,574,436,536,1038,282,538,198,859,504,363,182,191,150,184,332,26212,17681,2459,1420,1055,665,721,632,686,2879,530,2971,265,1746,1066,998,556,308,370,353,724,1804,265,197,7397,783,361,348,592,284,642,170,190,257,181,347,157,272,555,2080,276,189,174,485,5130,1141,1176,1319,829,564,524,843,451,332,544,528,481,397,532,757,893,650,710,698],"Mandat":["Personen","Personen","Listen","Listen","Personen","Listen","Personen","Personen","Personen","Listen","Listen","Listen","Listen","Listen","Listen","Personen","Personen","Listen","Listen","Listen","","","","","Personen","","","","","","","","","","","","","","","","","","","","","","","","","","","","","Personen","Personen","Personen","Personen","Personen","Listen","Listen","Listen","Personen","Listen","Listen","Listen","Listen","Listen","Personen","","Personen","","","","Personen","Personen","","","","","","","","","","","Personen","","Personen","","Personen","","","","Personen","","","","","Personen","","","","","","","","","","","","","","Personen","Listen","Personen","Listen","Listen","Listen","Listen","Listen","","","","","","Personen","","","","","","","","","","","","","","","","","","","Personen","Personen","Personen","Listen","Listen","Listen","Listen","","","Personen","","Personen","","","","","","","","","","","","","Personen","Listen","Listen","Listen","","","","","","","","","","","","","","","","","Personen","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","","",""],"vor 2019":["Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Personen","","Personen","Personen","Personen","","","","","","","","Personen","Personen","","","","","","","Personen","","","","","","Personen","","","","Personen","","","","","","","","","","","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Personen","","","","","","Personen","","Personen","","","","Personen","Personen","","","Personen","","Personen","","","","","","Personen","","Personen","","Personen","","","","Personen","Personen","","Personen","","Personen","","","Personen","","","","","","","","","","","Listen","Listen","Listen","Listen","Listen","Listen","","Personen","Personen","","","","","Personen","","","","","","","","","","","","","","","","","","","Listen","Listen","Listen","Listen","","","","","","Personen","","Personen","","Personen","Personen","","","","","","","Personen","","","Listen","Listen","Listen","","","","","","","","","","","","","Personen","","","","","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","Personen","","",""],"vor 2011":["Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","","","","","","","","","","","","","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","","","","","Listen","Listen","Listen","Listen","","","","","","","","","","","","","","","","","Listen","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","","",""],"nur Stimmenrang":["Personen","Personen","Personen","Personen","Personen","Personen","Personen","Personen","Personen","Personen","","Personen","Personen","","Personen","Personen","Personen","","","","","","","","Personen","Personen","","","","","","","Personen","","","","Personen","","Personen","","","","Personen","","","","","","","","","","","Personen","Personen","Personen","Personen","Personen","Personen","Personen","","Personen","Personen","","","","","Personen","","Personen","","","","Personen","Personen","","","Personen","","Personen","","","","","","Personen","","Personen","","Personen","","","","Personen","Personen","","Personen","","Personen","","","Personen","","","","","","","","","","","Personen","Personen","Personen","Personen","Personen","","","Personen","Personen","","Personen","","","Personen","","","","","","","","","","","","","","","","","","","Personen","Personen","Personen","Personen","","","","","","Personen","","Personen","","Personen","Personen","","","","","","","Personen","","","Personen","Personen","","","","","Personen","","","","","","","","","Personen","","","","","Personen","Personen","Personen","Personen","","","","Personen","","","","","","","","","Personen","","",""]},"columns":[{"id":"Partei","name":"Partei","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","FDP","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Name","name":"Name","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Imhoff, Frank","Winter, Wiebke","Michalik, Martin","Ahrens, Sandra","Strohmann, Heiko","Hornhues, Bettina","Eckhoff, Jens","Grobien, Susanne Elisabeth","Lübke, Marco","Averwerser, Yvonne Marion","Jonitz, Michael","Neumeyer, Silvia Maria","Zeimke, Simon","Gröninger, Theresa Annalena","Rohmeyer, Claas","Grönert, Sigrid","Bensch, Rainer Holger","Eckardt, Kerstin","Bodeit, Hartmut","Tek, Hetav","Middendorf, Kay Johann","Morawietz, Melanie","Neumeyer, Maximilian Ernst","Mattern, Ann-Kathrin","Dr. Yazici, Oguzhan","Tunc, Eyfer","Müller-Arnecke, Jörg","Dumas, Hela","Gülke, Claus","Lutze-Scheibe, Dorothea Bozena","Dr. Kornek, Christian Michael","Kaufhold, Maria Elisabeth","Scharf, Detlef","Peters, Monika","Lindemann, Ole","Matschulla, Sarah","Fricke, Jannis","Dr. Kreiser-Saunders, Ingrid","Genç, Mehmet","Freitag, Alexandra Sophie","Tödtheide, Marcus","Teetzen, Simone","Kaya, Yunas","Müller, Mine","Schächter, Thomas","Seifert, Martina","Janko, Uwe","Albers, Sandra Manuela","Bergmann, Thomas","Wedler, Heidrun-Bärbel","Borgelt, Olaf","Krogemann, Birgit","Zander, Marcel","Bovenschulte, Andreas","Aulepp, Sascha Karolin","Mäurer, Ulrich","Grotheer, Antje","Güngör, Mustafa","Reimers-Bruns, Ute","Wagner, Falk-Constantin","Kähler, Katharina","Dr. Hess-Grunewald, Hubertus","Kretschmann, Heike","Lenkeit, Kevin","Arpaz, Selin Ece","Sator, Senihad","Schiemann, Anja","Stahmann, Volker","Sprehe, Heike","Gottschalk, Arno","Dehne, Stephanie","Striemer, Jan Moritz","Bredehorst, Gönül","Aytas, Recai","Tuchel, Valentina","Heide, Niels","Kozlowski, Anke","Eicke, Derik","Kapp, Sonja","Tokmak, Muhammet","Besecke, Lizza","Thatje, Aaron","Mahlert, Eva","Rose, Imran","Gronemeyer, Katharina","Seyrek, Mehmet Ali","Olbrich, Birgit","Bolayela, Elombo","Rahman, Azalea","Khan, Basem","Gerecke, Lara","Dennhardt, Jens","Wolter, Maren","Bries, Falko","Krümpfer, Larissa","Hölscher, Hans-Peter","Kamche Tebou, Virginie","Bienzeisler, Kay","Yildiz, Medine","Diestelmann, Jens","Jess, Antje","Tepe, Nurtekin","Nuske, Katarina","Stenner, Bernd","Dammrat-Tiefensee, Marcella","Kasper, Reimund","Faber, Kathrin","Walter, Kirsten","Ersöz, Rengin","Bohling, Katja","Blumenthal, Katy","Rosenbaum, Sabine","Dr. Schaefer, Maike","Fecker, Björn","Stahmann, Anja","Bruck, Philipp","Tell, Franziska","Menzel, Bithja","Dr. Müller, Henrike","Saxe, Ralph Richard","Görgü-Philipp, Sahhanim","Herold, Emanuel","Dr. Eschen, Solveig","Hupe, Christopher","Mittelstädt, Maike-Sophie","Wargalla, Kai-Lena","Osterkamp-Weber, Ilona Hilda","Taute, Fabian Georg","Terlohr, Sonja","Wewer, Marcus","Wiese, Kirsten","Pörschke, Thomas","Reichardt, Stina","Mysliwietz, Jens","Steinfatt, Hemavathany","Osterkamp, Johannes Christian","Kreuzer, Anna","Metzger, Simon Malte","Schirmer, Carola","Helsner, Marek","Fritsche-Ejemole, Petra","Schyska, Rafael Norbert","Schaudin-Fischer, Bärbel","Leon Henkle, Christian Marcelo","Vogt, Kristina","Bernhard, Claudia","Leonidakis, Sophia","Janßen, Nelson","Strunge, Miriam","Rupp, Klaus-Rainer","Tegeler, Maja","Tebje, Ingo","Schmitz, Charlotte","Hassanpour Fard Khorashad, Dariush","Emole-Bozukluhan, Friederike","Tuncel, Cindi","Port, Annika","Zimmer, Olaf","Fischer, Anna","Gloede, Christian","Sterra, Mara","Spehr, Christoph","Heuser, Sofia","Tegtmeier, Rainer","Nas, Fatma","Sültenfuß, Tim","Göbberd, Laila","Anders, Klaas","Schäck, Thore","Schröder, Marcel","Humpich, Ole","Voigt, Fynn Lukas","Linnemann, Ulla","Radke, Sabine Elisabeth","Kocas, Yasar","Sohns, Gwen Marei","Serbest, Julian","Drechsel, Ulf-Brün Gerhard","Lenkeit, Louis","Seidel, Frank","Tuchscherer, Björn","Schachtsiek, Florian","Acik, Kamber","Huch, Tobias Christoph","Kandaz, Fethi Ilkan","Juschkeit, Marco","Müller-Lang, Agnes Margaretha","Bollhagen, Peter","Leidreiter, Piet","Schellenberg, Sven","Minne, Andre Folkert","Degenhard, Cord","Fricke, Holger","Sagiroglu, Meltem","Nummensen, Ulf","Leidreiter, Alicia","Breitzke, Andreas","Köhler, Frank","Schmidt, Daniel","Jurgan, Jens-Rainer","Laue, Annefriede Jutta","Burichter, Martin","Hamen, Walter","Eckert, Jan Hendrik","Brzenza, Udo","Werner, Heiko","Peters, Philipp","Meier, Oliver"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Listenplatz","name":"Listenplatz","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Stimmenrang","name":"Stimmenrang","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["1","2","13","10","9","15","4","7","5","17","24","20","19","29","14","8","6","34","26","27","22","43","41","42","3","16","23","36","39","35","30","32","12","32","25","44","21","49","18","48","47","53","11","31","38","37","46","52","51","45","28","50","40","1","5","2","14","7","20","23","26","8","22","36","25","28","30","11","27","9","24","37","33","12","10","47","40","17","29","18","51","56","55","31","43","6","38","4","32","3","58","35","42","13","21","39","19","46","15","53","34","16","48","49","50","41","54","59","45","57","44","52","1","8","3","6","4","13","12","7","5","25","9","14","16","2","18","15","23","17","22","20","10","27","19","28","11","21","24","31","29","32","30","26","1","2","5","8","10","15","13","16","14","4","18","3","22","7","9","11","17","21","19","20","12","6","22","24","1","3","8","9","5","11","4","19","15","14","17","10","20","13","6","2","12","16","18","7","1","4","3","2","7","12","16","6","18","20","13","15","17","19","14","8","5","11","9","10"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Stimmen","name":"Stimmen","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["54033","20205","1380","1800","1830","1299","4671","2066","3517","1158","649","810","830","450","1359","1919","3462","407","613","568","768","322","343","324","5839","1285","735","397","360","400","430","413","1776","413","621","316","803","205","991","209","212","151","1794","427","370","373","300","152","178","301","480","181","353","141420","3092","16354","1465","2514","1013","800","728","2220","836","410","781","607","560","1614","702","1859","790","405","508","1593","1838","326","386","1322","589","1144","269","186","189","538","355","2960","396","3117","529","3118","142","422","356","1479","958","389","1036","332","1385","246","440","1329","290","284","283","380","230","85","336","153","344","251","7987","1410","4534","1759","2286","767","777","1583","1855","335","1188","752","667","4956","546","704","385","574","436","536","1038","282","538","198","859","504","363","182","191","150","184","332","26212","17681","2459","1420","1055","665","721","632","686","2879","530","2971","265","1746","1066","998","556","308","370","353","724","1804","265","197","7397","783","361","348","592","284","642","170","190","257","181","347","157","272","555","2080","276","189","174","485","5130","1141","1176","1319","829","564","524","843","451","332","544","528","481","397","532","757","893","650","710","698"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Mandat","name":"Mandat","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Personen","Personen","Listen","Listen","Personen","Listen","Personen","Personen","Personen","Listen","Listen","Listen","Listen","Listen","Listen","Personen","Personen","Listen","Listen","Listen","","","","","Personen","","","","","","","","","","","","","","","","","","","","","","","","","","","","","Personen","Personen","Personen","Personen","Personen","Listen","Listen","Listen","Personen","Listen","Listen","Listen","Listen","Listen","Personen","","Personen","","","","Personen","Personen","","","","","","","","","","","Personen","","Personen","","Personen","","","","Personen","","","","","Personen","","","","","","","","","","","","","","Personen","Listen","Personen","Listen","Listen","Listen","Listen","Listen","","","","","","Personen","","","","","","","","","","","","","","","","","","","Personen","Personen","Personen","Listen","Listen","Listen","Listen","","","Personen","","Personen","","","","","","","","","","","","","Personen","Listen","Listen","Listen","","","","","","","","","","","","","","","","","Personen","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","","",""],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"vor 2019","name":"vor 2019","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Personen","","Personen","Personen","Personen","","","","","","","","Personen","Personen","","","","","","","Personen","","","","","","Personen","","","","Personen","","","","","","","","","","","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Personen","","","","","","Personen","","Personen","","","","Personen","Personen","","","Personen","","Personen","","","","","","Personen","","Personen","","Personen","","","","Personen","Personen","","Personen","","Personen","","","Personen","","","","","","","","","","","Listen","Listen","Listen","Listen","Listen","Listen","","Personen","Personen","","","","","Personen","","","","","","","","","","","","","","","","","","","Listen","Listen","Listen","Listen","","","","","","Personen","","Personen","","Personen","Personen","","","","","","","Personen","","","Listen","Listen","Listen","","","","","","","","","","","","","Personen","","","","","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","Personen","","",""],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"vor 2011","name":"vor 2011","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","","","","","","","","","","","","","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","","","","","Listen","Listen","Listen","Listen","","","","","","","","","","","","","","","","","Listen","Listen","Listen","Listen","Listen","Listen","","","","","","","","","","","","","",""],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"nur Stimmenrang","name":"nur Stimmenrang","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Personen","Personen","Personen","Personen","Personen","Personen","Personen","Personen","Personen","Personen","","Personen","Personen","","Personen","Personen","Personen","","","","","","","","Personen","Personen","","","","","","","Personen","","","","Personen","","Personen","","","","Personen","","","","","","","","","","","Personen","Personen","Personen","Personen","Personen","Personen","Personen","","Personen","Personen","","","","","Personen","","Personen","","","","Personen","Personen","","","Personen","","Personen","","","","","","Personen","","Personen","","Personen","","","","Personen","Personen","","Personen","","Personen","","","Personen","","","","","","","","","","","Personen","Personen","Personen","Personen","Personen","","","Personen","Personen","","Personen","","","Personen","","","","","","","","","","","","","","","","","","","Personen","Personen","Personen","Personen","","","","","","Personen","","Personen","","Personen","Personen","","","","","","","Personen","","","Personen","Personen","","","","","Personen","","","","","","","","","Personen","","","","","Personen","Personen","Personen","Personen","","","","Personen","","","","","","","","","Personen","","",""],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}}],"resizable":true,"filterable":true,"defaultPageSize":72,"showPageSizeOptions":true,"pageSizeOptions":[10,25,50,100],"paginationType":"numbers","showPagination":true,"showPageInfo":true,"minRows":1,"highlight":true,"showSortable":true,"height":"auto","theme":{"color":"#333333","backgroundColor":"#FFFFFF","stripedColor":"rgba(128,128,128,0.05)","style":{"fontFamily":"system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"},"headerStyle":{"borderTopStyle":"solid","borderTopWidth":"2px","borderTopColor":"#D3D3D3","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"}},"elementId":"xehusxwpqg","dataKey":"9ad759333388b7af9b56dddf780b74ed"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.style","tag.attribs.columns.1.style","tag.attribs.columns.2.style","tag.attribs.columns.3.style","tag.attribs.columns.4.style","tag.attribs.columns.5.style","tag.attribs.columns.6.style","tag.attribs.columns.7.style","tag.attribs.columns.8.style"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -2635,23 +2689,23 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="pwwqifnpjt" class=".gt_table" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pwwqifnpjt table {
+<div id="pbvfzwxuxj" class=".gt_table" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pbvfzwxuxj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pwwqifnpjt thead, #pwwqifnpjt tbody, #pwwqifnpjt tfoot, #pwwqifnpjt tr, #pwwqifnpjt td, #pwwqifnpjt th {
+#pbvfzwxuxj thead, #pbvfzwxuxj tbody, #pbvfzwxuxj tfoot, #pbvfzwxuxj tr, #pbvfzwxuxj td, #pbvfzwxuxj th {
   border-style: none;
 }
 
-#pwwqifnpjt p {
+#pbvfzwxuxj p {
   margin: 0;
   padding: 0;
 }
 
-#pwwqifnpjt .gt_table {
+#pbvfzwxuxj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2677,12 +2731,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#pwwqifnpjt .gt_caption {
+#pbvfzwxuxj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pwwqifnpjt .gt_title {
+#pbvfzwxuxj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2694,7 +2748,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#pwwqifnpjt .gt_subtitle {
+#pbvfzwxuxj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2706,7 +2760,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#pwwqifnpjt .gt_heading {
+#pbvfzwxuxj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2718,13 +2772,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#pwwqifnpjt .gt_bottom_border {
+#pbvfzwxuxj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pwwqifnpjt .gt_col_headings {
+#pbvfzwxuxj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2739,7 +2793,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#pwwqifnpjt .gt_col_heading {
+#pbvfzwxuxj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2759,7 +2813,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#pwwqifnpjt .gt_column_spanner_outer {
+#pbvfzwxuxj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2771,15 +2825,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#pwwqifnpjt .gt_column_spanner_outer:first-child {
+#pbvfzwxuxj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pwwqifnpjt .gt_column_spanner_outer:last-child {
+#pbvfzwxuxj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pwwqifnpjt .gt_column_spanner {
+#pbvfzwxuxj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2791,11 +2845,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#pwwqifnpjt .gt_spanner_row {
+#pbvfzwxuxj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pwwqifnpjt .gt_group_heading {
+#pbvfzwxuxj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2821,7 +2875,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#pwwqifnpjt .gt_empty_group_heading {
+#pbvfzwxuxj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2836,15 +2890,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#pwwqifnpjt .gt_from_md > :first-child {
+#pbvfzwxuxj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pwwqifnpjt .gt_from_md > :last-child {
+#pbvfzwxuxj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pwwqifnpjt .gt_row {
+#pbvfzwxuxj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2863,7 +2917,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#pwwqifnpjt .gt_stub {
+#pbvfzwxuxj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2876,7 +2930,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pwwqifnpjt .gt_stub_row_group {
+#pbvfzwxuxj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2890,15 +2944,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#pwwqifnpjt .gt_row_group_first td {
+#pbvfzwxuxj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pwwqifnpjt .gt_row_group_first th {
+#pbvfzwxuxj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pwwqifnpjt .gt_summary_row {
+#pbvfzwxuxj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2908,16 +2962,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pwwqifnpjt .gt_first_summary_row {
+#pbvfzwxuxj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pwwqifnpjt .gt_first_summary_row.thick {
+#pbvfzwxuxj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pwwqifnpjt .gt_last_summary_row {
+#pbvfzwxuxj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2927,7 +2981,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#pwwqifnpjt .gt_grand_summary_row {
+#pbvfzwxuxj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2937,7 +2991,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pwwqifnpjt .gt_first_grand_summary_row {
+#pbvfzwxuxj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2947,7 +3001,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#pwwqifnpjt .gt_last_grand_summary_row_top {
+#pbvfzwxuxj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2957,11 +3011,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#pwwqifnpjt .gt_striped {
+#pbvfzwxuxj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pwwqifnpjt .gt_table_body {
+#pbvfzwxuxj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2970,7 +3024,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#pwwqifnpjt .gt_footnotes {
+#pbvfzwxuxj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2984,7 +3038,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#pwwqifnpjt .gt_footnote {
+#pbvfzwxuxj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2993,7 +3047,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pwwqifnpjt .gt_sourcenotes {
+#pbvfzwxuxj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3007,7 +3061,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#pwwqifnpjt .gt_sourcenote {
+#pbvfzwxuxj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3015,68 +3069,68 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#pwwqifnpjt .gt_left {
+#pbvfzwxuxj .gt_left {
   text-align: left;
 }
 
-#pwwqifnpjt .gt_center {
+#pbvfzwxuxj .gt_center {
   text-align: center;
 }
 
-#pwwqifnpjt .gt_right {
+#pbvfzwxuxj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pwwqifnpjt .gt_font_normal {
+#pbvfzwxuxj .gt_font_normal {
   font-weight: normal;
 }
 
-#pwwqifnpjt .gt_font_bold {
+#pbvfzwxuxj .gt_font_bold {
   font-weight: bold;
 }
 
-#pwwqifnpjt .gt_font_italic {
+#pbvfzwxuxj .gt_font_italic {
   font-style: italic;
 }
 
-#pwwqifnpjt .gt_super {
+#pbvfzwxuxj .gt_super {
   font-size: 65%;
 }
 
-#pwwqifnpjt .gt_footnote_marks {
+#pbvfzwxuxj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pwwqifnpjt .gt_asterisk {
+#pbvfzwxuxj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pwwqifnpjt .gt_indent_1 {
+#pbvfzwxuxj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pwwqifnpjt .gt_indent_2 {
+#pbvfzwxuxj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pwwqifnpjt .gt_indent_3 {
+#pbvfzwxuxj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pwwqifnpjt .gt_indent_4 {
+#pbvfzwxuxj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pwwqifnpjt .gt_indent_5 {
+#pbvfzwxuxj .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<div id="pwwqifnpjt" class="reactable html-widget " style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="pwwqifnpjt">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Partei":["CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","FDP","FDP","FDP","FDP","FDP","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW"],"Name":["Schnittker, Christine","Raschen, Thorsten","Dertwinkel, Sina","Flißikowski, Günther","Schmull, Sandra","Wagner, Björn","Neuhoff, Dieter","Erdemir, Mevlüt","Bullmann, Bennet","Lucht, Sascha","Günthner, Martin","Strelow, Janina","Bothen, Nils","Dr. Schilling, Claudia","Zager, Jörg","Kuchenbecker-Richter, Yasmin","Vergil, Fabian","Smith, Miriam","Welt, Holger","Pohlmann, Katrin","Awiszus, Swen","Berends, Jörg","Olschewsky, Julien","Kramer, Manuel","Çolak, Sülmez","Labetzke, Michael","Ackermann, Sarah Käthe","Neuhäuser, Christian","Schiller, Elena","Kaminiarz, Claudius","Gieseking, Miriam","Heinrich, Ralf Rüdiger","Zeeb, Bettina","Ekrowski, Ralf","Fensak, Dorothea","Schott, Claas","Winter, Herbert","Kocaağa, Muhlis","Isin, Cafer","Rosenberg, Björn","Heise, Luca","Dr. Hilz, Hauke","Akkamis, Gökhan","Reim, Tristan","Behrens, Monika","Litau, Alexander","Timke, Jan","Tiedemann, Julia","Lichtenfeld, Sven","Schuster, Sascha","Ax, Bianca","Schumacher, Alfred Dietrich","Matheja, Ralf","Teichert, Jürgen","Brinkmann, Sandra","Stark, Rüdiger","Baltrusch, Claudia","Sommer, Dennis Manfred","Schmiedel, Sven"],"Listenplatz":[1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,11,12,13,14,1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,1,2,3,4,5,1,2,3,4,5,6,7,8,9,10,11,12,13],"Stimmenrang":[1,2,7,5,6,4,9,3,10,8,1,4,6,2,5,8,11,7,3,12,13,9,10,14,1,3,2,10,7,5,4,13,9,12,8,6,11,1,2,3,4,1,4,3,5,2,1,4,2,3,6,11,13,12,7,8,10,9,5],"Stimmen":[3511,2704,792,913,823,965,755,1596,478,776,5397,1747,1117,2731,1191,780,533,832,2349,470,399,592,535,305,2135,968,1176,284,475,754,882,89,331,95,340,562,165,961,650,612,424,2100,214,331,118,391,14199,963,1461,991,446,137,130,132,255,190,164,170,528],"Mandat":["Personen","Listen","Listen",null,null,null,null,null,null,null,"Personen","Listen","Listen","Personen",null,null,null,null,null,null,null,null,null,null,"Personen","Listen",null,null,null,null,null,null,null,null,null,null,null,"Listen",null,null,null,"Listen",null,null,null,null,"Personen","Listen","Personen","Listen",null,null,null,null,null,null,null,null,null],"vor 2019":["Listen","Listen",null,null,null,null,null,"Personen",null,null,"Listen","Listen",null,"Personen",null,null,null,null,"Personen",null,null,null,null,null,"Listen",null,"Personen",null,null,null,null,null,null,null,null,null,null,"Listen",null,null,null,"Listen",null,null,null,null,"Listen","Listen","Personen","Personen",null,null,null,null,null,null,null,null,null],"vor 2011":["Listen","Listen","Listen",null,null,null,null,null,null,null,"Listen","Listen","Listen","Listen",null,null,null,null,null,null,null,null,null,null,"Listen","Listen",null,null,null,null,null,null,null,null,null,null,null,"Listen",null,null,null,"Listen",null,null,null,null,"Listen","Listen","Listen","Listen",null,null,null,null,null,null,null,null,null],"nur Stimmenrang":["Personen","Personen",null,null,null,null,null,"Personen",null,null,"Personen","Personen",null,"Personen",null,null,null,null,"Personen",null,null,null,null,null,"Personen",null,"Personen",null,null,null,null,null,null,null,null,null,null,"Personen",null,null,null,"Personen",null,null,null,null,"Personen","Personen","Personen","Personen",null,null,null,null,null,null,null,null,null]},"columns":[{"id":"Partei","name":"Partei","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","FDP","FDP","FDP","FDP","FDP","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Name","name":"Name","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Schnittker, Christine","Raschen, Thorsten","Dertwinkel, Sina","Flißikowski, Günther","Schmull, Sandra","Wagner, Björn","Neuhoff, Dieter","Erdemir, Mevlüt","Bullmann, Bennet","Lucht, Sascha","Günthner, Martin","Strelow, Janina","Bothen, Nils","Dr. Schilling, Claudia","Zager, Jörg","Kuchenbecker-Richter, Yasmin","Vergil, Fabian","Smith, Miriam","Welt, Holger","Pohlmann, Katrin","Awiszus, Swen","Berends, Jörg","Olschewsky, Julien","Kramer, Manuel","Çolak, Sülmez","Labetzke, Michael","Ackermann, Sarah Käthe","Neuhäuser, Christian","Schiller, Elena","Kaminiarz, Claudius","Gieseking, Miriam","Heinrich, Ralf Rüdiger","Zeeb, Bettina","Ekrowski, Ralf","Fensak, Dorothea","Schott, Claas","Winter, Herbert","Kocaağa, Muhlis","Isin, Cafer","Rosenberg, Björn","Heise, Luca","Dr. Hilz, Hauke","Akkamis, Gökhan","Reim, Tristan","Behrens, Monika","Litau, Alexander","Timke, Jan","Tiedemann, Julia","Lichtenfeld, Sven","Schuster, Sascha","Ax, Bianca","Schumacher, Alfred Dietrich","Matheja, Ralf","Teichert, Jürgen","Brinkmann, Sandra","Stark, Rüdiger","Baltrusch, Claudia","Sommer, Dennis Manfred","Schmiedel, Sven"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Listenplatz","name":"Listenplatz","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["1","2","3","4","5","6","7","8","9","10","1","2","3","4","5","6","7","8","9","10","11","12","13","14","1","2","3","4","5","6","7","8","9","10","11","12","13","1","2","3","4","1","2","3","4","5","1","2","3","4","5","6","7","8","9","10","11","12","13"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Stimmenrang","name":"Stimmenrang","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["1","2","7","5","6","4","9","3","10","8","1","4","6","2","5","8","11","7","3","12","13","9","10","14","1","3","2","10","7","5","4","13","9","12","8","6","11","1","2","3","4","1","4","3","5","2","1","4","2","3","6","11","13","12","7","8","10","9","5"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Stimmen","name":"Stimmen","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["3511","2704","792","913","823","965","755","1596","478","776","5397","1747","1117","2731","1191","780","533","832","2349","470","399","592","535","305","2135","968","1176","284","475","754","882","89","331","95","340","562","165","961","650","612","424","2100","214","331","118","391","14199","963","1461","991","446","137","130","132","255","190","164","170","528"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Mandat","name":"Mandat","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Personen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","Personen","Listen","Listen","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Listen","NA","NA","NA","Listen","NA","NA","NA","NA","Personen","Listen","Personen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"vor 2019","name":"vor 2019","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Listen","Listen","NA","NA","NA","NA","NA","Personen","NA","NA","Listen","Listen","NA","Personen","NA","NA","NA","NA","Personen","NA","NA","NA","NA","NA","Listen","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Listen","NA","NA","NA","Listen","NA","NA","NA","NA","Listen","Listen","Personen","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"vor 2011","name":"vor 2011","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","Listen","Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Listen","NA","NA","NA","Listen","NA","NA","NA","NA","Listen","Listen","Listen","Listen","NA","NA","NA","NA","NA","NA","NA","NA","NA"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"nur Stimmenrang","name":"nur Stimmenrang","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Personen","Personen","NA","NA","NA","NA","NA","Personen","NA","NA","Personen","Personen","NA","Personen","NA","NA","NA","NA","Personen","NA","NA","NA","NA","NA","Personen","NA","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","Personen","NA","NA","NA","Personen","NA","NA","NA","NA","Personen","Personen","Personen","Personen","NA","NA","NA","NA","NA","NA","NA","NA","NA"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}}],"resizable":true,"filterable":true,"defaultPageSize":15,"showPageSizeOptions":true,"pageSizeOptions":[10,25,50,100],"paginationType":"numbers","showPagination":true,"showPageInfo":true,"minRows":1,"highlight":true,"showSortable":true,"height":"auto","theme":{"color":"#333333","backgroundColor":"#FFFFFF","stripedColor":"rgba(128,128,128,0.05)","style":{"fontFamily":"system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"},"headerStyle":{"borderTopStyle":"solid","borderTopWidth":"2px","borderTopColor":"#D3D3D3","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"}},"elementId":"pwwqifnpjt","dataKey":"b97a0a4f8d515897cf5d03610e9eee7c"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.style","tag.attribs.columns.1.style","tag.attribs.columns.2.style","tag.attribs.columns.3.style","tag.attribs.columns.4.style","tag.attribs.columns.5.style","tag.attribs.columns.6.style","tag.attribs.columns.7.style","tag.attribs.columns.8.style"],"jsHooks":[]}</script>
+<div id="pbvfzwxuxj" class="reactable html-widget " style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="pbvfzwxuxj">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Partei":["CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","FDP","FDP","FDP","FDP","FDP","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW"],"Name":["Schnittker, Christine","Raschen, Thorsten","Dertwinkel, Sina","Flißikowski, Günther","Schmull, Sandra","Wagner, Björn","Neuhoff, Dieter","Erdemir, Mevlüt","Bullmann, Bennet","Lucht, Sascha","Günthner, Martin","Strelow, Janina","Bothen, Nils","Dr. Schilling, Claudia","Zager, Jörg","Kuchenbecker-Richter, Yasmin","Vergil, Fabian","Smith, Miriam","Welt, Holger","Pohlmann, Katrin","Awiszus, Swen","Berends, Jörg","Olschewsky, Julien","Kramer, Manuel","Çolak, Sülmez","Labetzke, Michael","Ackermann, Sarah Käthe","Neuhäuser, Christian","Schiller, Elena","Kaminiarz, Claudius","Gieseking, Miriam","Heinrich, Ralf Rüdiger","Zeeb, Bettina","Ekrowski, Ralf","Fensak, Dorothea","Schott, Claas","Winter, Herbert","Kocaağa, Muhlis","Isin, Cafer","Rosenberg, Björn","Heise, Luca","Dr. Hilz, Hauke","Akkamis, Gökhan","Reim, Tristan","Behrens, Monika","Litau, Alexander","Timke, Jan","Tiedemann, Julia","Lichtenfeld, Sven","Schuster, Sascha","Ax, Bianca","Schumacher, Alfred Dietrich","Matheja, Ralf","Teichert, Jürgen","Brinkmann, Sandra","Stark, Rüdiger","Baltrusch, Claudia","Sommer, Dennis Manfred","Schmiedel, Sven"],"Listenplatz":[1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,11,12,13,14,1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,1,2,3,4,5,1,2,3,4,5,6,7,8,9,10,11,12,13],"Stimmenrang":[1,2,7,5,6,4,9,3,10,8,1,4,6,2,5,8,11,7,3,12,13,9,10,14,1,3,2,10,7,5,4,13,9,12,8,6,11,1,2,3,4,1,4,3,5,2,1,4,2,3,6,11,13,12,7,8,10,9,5],"Stimmen":[3511,2704,792,913,823,965,755,1596,478,776,5397,1747,1117,2731,1191,780,533,832,2349,470,399,592,535,305,2135,968,1176,284,475,754,882,89,331,95,340,562,165,961,650,612,424,2100,214,331,118,391,14199,963,1461,991,446,137,130,132,255,190,164,170,528],"Mandat":["Personen","Listen","Listen","","","","","","","","Personen","Listen","Listen","Personen","","","","","","","","","","","Personen","Listen","","","","","","","","","","","","Listen","","","","Listen","","","","","Personen","Listen","Personen","Listen","","","","","","","","",""],"vor 2019":["Listen","Listen","","","","","","Personen","","","Listen","Listen","","Personen","","","","","Personen","","","","","","Listen","","Personen","","","","","","","","","","","Listen","","","","Listen","","","","","Listen","Listen","Personen","Personen","","","","","","","","",""],"vor 2011":["Listen","Listen","Listen","","","","","","","","Listen","Listen","Listen","Listen","","","","","","","","","","","Listen","Listen","","","","","","","","","","","","Listen","","","","Listen","","","","","Listen","Listen","Listen","Listen","","","","","","","","",""],"nur Stimmenrang":["Personen","Personen","","","","","","Personen","","","Personen","Personen","","Personen","","","","","Personen","","","","","","Personen","","Personen","","","","","","","","","","","Personen","","","","Personen","","","","","Personen","Personen","Personen","Personen","","","","","","","","",""]},"columns":[{"id":"Partei","name":"Partei","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","CDU","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","SPD","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","GRÜNE","DIE LINKE","DIE LINKE","DIE LINKE","DIE LINKE","FDP","FDP","FDP","FDP","FDP","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW","BIW"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Name","name":"Name","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Schnittker, Christine","Raschen, Thorsten","Dertwinkel, Sina","Flißikowski, Günther","Schmull, Sandra","Wagner, Björn","Neuhoff, Dieter","Erdemir, Mevlüt","Bullmann, Bennet","Lucht, Sascha","Günthner, Martin","Strelow, Janina","Bothen, Nils","Dr. Schilling, Claudia","Zager, Jörg","Kuchenbecker-Richter, Yasmin","Vergil, Fabian","Smith, Miriam","Welt, Holger","Pohlmann, Katrin","Awiszus, Swen","Berends, Jörg","Olschewsky, Julien","Kramer, Manuel","Çolak, Sülmez","Labetzke, Michael","Ackermann, Sarah Käthe","Neuhäuser, Christian","Schiller, Elena","Kaminiarz, Claudius","Gieseking, Miriam","Heinrich, Ralf Rüdiger","Zeeb, Bettina","Ekrowski, Ralf","Fensak, Dorothea","Schott, Claas","Winter, Herbert","Kocaağa, Muhlis","Isin, Cafer","Rosenberg, Björn","Heise, Luca","Dr. Hilz, Hauke","Akkamis, Gökhan","Reim, Tristan","Behrens, Monika","Litau, Alexander","Timke, Jan","Tiedemann, Julia","Lichtenfeld, Sven","Schuster, Sascha","Ax, Bianca","Schumacher, Alfred Dietrich","Matheja, Ralf","Teichert, Jürgen","Brinkmann, Sandra","Stark, Rüdiger","Baltrusch, Claudia","Sommer, Dennis Manfred","Schmiedel, Sven"],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"Listenplatz","name":"Listenplatz","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["1","2","3","4","5","6","7","8","9","10","1","2","3","4","5","6","7","8","9","10","11","12","13","14","1","2","3","4","5","6","7","8","9","10","11","12","13","1","2","3","4","1","2","3","4","5","1","2","3","4","5","6","7","8","9","10","11","12","13"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Stimmenrang","name":"Stimmenrang","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["1","2","7","5","6","4","9","3","10","8","1","4","6","2","5","8","11","7","3","12","13","9","10","14","1","3","2","10","7","5","4","13","9","12","8","6","11","1","2","3","4","1","4","3","5","2","1","4","2","3","6","11","13","12","7","8","10","9","5"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Stimmen","name":"Stimmen","type":"numeric","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["3511","2704","792","913","823","965","755","1596","478","776","5397","1747","1117","2731","1191","780","533","832","2349","470","399","592","535","305","2135","968","1176","284","475","754","882","89","331","95","340","562","165","961","650","612","424","2100","214","331","118","391","14199","963","1461","991","446","137","130","132","255","190","164","170","528"],"html":true,"align":"right","headerStyle":{"font-weight":"normal"}},{"id":"Mandat","name":"Mandat","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Personen","Listen","Listen","","","","","","","","Personen","Listen","Listen","Personen","","","","","","","","","","","Personen","Listen","","","","","","","","","","","","Listen","","","","Listen","","","","","Personen","Listen","Personen","Listen","","","","","","","","",""],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"vor 2019","name":"vor 2019","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Listen","Listen","","","","","","Personen","","","Listen","Listen","","Personen","","","","","Personen","","","","","","Listen","","Personen","","","","","","","","","","","Listen","","","","Listen","","","","","Listen","Listen","Personen","Personen","","","","","","","","",""],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"vor 2011","name":"vor 2011","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Listen","Listen","Listen","","","","","","","","Listen","Listen","Listen","Listen","","","","","","","","","","","Listen","Listen","","","","","","","","","","","","Listen","","","","Listen","","","","","Listen","Listen","Listen","Listen","","","","","","","","",""],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}},{"id":"nur Stimmenrang","name":"nur Stimmenrang","type":"character","style":"function(rowInfo, colInfo) {\nconst rowIndex = rowInfo.index + 1\n}","cell":["Personen","Personen","","","","","","Personen","","","Personen","Personen","","Personen","","","","","Personen","","","","","","Personen","","Personen","","","","","","","","","","","Personen","","","","Personen","","","","","Personen","Personen","Personen","Personen","","","","","","","","",""],"html":true,"align":"left","headerStyle":{"font-weight":"normal"}}],"resizable":true,"filterable":true,"defaultPageSize":15,"showPageSizeOptions":true,"pageSizeOptions":[10,25,50,100],"paginationType":"numbers","showPagination":true,"showPageInfo":true,"minRows":1,"highlight":true,"showSortable":true,"height":"auto","theme":{"color":"#333333","backgroundColor":"#FFFFFF","stripedColor":"rgba(128,128,128,0.05)","style":{"fontFamily":"system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"},"headerStyle":{"borderTopStyle":"solid","borderTopWidth":"2px","borderTopColor":"#D3D3D3","borderBottomStyle":"solid","borderBottomWidth":"2px","borderBottomColor":"#D3D3D3"}},"elementId":"pbvfzwxuxj","dataKey":"a668821aee2a437333a7f0322bf9e783"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.style","tag.attribs.columns.1.style","tag.attribs.columns.2.style","tag.attribs.columns.3.style","tag.attribs.columns.4.style","tag.attribs.columns.5.style","tag.attribs.columns.6.style","tag.attribs.columns.7.style","tag.attribs.columns.8.style"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -3115,9 +3169,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -3182,6 +3250,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
