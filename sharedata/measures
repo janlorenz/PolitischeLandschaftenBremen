@@ -1,0 +1,23 @@
+# Functions used to compute numbers in a party-party-matrix 
+#                  based on columns in a voter-party-matrix which is computes from the list of ballots
+# In a voter-party-matrix each row is a voter and each column is a party and 
+#    entry (i,j) states how many of its five votes voter i gave to party j
+# So, when x and y are both columns standing for two parties, then
+# (x > 0) marks all voters who vote at least once for party x
+# (y > 0) marks all voters who vote at least once for party y
+# (x > 0 & y > 0) marks all voters who vote at least once for party x and y
+# and so on. 
+# In this wy you can understand the following functions.
+
+num_covoters <- function(x,y,...) sum(x>0 & y>0) # symmertric
+frac_covoters_x <- function(x,y,...) num_covoters(x,y)/sum(x>0) # non-symmetric
+frac_covoters_y <- function(x,y,...) num_covoters(x,y)/sum(y>0) # non-symmetric
+frac_covoters_joint <- function(x,y,...) num_covoters(x,y)/sum(x>0 | y>0) # symmetric
+frac_covoters_all <- function(x,y,...) num_covoters(x,y)/length(x) # no maximum of identity
+dissim_voters_x <- function(x,y,...) 1 - frac_covoters_x(x,y) # non-symmertric, identity is 0
+dissim_voters_sym <- function(x,y,...) 1 - frac_covoters_joint(x,y) # symmertric, identity is zero
+
+# Note, the dissim-versions of the functions are used because the method of multidimensional scaling (`cmdscale` in R)
+# tries to minimize the dissimilarity between the points in the plot.
+# It needs a matrix similar to a distance matrix, so the distance between two parties should be 0 when they have all 
+# voters in common.
