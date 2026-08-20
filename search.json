@@ -1,0 +1,632 @@
+[
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#die-bremische-bürgerschaft",
+    "href": "Präsentation_Wissen_um_11_2024.html#die-bremische-bürgerschaft",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Die Bremische Bürgerschaft",
+    "text": "Die Bremische Bürgerschaft\n\nZwei Wahlgebiete\n\nBremen (Stadt) 72 Abgeordnete\nBremerhaven 15 Abgeordnete\n\nTechnisch zwei unabhängige Wahlen: Eigene Listen, eigene 5% Sperrklausel"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#wählen-5-stimmen-irgendwie-aufteilen",
+    "href": "Präsentation_Wissen_um_11_2024.html#wählen-5-stimmen-irgendwie-aufteilen",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Wählen: 5 Stimmen irgendwie aufteilen",
+    "text": "Wählen: 5 Stimmen irgendwie aufteilen"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#wählen-listenstimmen-und-personenstimmen",
+    "href": "Präsentation_Wissen_um_11_2024.html#wählen-listenstimmen-und-personenstimmen",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Wählen: Listenstimmen und Personenstimmen",
+    "text": "Wählen: Listenstimmen und Personenstimmen"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#stimmzettel-erfassung",
+    "href": "Präsentation_Wissen_um_11_2024.html#stimmzettel-erfassung",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Stimmzettel Erfassung",
+    "text": "Stimmzettel Erfassung\n\n\n\nAuf dem Stimm-Zettel hat jede Partei und jede Person eine ID-Nummer\n\nDie erste(n) Stelle(n) bezeichnen die Liste\nDie letzten beiden Stellen bezeichnen den Listenplatz einer Person, Listenplatz 0 steht für eine Listenstimme\n\nStimm-Zettel werden digital erfasst (je 5 ID-Nummern)\n\nBeispiele:\n200 \\(\\to\\) 02 00 \\(\\to\\) Liste 2, Listenstimme\n417 \\(\\to\\) 04 17 \\(\\to\\) Liste 4, Person Listenplatz 17\n\n\n\n\n\n\n\n\n\nBeispiele Stimmzettel 2023\n\n\nStimme1\nStimme2\nStimme3\nStimme4\nStimme5\nn\n\n\n\n\n100\n100\n100\n100\n100\n25755\n\n\n201\n201\n201\n201\n201\n13382\n\n\n200\n200\n200\n200\n200\n13309\n\n\n600\n600\n600\n600\n600\n9891\n\n\n237\n237\n237\n237\n237\n514\n\n\n314\n314\n314\n314\n314\n416\n\n\n100\n100\n600\n600\n600\n190\n\n\n300\n300\n1600\n1600\n1600\n163\n\n\n201\n201\n600\n600\n600\n88\n\n\n201\n1600\n1600\n1600\n1600\n40\n\n\n101\n201\n203\n401\n402\n38\n\n\n100\n100\n100\n200\n300\n35\n\n\n101\n101\n101\n401\n402\n34\n\n\n201\n203\n401\n401\n402\n34\n\n\n500\n500\n1600\n1600\n1600\n28"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#auszählen-des-wahlergebnis-2023",
+    "href": "Präsentation_Wissen_um_11_2024.html#auszählen-des-wahlergebnis-2023",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Auszählen des Wahlergebnis (2023)",
+    "text": "Auszählen des Wahlergebnis (2023)\n\n\n\n\n\n\n\n\n\n\nBeispiele Stimmzettel 2023\n\n\nStimme1\nStimme2\nStimme3\nStimme4\nStimme5\nn\n\n\n\n\n100\n100\n100\n100\n100\n25755\n\n\n201\n201\n201\n201\n201\n13382\n\n\n200\n200\n200\n200\n200\n13309\n\n\n600\n600\n600\n600\n600\n9891\n\n\n237\n237\n237\n237\n237\n514\n\n\n314\n314\n314\n314\n314\n416\n\n\n100\n100\n600\n600\n600\n190\n\n\n300\n300\n1600\n1600\n1600\n163\n\n\n201\n201\n600\n600\n600\n88\n\n\n201\n1600\n1600\n1600\n1600\n40\n\n\n101\n201\n203\n401\n402\n38\n\n\n100\n100\n100\n200\n300\n35\n\n\n101\n101\n101\n401\n402\n34\n\n\n201\n203\n401\n401\n402\n34\n\n\n500\n500\n1600\n1600\n1600\n28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBeispiele Wahlergebnis Bremen 2023\n\n\nID\nPartei\nName\nStimmen\nWähler\nStimmen pro Wähler\n\n\n\n\n100\nCDU\nChristlich Demokratische Union Deutschlands\n170910\n44398\n3.8\n\n\n101\nCDU\nFrank Imhoff\n54033\n20332\n2.7\n\n\n200\nSPD\nSozialdemokratische Partei Deutschlands\n120152\n39727\n3.0\n\n\n201\nSPD\nAndreas Bovenschulte\n141420\n52671\n2.7\n\n\n203\nSPD\nUlrich Mäurer\n16354\n11262\n1.5\n\n\n237\nSPD\nBasem Khan\n3118\n847\n3.7\n\n\n300\nGRÜNE\nBÜNDNIS 90/DIE GRÜNEN\n89584\n30104\n3.0\n\n\n314\nGRÜNE\nKai-Lena Wargalla\n4956\n2202\n2.3\n\n\n400\nDIE LINKE\nDIE LINKE\n60996\n21159\n2.9\n\n\n401\nDIE LINKE\nKristina Vogt\n26212\n16849\n1.6\n\n\n402\nDIE LINKE\nClaudia Bernhard\n17681\n12570\n1.4\n\n\n500\nFDP\nFreie Demokratische Partei\n39792\n12712\n3.1\n\n\n600\nBIW\nBÜRGER IN WUT\n62704\n16301\n3.8\n\n\n1600\nVolt\nVolt Deutschland\n20684\n7523\n2.7"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#einzigartige-stimmzettel",
+    "href": "Präsentation_Wissen_um_11_2024.html#einzigartige-stimmzettel",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Einzigartige Stimmzettel",
+    "text": "Einzigartige Stimmzettel\n\nViele Stimmzettel existieren nur einmal!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJahr\n\nBremen\n\n\nBremerhaven\n\n\n\nGültige\nEinzigartige\nAnteil Einzigartige\nGültige\nEinzigartige\nAnteil Einzigartige\n\n\n\n\n2011\n225.621\n35.072\n15.54%\n39.363\n5.368\n13.64%\n\n\n2015\n204.529\n36.980\n18.08%\n32.601\n5.135\n15.75%\n\n\n2019\n255.119\n37.217\n14.59%\n41.529\n5.826\n14.03%\n\n\n2023\n221.784\n30.236\n13.63%\n33.556\n5.030\n14.99%\n\n\n\n\n\n\n\n\n\nDie Stimmzettel-Daten werden vom statistischen Landesamt nur zur Verfügung gestellt, wenn das Wahlgeheimnis durch die Forscher nicht gefährdet wird. (Vertragsstrafen)\nIn den einzigartigen Stimmzetteln könnte eine potentielle Gefährdung des Wahlgeheimnis liegen, wenn man von einzelnen Wähler z.B. 4 Stimmen kennt die immernoch einzigartig sind, dann ließe sich die 5. Stimme wissen. 2"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#ähnlichkeit-von-parteien-durch-gemeinsame-wähler",
+    "href": "Präsentation_Wissen_um_11_2024.html#ähnlichkeit-von-parteien-durch-gemeinsame-wähler",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Ähnlichkeit von Parteien durch gemeinsame Wähler",
+    "text": "Ähnlichkeit von Parteien durch gemeinsame Wähler\n\n\n\n\n\n\n\n\n\n\nX\nY\nGemeinsame Wähler\nX-Wähler wählen Y\nY-Wähler wählen X\n\n\n\n\nCDU\nSPD\n11470\n16.10%\n12.76%\n\n\nCDU\nGRÜNE\n3234\n4.54%\n7.62%\n\n\nCDU\nDIE LINKE\n3618\n5.08%\n8.48%\n\n\nCDU\nFDP\n5946\n8.35%\n34.33%\n\n\nCDU\nBIW\n3198\n4.49%\n15.70%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nX\nY\nGemeinsame Wähler\nX-Wähler wählen Y\nY-Wähler wählen X\n\n\n\n\nSPD\nGRÜNE\n18011\n20.04%\n42.45%\n\n\nSPD\nDIE LINKE\n18559\n20.65%\n43.52%\n\n\nSPD\nFDP\n3629\n4.04%\n20.95%\n\n\nSPD\nBIW\n2242\n2.49%\n11.01%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nX\nY\nGemeinsame Wähler\nX-Wähler wählen Y\nY-Wähler wählen X\n\n\n\n\nGRÜNE\nDIE LINKE\n12793\n30.15%\n30.00%\n\n\nGRÜNE\nFDP\n1288\n3.04%\n7.44%\n\n\nGRÜNE\nBIW\n253\n0.60%\n1.24%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nX\nY\nGemeinsame Wähler\nX-Wähler wählen Y\nY-Wähler wählen X\n\n\n\n\nDIE LINKE\nFDP\n1076\n2.52%\n6.21%\n\n\nDIE LINKE\nBIW\n782\n1.83%\n3.84%"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#politischer-raum-2023",
+    "href": "Präsentation_Wissen_um_11_2024.html#politischer-raum-2023",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Politischer Raum 2023",
+    "text": "Politischer Raum 2023\n\n\n\n\n\n\n\n\n\n\n\nDie Positionen wurden multidimensionaler Skalierung berechnet. Zugrunde liegen als Distanzmatrix die paarweisen symmetrischen Wahrscheinlichkeiten, dass ein Wähler aus einer der beiden Parteien nicht die andere Partei wählt. Die Methode erzeugt Positionen die diese Distanzen bestmöglich im 2-dimensionalen Raum abbilden."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#politischer-raum-2019",
+    "href": "Präsentation_Wissen_um_11_2024.html#politischer-raum-2019",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Politischer Raum 2019",
+    "text": "Politischer Raum 2019\n\n\n\n\n\n\n\n\n\n\n\nDie Positionen wurden multidimensionaler Skalierung berechnet. Zugrunde liegen als Distanzmatrix die paarweisen symmetrischen Wahrscheinlichkeiten, dass ein Wähler aus einer der beiden Parteien nicht die andere Partei wählt. Die Methode erzeugt Positionen die diese Distanzen bestmöglich im 2-dimensionalen Raum abbilden."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#politischer-raum-2015",
+    "href": "Präsentation_Wissen_um_11_2024.html#politischer-raum-2015",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Politischer Raum 2015",
+    "text": "Politischer Raum 2015\n\n\n\n\n\n\n\n\n\n\n\nDie Positionen wurden multidimensionaler Skalierung berechnet. Zugrunde liegen als Distanzmatrix die paarweisen symmetrischen Wahrscheinlichkeiten, dass ein Wähler aus einer der beiden Parteien nicht die andere Partei wählt. Die Methode erzeugt Positionen die diese Distanzen bestmöglich im 2-dimensionalen Raum abbilden."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#politischer-raum-2011",
+    "href": "Präsentation_Wissen_um_11_2024.html#politischer-raum-2011",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Politischer Raum 2011",
+    "text": "Politischer Raum 2011\n\n\n\n\n\n\n\n\n\n\n\nDie Positionen wurden multidimensionaler Skalierung berechnet. Zugrunde liegen als Distanzmatrix die paarweisen symmetrischen Wahrscheinlichkeiten, dass ein Wähler aus einer der beiden Parteien nicht die andere Partei wählt. Die Methode erzeugt Positionen die diese Distanzen bestmöglich im 2-dimensionalen Raum abbilden."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#politischer-raum",
+    "href": "Präsentation_Wissen_um_11_2024.html#politischer-raum",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Politischer Raum",
+    "text": "Politischer Raum"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#co-wähler-vs.-wahlprogramm-texte",
+    "href": "Präsentation_Wissen_um_11_2024.html#co-wähler-vs.-wahlprogramm-texte",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Co-Wähler vs. Wahlprogramm-Texte",
+    "text": "Co-Wähler vs. Wahlprogramm-Texte"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-zuteilen",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-zuteilen",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate zuteilen",
+    "text": "Mandate zuteilen\n\n\nDie Mandate werden nach dem Prinzip der Verhältniswahl auf die Parteien verteilt.1\nParteien unter 5% Stimmenanteil fallen weg.\nDie Mandate einer jeden Partei werden nach dem Prinzip der Verhältniswahl in zwei Kontingente unterteilt:\n\nein Listen-Mandat-Kontingent\nein Personen-Mandat-Kontingent\n\nAus der Liste jeder Partei wird eine Personen-Stimmen-Rangliste gebildet. Die Personen mit den meisten Stimmen erhalten die Personen-Mandate.\nDie Listen-Mandate erhalten die ersten Personen der unveränderten Liste sofern sie nicht schon ein Personen-Mandat haben.\n\n\nBei allen Zuteilungen nach dem Prinzip der Verhältniswahl wird das Divisor-Verfahren mit Standard-Rundung verwendet (auch Saint-Laguë genannt)."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#jede-stimme-mehrere-funktionen",
+    "href": "Präsentation_Wissen_um_11_2024.html#jede-stimme-mehrere-funktionen",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Jede Stimme: mehrere Funktionen!",
+    "text": "Jede Stimme: mehrere Funktionen!\nListen-Stimmen zählen für\n\ndie Partei\ndas Listen-Mandats-Kontingent der Partei\n\n\nPersonen-Stimmen zählen für\n\ndie Partei\nfür das Direkt-Mandat-Kontingent welches nach Personen-Stimmen-Rangliste vergeben wird\nfür die Position der Person auf der Rangliste"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-2023",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-2023",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate 2023",
+    "text": "Mandate 2023\n\n\n\n\n\n\n\n\n\n\nBremen\n\n\n\nStimmen\nMandate\nMandate (ideal)\n\n\n\n\nCDU - 21 Mandate (ideal 20.95)\n\n\nListe\n170.910\n12\n12.12\n\n\nPerson\n125.248\n9\n8.88\n\n\nSPD - 23 Mandate (ideal 23.26)\n\n\nListe\n120.152\n8\n8.40\n\n\nPerson\n208.683\n15\n14.60\n\n\nGRÜNE - 9 Mandate (ideal 9.09)\n\n\nListe\n89.584\n6\n6.28\n\n\nPerson\n38.858\n3\n2.72\n\n\nDIE LINKE - 9 Mandate (ideal 9.02)\n\n\nListe\n60.996\n4\n4.30\n\n\nPerson\n66.563\n5\n4.70\n\n\nFDP - 4 Mandate (ideal 3.93)\n\n\nListe\n39.792\n3\n2.87\n\n\nPerson\n15.740\n1\n1.13\n\n\nBIW - 6 Mandate (ideal 5.74)\n\n\nListe\n62.704\n5\n4.63\n\n\nPerson\n18.499\n1\n1.37\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBremerhaven\n\n\n\nStimmen\nMandate\nMandate (ideal)\n\n\n\n\nSPD - 6 Mandate (ideal 6.18)\n\n\nListe\n48.636\n4\n4.40\n\n\nPerson\n17.726\n2\n1.60\n\n\nCDU - 4 Mandate (ideal 3.62)\n\n\nListe\n26.457\n3\n2.72\n\n\nPerson\n12.404\n1\n1.28\n\n\nGRÜNE - 4 Mandate (ideal 3.92)\n\n\nListe\n29.376\n3\n2.79\n\n\nPerson\n12.754\n1\n1.21\n\n\nBIW - 1 Mandate (ideal 1.29)\n\n\nListe\n7.782\n1\n0.56\n\n\nPerson\n6.035\n0\n0.44\n\n\n\n\n\n\n\nBei SPD Bremen ist das Personenstimmen-Kontingent deutlich größer. Das wird gelegentlich Bürgermeister-Effekt genannt."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#prozente-und-mandate-bremen",
+    "href": "Präsentation_Wissen_um_11_2024.html#prozente-und-mandate-bremen",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Prozente und Mandate Bremen",
+    "text": "Prozente und Mandate Bremen\n\n\nBovenschulte holt Stimmen für ca. 10 Mandate."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#prozente-und-mandate-bremerhaven",
+    "href": "Präsentation_Wissen_um_11_2024.html#prozente-und-mandate-bremerhaven",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Prozente und Mandate Bremerhaven",
+    "text": "Prozente und Mandate Bremerhaven"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-personenstimmen",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-personenstimmen",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Erst nach Personenstimmen",
+    "text": "Mandate: Erst nach Personenstimmen\nAktuelles Wahlsystem\nangewandt 2023 und 2019"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#problemfelder-in-der-praxis",
+    "href": "Präsentation_Wissen_um_11_2024.html#problemfelder-in-der-praxis",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Problemfelder in der Praxis",
+    "text": "Problemfelder in der Praxis\n\nEinige Protagonisten in den Parteien finden Personenwahl generell schlecht\n\nOffiziell: Die ausgewogene Listenreihenfolge der Parteien wird zerstört\nInoffiziell: Ein partei-intern erkämpfter Listenplatz wird weniger Wert\n\nNegatives Stimmengewicht entsteht regelmäßig! Personen werden nicht gewählt, WEIL sie Stimmen bekommen. Ursache ist das proportionale Listenkontingent.\nBei Kandidierenden mit unsicheren Listenplätzen kann Personenwahlkampf zum Mandatsverlust führen.\nBürgermeistereffekt: Bovenschulte holt 10 Mandate. Dadurch wächst Personenbank. Mehr Mandate gehen an Hinterbänkler die gar nichts mit ihm zu tun haben.\nKandidierende mit Peer-Group Wählenden (migrantisch, religiös, LGBTQIA+, Werder-Fans, …) haben zu große Vorteile. Wer 5 Stimmen pro Wähler bekommt, ist besser dran, als Kandidierende die Wähler außerhalb der Peer-Group für eine Stimme ansprechen. Problem-Ursache ist das alle Stimmen kumuliert werden können in einem sehr großen Wahlbezirk in Bremen."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#positives-feedback-in-verhältniswahl-mit-offenen-listen",
+    "href": "Präsentation_Wissen_um_11_2024.html#positives-feedback-in-verhältniswahl-mit-offenen-listen",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Positives Feedback in Verhältniswahl mit offenen Listen",
+    "text": "Positives Feedback in Verhältniswahl mit offenen Listen\n\nKandidierende treten nicht in Ein-Personen-Wahlkreisen gegeneinander and, sondern schließen sich zu Listen zusammen. Das passt zu Parteien, die es sowieso gibt.\nKandidierende werben trotzdem als Personen um Stimmen. Die zählen auch für die Partei. Reicht es nicht für einen selbst, dann hilft es trotzdem Gleichgesinnten! (Das war historisch die Grundidee der Verhältniswahl.)\nKandidierende müssen Vertrauen bei Wählenden gewinnen und nicht nur bei Parteifreunden. Wer ein Mandat will muss Wählende ansprechen!\nPersonen mit viel Vertrauen von Wählenden bekommen mehr Einfluss in den Parteien. Können sich aber auch nicht alles erlauben (Nicht-Aufstellung droht!)\nInsgesamt steigt die Qualität der Parlamentsmitglieder als Kommunizierende in alle Richtungen – Parlament, Partei und Wahlvolk.\n\n\nDie Problemfelder wirken dieser positiven Dynamik teilweise entgegen."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#reformvorschlag-grünen",
+    "href": "Präsentation_Wissen_um_11_2024.html#reformvorschlag-grünen",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Reformvorschlag GRÜNEN",
+    "text": "Reformvorschlag GRÜNEN\n(Weser-Kurier, 13.09.2024)\n\nListenstimmen werden “personen-neutral”. Kein Listenstimmen-Kontingent mehr. Wer Liste wählt ist neutral zu den Personen.\nStattdessen gibt es eine Relevanzschwelle (z.B. 1500 Stimmen) für Personen. Direkt gewählt werden kann nur wer relevant genug ist. Gibt es nicht genug relevante Kandidaten, gehen die restlichen Mandate nach der Liste.\n\nMan kann jede Person nur einmal wählen. Kein Kumulieren bei Personen mehr. (Bei Listen schon, da stehen ja mehr Personen dahinter.)"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-personenstimmen-1",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-personenstimmen-1",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Erst nach Personenstimmen",
+    "text": "Mandate: Erst nach Personenstimmen\nAktuelles Wahlsystem\nangewandt 2023 und 2019"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-listenstimmen",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-listenstimmen",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Erst nach Listenstimmen",
+    "text": "Mandate: Erst nach Listenstimmen\nModellrechnung: Wahlrecht lauf Volksbegehren von Mehr Demokratie e.V.\nangewandt 2011 und 2015"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-nur-nach-personenstimmen",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-nur-nach-personenstimmen",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Nur nach Personenstimmen",
+    "text": "Mandate: Nur nach Personenstimmen\nModellrechnung: Übliches Vorgehen bei offenen Listen (Kommunalwahl Süd- und Ostdeutschland, Schweiz, …)"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-nur-nach-anzahl-wähler",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-nur-nach-anzahl-wähler",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Nur nach Anzahl Wähler",
+    "text": "Mandate: Nur nach Anzahl Wähler\nModellrechnung: Entspricht Personenstimmen, wenn Personen Kumulieren nicht mehr erlaubt wäre und Wähler stattdessen keine anderen Personen wählen"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-grüne",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-grüne",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Relevanzschwelle (GRÜNE)",
+    "text": "Mandate: Relevanzschwelle (GRÜNE)\nModellrechnung Vorschlag GRÜNE: Ohne Kumulieren (für Modellrechnung nur Wähler gezählt), mit Relevanzschwelle von 1526 Wählern"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-1000",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-1000",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Relevanzschwelle 1000",
+    "text": "Mandate: Relevanzschwelle 1000\nModellrechnung:\nMit Relevanzschwelle von 1000 Wählern"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-1000-1",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-1000-1",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Relevanzschwelle 1000",
+    "text": "Mandate: Relevanzschwelle 1000\nModellrechnung:\nMit Relevanzschwelle von 1000 Stimmen"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-800",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-800",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Relevanzschwelle 800",
+    "text": "Mandate: Relevanzschwelle 800\nModellrechnung:\nMit Relevanzschwelle von 800 Wählern"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#fazit-zum-vorschlag-der-grünen",
+    "href": "Präsentation_Wissen_um_11_2024.html#fazit-zum-vorschlag-der-grünen",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Fazit zum Vorschlag der GRÜNEN",
+    "text": "Fazit zum Vorschlag der GRÜNEN\n\nRelevanzschwelle ist besser als Listenstimmenkontingent. Kein negatives Stimmengewicht.\n\nABER: Bei hoher Relevanzschwelle, werden schnell fast alle Kandidierenden irrelevant!\n\nBesser wäre keine Relevanzschwelle und Vertrauen auf den positiven Feedback-Loop\n\nDie Einschränkung des Kumulierens ist sinnvoll, um die Vorteile von Kandidiernden mit Peer-Group Wählern in ein passenderes Verhältnis zu setzen. (In typischen Wahlsystemen mit viele Stimmen pro Wähler, können nur 2 bis 3 kumuliert werden.)\n\nABER: Es ist unklar, ob die Wähler andere Personen wählen werden und bei einer Relevanzschwelle noch mehr irrelevant werden.\n\nAchtung: Ein Unterschied von 800 und 1500 sieht klein aus, ist aber extrem! Bei 1500 wäre bereits nur noch eine deutliche Minderheit der Parlamentarier direkt gewählt!"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#wahl-bremensien",
+    "href": "Präsentation_Wissen_um_11_2024.html#wahl-bremensien",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Wahl-“Bremensien”1",
+    "text": "Wahl-“Bremensien”1\n\nBremer können alle 4 Jahre ihr Parlament wählen\nTeilzeit-Parlament (auch in HH)\nDas Bürgerschaft hat die Richtlinienkompetenz und nicht der Regierungschef\nKein “Kanzlerprinzip”, Bürgermeister \\(\\neq\\) Ministerpräsident:\nSenatsmitglieder brauchen Vertrauen der Bürgerschaft nicht ihres Präsidenten\nTrennung Amt und Mandat: Regierungsmitglieder nicht im Parlament (auch in HH)\n\n\n\nQuellen: Landesverfassung Bremisches Abgeordneten Gesetz\nVorbemerkung: In diesem Vortrag wird von Kandidatinnen und Kandidaten, Wählerinnen und Wählern und anderen Menschen mit vielerlei möglichen Geschlechtsidentitäten die Rede sein. Oft werde ich sie aber nur Kandidaten, Wähler, usw. nennen.\nBremische Besonderheiten. Hier bezogen auf Wahlen zur Bremischen Bürgerschaft im Vergleich zu anderen Landtags- und Bundestagswahlen."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-personenstimmen-2",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-personenstimmen-2",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Erst nach Personenstimmen",
+    "text": "Mandate: Erst nach Personenstimmen\nAktuelles Wahlsystem\nangewandt 2023 und 2019"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-listenstimmen-1",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-listenstimmen-1",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Erst nach Listenstimmen",
+    "text": "Mandate: Erst nach Listenstimmen\nModellrechnung: Wahlrecht lauf Volksbegehren von Mehr Demokratie e.V.\nangewandt 2011 und 2015"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-nur-nach-personenstimmen-1",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-nur-nach-personenstimmen-1",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Nur nach Personenstimmen",
+    "text": "Mandate: Nur nach Personenstimmen\nModellrechnung: Übliches Vorgehen bei offenen Listen (Kommunalwahl Süd- und Ostdeutschland, Schweiz, …)"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-nur-nach-anzahl-wähler-1",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-nur-nach-anzahl-wähler-1",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Nur nach Anzahl Wähler",
+    "text": "Mandate: Nur nach Anzahl Wähler\nModellrechnung: Entspricht Personenstimmen, wenn Personen Kumulieren nicht mehr erlaubt wäre und Wähler stattdessen keine anderen Personen wählen"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-grüne-1",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-grüne-1",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Relevanzschwelle (GRÜNE)",
+    "text": "Mandate: Relevanzschwelle (GRÜNE)\nModellrechnung Vorschlag GRÜNE: Ohne Kumulieren (für Modellrechnung nur Wähler gezählt), mit Relevanzschwelle von 1097 Wählern"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-1000-2",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-1000-2",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Relevanzschwelle 1000",
+    "text": "Mandate: Relevanzschwelle 1000\nModellrechnung:\nMit Relevanzschwelle von 1000 Wählern"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-1000-3",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-1000-3",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Relevanzschwelle 1000",
+    "text": "Mandate: Relevanzschwelle 1000\nModellrechnung:\nMit Relevanzschwelle von 1000 Stimmen"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-800-1",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-800-1",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Relevanzschwelle 800",
+    "text": "Mandate: Relevanzschwelle 800\nModellrechnung:\nMit Relevanzschwelle von 800 Wählern"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-personenstimmen-3",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-personenstimmen-3",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Erst nach Personenstimmen",
+    "text": "Mandate: Erst nach Personenstimmen\nAktuelles Wahlsystem\nangewandt 2023 und 2019"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-listenstimmen-2",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-erst-nach-listenstimmen-2",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Erst nach Listenstimmen",
+    "text": "Mandate: Erst nach Listenstimmen\nModellrechnung: Wahlrecht lauf Volksbegehren von Mehr Demokratie e.V.\nangewandt 2011 und 2015"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-nur-nach-personenstimmen-2",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-nur-nach-personenstimmen-2",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Nur nach Personenstimmen",
+    "text": "Mandate: Nur nach Personenstimmen\nModellrechnung: Übliches Vorgehen bei offenen Listen (Kommunalwahl Süd- und Ostdeutschland, Schweiz, …)"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-nur-nach-anzahl-wähler-2",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-nur-nach-anzahl-wähler-2",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Nur nach Anzahl Wähler",
+    "text": "Mandate: Nur nach Anzahl Wähler\nModellrechnung: Entspricht Personenstimmen, wenn Personen Kumulieren nicht mehr erlaubt wäre und Wähler stattdessen keine anderen Personen wählen"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-grüne-2",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-grüne-2",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Relevanzschwelle (GRÜNE)",
+    "text": "Mandate: Relevanzschwelle (GRÜNE)\nModellrechnung Vorschlag GRÜNE: Ohne Kumulieren (für Modellrechnung nur Wähler gezählt), mit Relevanzschwelle von 1483 Wählern"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-1000-4",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-1000-4",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Relevanzschwelle 1000",
+    "text": "Mandate: Relevanzschwelle 1000\nModellrechnung:\nMit Relevanzschwelle von 1000 Wählern"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-1000-5",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-1000-5",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Relevanzschwelle 1000",
+    "text": "Mandate: Relevanzschwelle 1000\nModellrechnung:\nMit Relevanzschwelle von 1000 Stimmen"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-800-2",
+    "href": "Präsentation_Wissen_um_11_2024.html#mandate-relevanzschwelle-800-2",
+    "title": "Die politische Landschaft Bremens aus den Stimmzetteln extrahiert",
+    "section": "Mandate: Relevanzschwelle 800",
+    "text": "Mandate: Relevanzschwelle 800\nModellrechnung:\nMit Relevanzschwelle von 800 Wählern"
+  },
+  {
+    "objectID": "Vorträge.html",
+    "href": "Vorträge.html",
+    "title": "Vorträge",
+    "section": "",
+    "text": "Präsentation im Vollbild anzeigen lassen.\nDas Haus der Wissenschaft hat eine Video-Aufzeichung auf YouTube bereit gestellt."
+  },
+  {
+    "objectID": "Vorträge.html#vortrag-im-haus-der-wissenschaft-2024",
+    "href": "Vorträge.html#vortrag-im-haus-der-wissenschaft-2024",
+    "title": "Vorträge",
+    "section": "",
+    "text": "Präsentation im Vollbild anzeigen lassen.\nDas Haus der Wissenschaft hat eine Video-Aufzeichung auf YouTube bereit gestellt."
+  },
+  {
+    "objectID": "Vorträge.html#vortrag-im-haus-der-wissenschaft-2023",
+    "href": "Vorträge.html#vortrag-im-haus-der-wissenschaft-2023",
+    "title": "Vorträge",
+    "section": "2 Vortrag im Haus der Wissenschaft 2023",
+    "text": "2 Vortrag im Haus der Wissenschaft 2023\n\nPräsentation im Vollbild anzeigen lassen.\nDas Haus der Wissenschaft hat eine Video-Aufzeichung auf YouTube bereit gestellt. (Hinweis: Die Präsentation oben musste wegen Format wechseln leicht angepasst werden und weicht deshalb teilweise vom Video ab. Die Inhalte sind die gleichen.)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Politische Landschaften Bremen",
+    "section": "",
+    "text": "Code\nlibrary(tidyverse)\nlibrary(gt)\nlibrary(plotly)\n\nload(\"data/Stimmzettel_s_Wahlvorschlaege_w.RData\")\nload(\"data/d_sqm.RData\")\n# Notiz: Beide Datendateien können nicht Teil des öffentlichen Repositorium sein, weil\n# die Stimmzetteldaten als nicht vollständig anonyme Mikrodaten gelten und deshalb nur unter einem \n# Vertrag vom statistischen Landesamt zur Verfügung gestellt werden der Deanonymisierungsversuche (die in diesem \n# Fall das Wahlgeheimnis verletzen würde) verbietet, mit Strafen belegt und die Weitergabe verbietet.\n#\n# Datenprobleme:\n# Im Vergleich zum offiziellen Wahlergebnis fehlen in meinem Datensatz für Bremen 2019\n# 905 gültige und 13 ungültige Stimmhefte, dies könnten 1 oder zwei Wahlurnen sein\n# Ich habe Statistik Bremen auf den Fehler hingewiesen. Die wollen das klären, aber müssen zur Zeit eine Wahl\n# organisieren\nHinweis: Diese Seite enthält keine Analysen der Wahl 2023."
+  },
+  {
+    "objectID": "index.html#tabellen-zu-den-wahlvorschlägen",
+    "href": "index.html#tabellen-zu-den-wahlvorschlägen",
+    "title": "Politische Landschaften Bremen",
+    "section": "1 Tabellen zu den Wahlvorschlägen",
+    "text": "1 Tabellen zu den Wahlvorschlägen\nIm folgenden einige ergänzende Daten aus Anlass der bevorstehenden Bürgerschaftswahl am 14.5.2023.\n\n1.1 Parteien\n\n\nCode\nPP &lt;- d_mds |&gt; filter(type == \"list\") |&gt; \n  group_by(year, district) |&gt; \n  mutate(`Stimmen gesamt (%)` = party_votes/sum(party_votes)) |&gt; \n  group_by(year, district, Partei) |&gt; \n  mutate(`Personen-Stimmen (%)` = person_party_votes/sum(party_votes)) |&gt; \n  select(Jahr = year, Wahlgebiet=district, ID=id, Partei, `Stimmen gesamt`= party_votes, `Stimmen gesamt (%)`,\n         `Personen-Stimmen` = person_party_votes, `Personen-Stimmen (%)`, `Wähler gesamt` = party_voters,\n         `Stimmen pro Wähler gesamt` = party_votes_per_voter) |&gt;\n  group_by()\nformat_Parteien_table &lt;- function(df) df |&gt; gt() |&gt; \n  fmt_percent(c(ends_with(\"(%)\"))) |&gt; \n  fmt_number(starts_with(\"Stimmen pro Wähler\"), decimals = 2)\n\n\n\nBremen 2019Bremen 2015Bremen 2011\n\n\n\n\nCode\nformat_Parteien_table(PP |&gt; filter(Wahlgebiet == \"Bremen\", Jahr == 2019) |&gt; select(-Jahr, -Wahlgebiet))\n\n\n\n\n\n\n\n\nID\nPartei\nStimmen gesamt\nStimmen gesamt (%)\nPersonen-Stimmen\nPersonen-Stimmen (%)\nWähler gesamt\nStimmen pro Wähler gesamt\n\n\n\n\n100\nSPD\n314530\n24.93%\n159998\n50.87%\n83183\n3.78\n\n\n200\nCDU\n343530\n27.23%\n167456\n48.75%\n82828\n4.15\n\n\n300\nGRÜNE\n221509\n17.56%\n64712\n29.21%\n67043\n3.30\n\n\n400\nDIE LINKE\n148544\n11.77%\n47916\n32.26%\n44029\n3.37\n\n\n500\nFDP\n75420\n5.98%\n30448\n40.37%\n24692\n3.05\n\n\n600\nAfD\n71278\n5.65%\n18102\n25.40%\n16961\n4.20\n\n\n700\nBIW\n20691\n1.64%\n9397\n45.42%\n6486\n3.19\n\n\n800\nDie PARTEI\n24324\n1.93%\n4440\n18.25%\n8596\n2.83\n\n\n900\nPIRATEN\n9675\n0.77%\n2340\n24.19%\n3854\n2.51\n\n\n1000\nBGE\n5939\n0.47%\n1179\n19.85%\n2515\n2.36\n\n\n1200\nFREIE WÄHLER\n12714\n1.01%\n5111\n40.20%\n4183\n3.04\n\n\n1300\nMENSCHLICHE WELT\n2559\n0.20%\n346\n13.52%\n1103\n2.32\n\n\n1400\nDie Humanisten\n6637\n0.53%\n871\n13.12%\n2454\n2.70\n\n\n1500\nV-Partei³\n4269\n0.34%\n495\n11.60%\n1718\n2.48\n\n\n\n\n\n\n\n\n\n\n\nCode\nformat_Parteien_table(PP |&gt; filter(Wahlgebiet == \"Bremen\", Jahr == 2015) |&gt; select(-Jahr, -Wahlgebiet))\n\n\n\n\n\n\n\n\nID\nPartei\nStimmen gesamt\nStimmen gesamt (%)\nPersonen-Stimmen\nPersonen-Stimmen (%)\nWähler gesamt\nStimmen pro Wähler gesamt\n\n\n\n\n100\nSPD\n329272\n32.64%\n186590\n56.67%\n86630\n3.80\n\n\n200\nGRÜNE\n158971\n15.76%\n74637\n46.95%\n52175\n3.05\n\n\n300\nCDU\n223796\n22.19%\n105407\n47.10%\n54920\n4.07\n\n\n400\nDIE LINKE\n100242\n9.94%\n35107\n35.02%\n28952\n3.46\n\n\n500\nBIW\n27425\n2.72%\n12581\n45.87%\n8193\n3.35\n\n\n600\nFDP\n68009\n6.74%\n31347\n46.09%\n19877\n3.42\n\n\n700\nPIRATEN\n13842\n1.37%\n2569\n18.56%\n5388\n2.57\n\n\n900\nAfD\n56432\n5.59%\n12984\n23.01%\n14060\n4.01\n\n\n1000\nDie PARTEI\n18984\n1.88%\n5895\n31.05%\n6820\n2.78\n\n\n1100\nTierschutzpartei\n11690\n1.16%\n1589\n13.59%\n4290\n2.72\n\n\n\n\n\n\n\n\n\n\n\nCode\nformat_Parteien_table(PP |&gt; filter(Wahlgebiet == \"Bremen\", Jahr == 2011) |&gt; select(-Jahr, -Wahlgebiet))\n\n\n\n\n\n\n\n\nID\nPartei\nStimmen gesamt\nStimmen gesamt (%)\nPersonen-Stimmen\nPersonen-Stimmen (%)\nWähler gesamt\nStimmen pro Wähler gesamt\n\n\n\n\n100\nSPD\n438991\n39.35%\n232571\n52.98%\n115720\n3.79\n\n\n200\nCDU\n227622\n20.40%\n97206\n42.71%\n55204\n4.12\n\n\n300\nGRÜNE\n251863\n22.57%\n88087\n34.97%\n77738\n3.24\n\n\n400\nDIE LINKE\n64824\n5.81%\n20359\n31.41%\n19933\n3.25\n\n\n500\nFDP\n25255\n2.26%\n9330\n36.94%\n8585\n2.94\n\n\n600\nBIW\n34713\n3.11%\n7593\n21.87%\n10632\n3.26\n\n\n700\nBBL\n5439\n0.49%\n1959\n36.02%\n2090\n2.60\n\n\n800\nDialog Grundeinkommen\n5136\n0.46%\n1139\n22.18%\n2205\n2.33\n\n\n900\nB+B\n9869\n0.88%\n5143\n52.11%\n3359\n2.94\n\n\n1000\nBIP\n3651\n0.33%\n2046\n56.04%\n1451\n2.52\n\n\n1100\nFREIE WÄHLER\n2437\n0.22%\n564\n23.14%\n987\n2.47\n\n\n1300\nNPD\n15944\n1.43%\n2263\n14.19%\n4217\n3.78\n\n\n1400\nPIRATEN\n21074\n1.89%\n3117\n14.79%\n7864\n2.68\n\n\n1600\nRRP\n8868\n0.79%\n2947\n33.23%\n3105\n2.86\n\n\n\n\n\n\n\n\n\n\n\nBremerhaven 2019Bremerhaven 2015Bremerhaven 2011\n\n\n\n\nCode\nformat_Parteien_table(PP |&gt; filter(Wahlgebiet == \"Bremerhaven\", Jahr == 2019) |&gt; select(-Jahr, -Wahlgebiet))\n\n\n\n\n\n\n\n\nID\nPartei\nStimmen gesamt\nStimmen gesamt (%)\nPersonen-Stimmen\nPersonen-Stimmen (%)\nWähler gesamt\nStimmen pro Wähler gesamt\n\n\n\n\n100\nSPD\n50857\n24.99%\n19234\n37.82%\n13052\n3.90\n\n\n200\nCDU\n46994\n23.09%\n18352\n39.05%\n11649\n4.03\n\n\n300\nGRÜNE\n33819\n16.62%\n9969\n29.48%\n9834\n3.44\n\n\n400\nDIE LINKE\n17267\n8.49%\n4812\n27.87%\n5111\n3.38\n\n\n500\nFDP\n11735\n5.77%\n3935\n33.53%\n3765\n3.12\n\n\n600\nAfD\n18466\n9.07%\n5102\n27.63%\n4405\n4.19\n\n\n700\nBIW\n15068\n7.40%\n8624\n57.23%\n4143\n3.64\n\n\n900\nPIRATEN\n4424\n2.17%\n1611\n36.42%\n1527\n2.90\n\n\n1100\nDIE RECHTE\n627\n0.31%\n224\n35.73%\n202\n3.10\n\n\n1200\nFREIE WÄHLER\n1421\n0.70%\n419\n29.49%\n530\n2.68\n\n\n1600\nWIR\n2821\n1.39%\n1597\n56.61%\n964\n2.93\n\n\n\n\n\n\n\n\n\n\n\nCode\nformat_Parteien_table(PP |&gt; filter(Wahlgebiet == \"Bremerhaven\", Jahr == 2015) |&gt; select(-Jahr, -Wahlgebiet))\n\n\n\n\n\n\n\n\nID\nPartei\nStimmen gesamt\nStimmen gesamt (%)\nPersonen-Stimmen\nPersonen-Stimmen (%)\nWähler gesamt\nStimmen pro Wähler gesamt\n\n\n\n\n100\nSPD\n54237\n33.96%\n22520\n41.52%\n13502\n4.02\n\n\n200\nGRÜNE\n17836\n11.17%\n7852\n44.02%\n5869\n3.04\n\n\n300\nCDU\n38133\n23.88%\n15352\n40.26%\n9206\n4.14\n\n\n400\nDIE LINKE\n11243\n7.04%\n1990\n17.70%\n3097\n3.63\n\n\n500\nBIW\n10334\n6.47%\n5652\n54.69%\n2885\n3.58\n\n\n600\nFDP\n8745\n5.48%\n3497\n39.99%\n2641\n3.31\n\n\n700\nPIRATEN\n3931\n2.46%\n1630\n41.47%\n1335\n2.94\n\n\n800\nNPD\n2170\n1.36%\n665\n30.65%\n580\n3.74\n\n\n900\nAfD\n7936\n4.97%\n1781\n22.44%\n2021\n3.93\n\n\n1000\nDie PARTEI\n2904\n1.82%\n889\n30.61%\n970\n2.99\n\n\n1100\nTierschutzpartei\n2220\n1.39%\n324\n14.59%\n771\n2.88\n\n\n\n\n\n\n\n\n\n\n\nCode\nformat_Parteien_table(PP |&gt; filter(Wahlgebiet == \"Bremerhaven\", Jahr == 2011) |&gt; select(-Jahr, -Wahlgebiet))\n\n\n\n\n\n\n\n\nID\nPartei\nStimmen gesamt\nStimmen gesamt (%)\nPersonen-Stimmen\nPersonen-Stimmen (%)\nWähler gesamt\nStimmen pro Wähler gesamt\n\n\n\n\n100\nSPD\n66362\n34.26%\n17726\n26.71%\n17026\n3.90\n\n\n200\nCDU\n38861\n20.07%\n12404\n31.92%\n9500\n4.09\n\n\n300\nGRÜNE\n42130\n21.75%\n12754\n30.27%\n12147\n3.47\n\n\n400\nDIE LINKE\n8945\n4.62%\n1410\n15.76%\n2662\n3.36\n\n\n500\nFDP\n5921\n3.06%\n2428\n41.01%\n1999\n2.96\n\n\n600\nBIW\n13817\n7.13%\n6035\n43.68%\n3948\n3.50\n\n\n900\nB+B\n2510\n1.30%\n942\n37.53%\n929\n2.70\n\n\n1000\nBIP\n883\n0.46%\n630\n71.35%\n312\n2.83\n\n\n1200\nFür Bremerhaven\n1981\n1.02%\n770\n38.87%\n719\n2.76\n\n\n1300\nNPD\n4526\n2.34%\n971\n21.45%\n1177\n3.85\n\n\n1400\nPIRATEN\n3861\n1.99%\n738\n19.11%\n1357\n2.85\n\n\n1500\nPdB\n1303\n0.67%\n722\n55.41%\n453\n2.88\n\n\n1600\nRRP\n2574\n1.33%\n759\n29.49%\n870\n2.96\n\n\n\n\n\n\n\n\n\n\n\n\n1.2 Kandidatinnen und Kandidaten\nHinweis: Benutzen Sie die Sortierfunktion (mehrfach klicken auf \\(\\updownarrow\\)) und die Filterfunktion (Texteingabe unter dem Spaltentitel) um für Sie interessante Listen zu erzeugen! Die Tabelle ist “paginiert”, d.h. sie ist in mehrer Seiten aufgeteilt. Links zu den folgenden Seiten finden Sie am Ende der Tabelle.\n\n\nCode\nKK &lt;- d_mds |&gt; filter(type == \"candidate\") |&gt; \n  group_by(year, district, Partei) |&gt; \n  mutate(`Anteil Stimmen Partei (%)` = votes/sum(votes)) |&gt; \n  select(Jahr = year, Wahlgebiet=district, ID=id, Partei, Name = displayname, `Stimmen`= votes, \n         `Anteil Stimmen Partei (%)`, `Wähler` = voters,\n         `Stimmen pro Wähler` = votes_per_voter, Geburtsjahr, `Stadt- oder Ortsteil`, Beruf, Geschlecht) |&gt;\n  group_by()\n\n\n\n\nBremen 2019Bremen 2015Bremen 2011Bremerhaven 2019Bremerhaven 2015Bremerhaven 2011\n\n\n\n\nCode\nformat_Parteien_table(KK |&gt; filter(Wahlgebiet == \"Bremen\", Jahr == 2019) |&gt; select(-Jahr, -Wahlgebiet)) |&gt; \n  opt_interactive(use_filters = TRUE) |&gt; cols_width(ID ~ px(60), Partei ~ px(100), Name ~ px(250))\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nformat_Parteien_table(KK |&gt; filter(Wahlgebiet == \"Bremen\", Jahr == 2015) |&gt; select(-Jahr, -Wahlgebiet)) |&gt; \n  opt_interactive(use_filters = TRUE) |&gt; cols_width(ID ~ px(60), Partei ~ px(100), Name ~ px(250))\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nformat_Parteien_table(KK |&gt; filter(Wahlgebiet == \"Bremen\", Jahr == 2011) |&gt; select(-Jahr, -Wahlgebiet)) |&gt; \n  opt_interactive(use_filters = TRUE) |&gt; cols_width(ID ~ px(60), Partei ~ px(100), Name ~ px(250))\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nformat_Parteien_table(KK |&gt; filter(Wahlgebiet == \"Bremerhaven\", Jahr == 2019) |&gt; select(-Jahr, -Wahlgebiet)) |&gt; \n  opt_interactive(use_filters = TRUE) |&gt; cols_width(ID ~ px(60), Partei ~ px(100), Name ~ px(250))\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nformat_Parteien_table(KK |&gt; filter(Wahlgebiet == \"Bremerhaven\", Jahr == 2015) |&gt; select(-Jahr, -Wahlgebiet)) |&gt; \n  opt_interactive(use_filters = TRUE) |&gt; cols_width(ID ~ px(60), Partei ~ px(100), Name ~ px(250))\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nformat_Parteien_table(KK |&gt; filter(Wahlgebiet == \"Bremerhaven\", Jahr == 2011) |&gt; select(-Jahr, -Wahlgebiet)) |&gt; \n  opt_interactive(use_filters = TRUE) |&gt; cols_width(ID ~ px(60), Partei ~ px(100), Name ~ px(250))"
+  },
+  {
+    "objectID": "index.html#gemeinsame-wählerinnen-und-wähler-paarweiser-vergleich",
+    "href": "index.html#gemeinsame-wählerinnen-und-wähler-paarweiser-vergleich",
+    "title": "Politische Landschaften Bremen",
+    "section": "2 Gemeinsame Wählerinnen und Wähler (paarweiser Vergleich)",
+    "text": "2 Gemeinsame Wählerinnen und Wähler (paarweiser Vergleich)\nFür jedes Paar von Wahlvorschlägen (Partei oder Kandidierende) können die gemeinsamen Wähler gezählt werden. Dies sind diejenigen die beiden Wahlvorschlägen mindestens eine Stimme gegeben haben. Dann lässt sich sowohl für Wahlvorschlag X wie auch für Wahlvorschlag Y der prozentuall Anteil der gemeinsamen Wähler an der Gesamtzahl der Wähler bestimmen.\n\n2.1 Parteien\nIn die folgende Tabelle werden nur die Parteien berücksichtigt und es werden sowohl die Listenstimmen wie auch die Personenstimmen gezählt. Grundsätzlich werden nur Paare angezeigt, die mehr als zehn gemeinsame Wählerinnen und Wähler haben.\nHinweis: Benutzen Sie die Sortierfunktion (mehrfach klicken auf \\(\\updownarrow\\)) und die Filterfunktion (Texteingabe unter dem Spaltentitel) um für Sie interessante Listen zu erzeugen! Die Tabelle ist “paginiert”, d.h. sie ist in mehrer Seiten aufgeteilt. Links zu den folgenden Seiten finden Sie am Ende der Tabelle.\n\n\nBremen 2019Bremen 2015Bremen 2011Bremerhaven 2019Bremerhaven 2015Bremerhaven 2011\n\n\n\n\nCode\npair_tbl_filter_gt &lt;- function(district, year, type) pair_tbl |&gt; \n  filter(`Gemeinsame Wähler` &gt; 10, Wahlgebiet == district, Jahr == year, Vergleich == type) |&gt; \n  select(-Jahr, -Wahlgebiet, -Vergleich) |&gt; \n  gt() |&gt; fmt_percent(\n    columns = c(`X-Wähler wählen Y`, `Y-Wähler wählen X`),\n    decimals = 1\n  ) |&gt;   cols_width(\n    `Gemeinsame Wähler` ~ px(150),\n    `X-Wähler wählen Y` ~ px(150),\n    `Y-Wähler wählen X` ~ px(150)\n  ) |&gt; opt_interactive(\n    use_filters = TRUE,\n    use_highlight = TRUE,\n    use_resizers = TRUE,\n    use_page_size_select = TRUE\n  )\npair_tbl_filter_gt(\"Bremen\", 2019, \"parties\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\npair_tbl_filter_gt(\"Bremen\", 2015, \"parties\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\npair_tbl_filter_gt(\"Bremen\", 2011, \"parties\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\npair_tbl_filter_gt(\"Bremerhaven\", 2019, \"parties\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\npair_tbl_filter_gt(\"Bremerhaven\", 2015, \"parties\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\npair_tbl_filter_gt(\"Bremerhaven\", 2011, \"parties\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2.2 Kandidierende und Parteien\nIn die folgende Tabelle werden alle Wahlvorschläge berücksichtigt. Bei den Parteien werden aber im Gegensatz zur Tabelle oben nur die Listensgtimmen gezählt. Ein paarweiser Vergleich eines Kandidierenden mit seiner Partei zeigt also wieviele Wähler sowohl die Liste als auch die kandidierende Person gewählt haben. Grundsätzlich werden nur Paare angezeigt, die mehr als zehn gemeinsame Wählerinnen und Wähler haben.\nHinweis: Benutzen Sie die Sortierfunktion (mehrfach klicken auf \\(\\updownarrow\\)) und die Filterfunktion (Texteingabe unter dem Spaltentitel) um für Sie interessante Listen zu erzeugen! Die Tabelle ist “paginiert”, d.h. sie ist in mehrer Seiten aufgeteilt. Links zu den folgenden Seiten finden Sie am Ende der Tabelle.\n\n\nBremen 2019Bremen 2015Bremen 2011Bremerhaven 2019Bremerhaven 2015Bremerhaven 2011\n\n\n\n\nCode\npair_tbl_filter_gt(\"Bremen\", 2019, \"partiescandidates\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\npair_tbl_filter_gt(\"Bremen\", 2015, \"partiescandidates\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\npair_tbl_filter_gt(\"Bremen\", 2011, \"partiescandidates\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\npair_tbl_filter_gt(\"Bremerhaven\", 2019, \"partiescandidates\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\npair_tbl_filter_gt(\"Bremerhaven\", 2015, \"partiescandidates\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\npair_tbl_filter_gt(\"Bremerhaven\", 2011, \"partiescandidates\")"
+  },
+  {
+    "objectID": "index.html#datenquellen",
+    "href": "index.html#datenquellen",
+    "title": "Politische Landschaften Bremen",
+    "section": "3 Datenquellen",
+    "text": "3 Datenquellen\n\nDie Stimmzettel der einzelnen Wählenden, die hier benutzt wurden, werden bei der Auszählung digital erfasst und sind unter Angabe des Forschungsinteressen und unter einer vertraglichen “Vereinbarung zur Nutzung faktisch anonymisierter Mikrodaten” beim Landeswahlleiter erhältlich. Für diese Auswertungen wurden diese Daten für die Wahlen 2011, 2015 und 2019 verwendet sowie Listen der Kandidierenden aller antretenden Listen vor. Der Nutzungs-Vertrag verbietet die öffentliche Bereitstellung der Daten um das Wahlgeheimnis zu schützen. Obwohl alle Stimmzettel selbstverständlich nicht einzelnen Personen zugeordnet sind, wird vom Statischen Landesamt wohl eine gewisse Gefahr gesehen, dass einzelne Stimmen de-anonymisiert werden könnten.\nDetailierte Wahlergebnisse, allerdings ohne die Informationen zu den einzelnen Stimmzetteln werden vom Landeswahlleiter zusammengestellt für die Wahlen 2019, 2015 und 2011.\nFür die Bürgerschaftswahlen ist die Online-Datenbank aus der Auszählung mit Stimmen der Kandidierenden weiterhin verfügbar. Diese lassen sich über die Gemeinde (Bremen oder Bremerhaven), die Stadtteile, Ortsteile, bis in die jeweiligen Wahlurnen auschlüsseln:\n\nBürgerschaftwahl 2015\nBürgerschaftwahl 2019\n\nDer Landeswahlleiter stellt auch recht detailierte Wahl-Atlanten zur Verfügung in denen Stimmanteile der Parteien sowie Wahlbeteiligung und einige Sozialindikatoren in den Stadt- und Ortsteilen verglichen werden können."
+  },
+  {
+    "objectID": "index.html#daten-inkonsistenzen",
+    "href": "index.html#daten-inkonsistenzen",
+    "title": "Politische Landschaften Bremen",
+    "section": "4 Daten-Inkonsistenzen",
+    "text": "4 Daten-Inkonsistenzen\n\nIm Vergleich zum offiziellen Wahlergebnis fehlen in meinem Datensatz für Bremen 2019 905 gültige und 13 ungültige Stimmhefte, dies könnten 1 oder zwei Wahlurnen sein. Statistik Bremen wurde auf den Fehler hingewiesen. Dies soll geklärt werde. Zur Zeit müsse aber eine Wahl organisiert werden."
+  },
+  {
+    "objectID": "index_2.html",
+    "href": "index_2.html",
+    "title": "Wahlen Bremen",
+    "section": "",
+    "text": "Code\nlibrary(tidyverse)\nlibrary(glue)\nlibrary(arrow)\nlibrary(plotly)\nlibrary(gt)\nlibrary(ggiraph)\nlibrary(patchwork)\nKandidaten_Stats &lt;- read_parquet(\"data/Kandidaten_Stats.parquet\")\nListen_Stats &lt;- read_parquet(\"data/Listen_Stats.parquet\")\nWahlvorschläge &lt;- read_parquet(\"data/Wahlvorschläge.parquet\")\nStimmzettel_Stats &lt;- read_parquet(\"data/Stimmzettel_Stats.parquet\") # Not in repo! Require non-disclosure agreement. \nRelevanzschwellen &lt;- read_parquet(\"data/Relevanzschwellen.parquet\")\nMandate_Parteien &lt;- read_parquet(\"data/Mandate_Parteien.parquet\")\nMandate_ListePersonen &lt;- read_parquet(\"data/Mandate_ListePersonen.parquet\")\nMandate_Kandidaten &lt;- read_parquet(\"data/Mandate_Kandidaten.parquet\")\nParteiFarben &lt;- tibble(Partei = c(\"SPD\",\"CDU\",\"GRÜNE\",\"FDP\",\"DIE LINKE\",\"BIW\",\"AfD\"), \n                       Farbe = c(\"#ff0000\", \"#000000\", \"#009933\",\"#e6e600\",\"#990033\", \"#ff9900\", \"#0099ff\"),\n                       Textfarbe = c(\"white\",\"white\",\"white\",\"black\",\"white\",\"black\",\"white\"))\nJahre &lt;- unique(Listen_Stats$Jahr)\n\n\nGrundlage dieser Analysen sind die Stimmzetteldaten der Wahlen zur Bremischen Bürgerschaft in den Jahren 2011, 2015, 2019, and 2023 für die Wahlbezirke Bremen und Bremenhaven. Dies sind 1.084.499 Stimmzettel von denen 1.054.102 gültig sind. Die Aufgliederung nach Jahr und Wahlbezirk zeigt Tabelle 1. Als Metadaten gehen in die Analyse Daten über alle Wahlvorschläge ein. Dies sind die zur Wahl stehenden Listen und deren Kandidatinnen und Kandidaten1 mit den Daten Name, Geburtsjahr, Beruf, und Stadt-/Ortsteil so wie sie auch auf dem Stimmzettel stehen.\nIm Gegensatz zum amtlichen Wahlergebnis, enthält der Stimmzettel-Datensatz die fünf Stimmen für jeden Stimmzettel. Das amtliche Wahlergebnis aggregiert bereits die Stimmenanzahl für jeden Wahlvorschlag. Dieser Datensatz ist beim Landeswahlleiter mit einer Vertraulichkeitsvereinbarung erhältlich sofern ein Forschungsinteresse besteht. Diese schützt das Wahlgeheimnis der Wählenden in besonderer Form. Die Stimmzettel enthalten durch die geheime Wahl naturgemäß keine namentliche Kennzeichnung. Der bereitgestellt Datensatz enthält auch keine weitere Kennzeichnung von Wahlgebiet oder Wahlurne. Bei Kenntnis einiger Stimmen eines Wählenden ergäbe sich aber gegebenenfalls eine Deanonymisierung-Möglichkeit und somit die Möglichkeit deren andere Stimmen zu erfahren. Deanonymisierungsversuche sind durch die Vertraulichkeitsvereinbarung verboten. Außerdem liegt dem Autor das dazu notwendige Wissen nicht vor. Für andere Personen wäre dies aber durchaus möglich, da ein erstaunlich großer Anteil der Stimmzettel einzigartig sind wie Tabelle 2 zeigt.\nDie folgenden Analysen sind größtenteils beschreibend und fokussieren besonders auf Kennzahlen, die nur aus den Stimmzetteldaten ablesbar sind. Die Daten werden aber so weit aggregiert dass keine Gefährdung des Wahlgeheimnis besteht.\n\n\nCode\nStimmzettel_Stats |&gt; \n  summarize(Stimmzettel = sum(n), \n            Gültige = sum(if_else(is.na(Stimme1), 0, n)), \n            `Anteil Ungültig` = 1 - Gültige/Stimmzettel,\n            .by = c(Jahr, Wahlbezirk)) |&gt;\n  pivot_wider(names_from = c(Wahlbezirk), values_from = c(Stimmzettel, Gültige, `Anteil Ungültig`)) |&gt; \n  gt() |&gt; \n  tab_spanner(label = \"Bremen\", ends_with(\"Bremen\")) |&gt; \n  tab_spanner(label = \"Bremerhaven\", ends_with(\"Bremerhaven\")) |&gt; \n  cols_label(\n    starts_with(\"Stimm\") ~ \"Stimmzettel\",\n    starts_with(\"Gü\") ~ \"Gültige\",\n    starts_with(\"Anteil Ungültig\") ~ \"Anteil Ungültig\"\n  ) |&gt; \n  fmt_percent(starts_with(\"Anteil Ungültig\")) |&gt; \n  fmt_integer(c(starts_with(\"Stimm\"), starts_with(\"Gü\")), sep_mark = \".\")\n\n\n\n\nTabelle 1: Stimmzettel im Datensatz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJahr\n\nBremen\n\n\nBremerhaven\n\n\n\nStimmzettel\nGültige\nAnteil Ungültig\nStimmzettel\nGültige\nAnteil Ungültig\n\n\n\n\n2011\n232.883\n225.621\n3.12%\n41.239\n39.363\n4.55%\n\n\n2015\n210.604\n204.529\n2.88%\n33.954\n32.601\n3.98%\n\n\n2019\n260.951\n255.119\n2.23%\n42.769\n41.529\n2.90%\n\n\n2023\n227.160\n221.784\n2.37%\n34.939\n33.556\n3.96%\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nStimmzettel_Stats |&gt; \n  filter(!is.na(Stimme1)) |&gt; \n  summarize(Gültige = sum(n), \n            Einzigartige = sum(if_else(n == 1, 1, 0)),\n            `Anteil Einzigartige` = Einzigartige/Gültige,\n            .by = c(Jahr, Wahlbezirk)) |&gt;\n  pivot_wider(names_from = c(Wahlbezirk), values_from = c(Gültige, Einzigartige, `Anteil Einzigartige`)) |&gt; \n  gt() |&gt; \n  tab_spanner(label = \"Bremen\", ends_with(\"Bremen\")) |&gt; \n  tab_spanner(label = \"Bremerhaven\", ends_with(\"Bremerhaven\")) |&gt; \n  cols_label(\n    starts_with(\"Gü\") ~ \"Gültige\",\n    starts_with(\"Ein\") ~ \"Einzigartige\",\n    starts_with(\"An\") ~ \"Anteil Einzigartige\"\n  ) |&gt; \n  fmt_percent(starts_with(\"Anteil \")) |&gt; \n  fmt_integer(c(starts_with(\"Gü\"), starts_with(\"Ein\")), sep_mark = \".\")\n\n\n\n\nTabelle 2: Einzigartie Stimmzettel im Datensatz\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJahr\n\nBremen\n\n\nBremerhaven\n\n\n\nGültige\nEinzigartige\nAnteil Einzigartige\nGültige\nEinzigartige\nAnteil Einzigartige\n\n\n\n\n2011\n225.621\n35.072\n15.54%\n39.363\n5.368\n13.64%\n\n\n2015\n204.529\n36.980\n18.08%\n32.601\n5.135\n15.75%\n\n\n2019\n255.119\n37.217\n14.59%\n41.529\n5.826\n14.03%\n\n\n2023\n221.784\n30.236\n13.63%\n33.556\n5.030\n14.99%"
+  },
+  {
+    "objectID": "index_2.html#stimmenverteilung-für-listen-spitzenkandidatinnen-und-andere-personen",
+    "href": "index_2.html#stimmenverteilung-für-listen-spitzenkandidatinnen-und-andere-personen",
+    "title": "Wahlen Bremen",
+    "section": "2.1 Stimmenverteilung für Listen, Spitzenkandidat/innen und andere Personen",
+    "text": "2.1 Stimmenverteilung für Listen, Spitzenkandidat/innen und andere Personen\nAbbildung 1 zeigt die Gesamtzahl der Listen- und Personenstimmen wie sie auch aus dem amtlichen Wahlergebnis hervorgehen. Der Anteil der Personenstimmen liegt in Bremen stets über 40% und tendiert zu etwa 45%. In Bremerhaven wurde 2023 zum ersten Mal ein Wert über 40% erreicht. Der Anteil der Personenstimmen schwankt insbesondere mit der Wahlbeteiligung (abzulesen an der Höhe der Gesamtbalken). Bei hoher Wahlbeteiligung sinkt der Anteil der Personenstimmen. Dies deutet darauf hin, dass die bei eine hohen Wahlbeteilgung zusätzlich motivierten Wähler mehr Listenstimmen abgeben. Dies ist sehr plausibel weil es sich tendenziell um nicht so stark politisch interessierte handeln dürfte die weniger Wissen über einzelne Kandidierende haben. Insbesondere in Bremen ist die Gesamtzahl der Personenstimmen ziemlich gleich bleibend. Wenn überhaupt gibt es eine leicht steigende tendenz insbesondere in Bremerhaven.\n\n\nCode\nWahlvorschläge |&gt; \n  mutate(Typ2 = ifelse(Kennnummer %% 100 == 1, \"Spitzenkandidat/in\", str_replace(Typ, \"Person\", \"Andere Kandidat/in\")) |&gt; \n           fct_inorder()) |&gt; \n  summarize(Stimmen = sum(Stimmen), .by = c(Jahr, Wahlbezirk,Typ2)) |&gt; \n  mutate(Anteil = paste0(format(100*Stimmen/sum(Stimmen), digits=3, decimal.mark = \",\"),\"%\"), \n         .by = c(Jahr, Wahlbezirk)) |&gt; \n  mutate(Typ = factor(Typ2)) |&gt; \n  ggplot(aes(Jahr, Stimmen, fill = Typ, alpha=(Jahr==2023))) + geom_col() + \n  geom_text(aes(label = Anteil), position = position_stack(vjust = 0.5), size = 3, alpha = 1) + \n  scale_alpha_manual(values=c(0.6,1)) +\n  scale_x_continuous(breaks = c(2011,2015,2019,2023)) +\n  scale_y_continuous(labels = scales::label_number(big.mark = \".\", decimal.mark = \",\")) +\n  scale_fill_manual(values = c(\"#9b59b6\", \"#2ca25f\",\"#58d68d\")) +\n  facet_wrap(~Wahlbezirk, ncol = 2, scales = \"free_y\") +\n  labs(x=\"\", y=\"Stimmen\", caption=\"Daten: Landeswahlleiter Bremen, Grafik: Jan Lorenz\") +\n  guides(fill=guide_legend(nrow=1,byrow=TRUE), alpha = \"none\") +\n  theme_minimal(base_size = 14) +\n  theme(legend.position = \"bottom\", legend.title = element_blank())\n\n\n\n\n\n\n\n\nAbbildung 1: Die farblichen Balken zeigen die absolute Anzahl der Personenstimmen und Listenstimmen bei der jeweiligen Wahl im jeweiligen Wahlbezirk. Die Prozentzahlen beziehen sich auf den Anteil an allen Stimmen."
+  },
+  {
+    "objectID": "index_2.html#wähler-typen",
+    "href": "index_2.html#wähler-typen",
+    "title": "Wahlen Bremen",
+    "section": "2.2 Wähler-Typen",
+    "text": "2.2 Wähler-Typen\nDie folgenden Aufteilungen zeigen die Aufteilung auf verschiedene Wähler-Typen. Diese Informationen sind nur durch den Stimmzetteldatensatz erfassbar.\nAbbildung 2 zeigt das ca. ein Drittel der Wählenden nur Personen wählt die Hälfte oder etwas weniger nur Listen wählt.\nAbbildung 3 zeigt das knapp 37% bis 50% der Wählenden panaschieren. Das heißt eine (knappe) Mehrheit der Wählenden gibt alle Stimmen an den gleichen Wahlvorschlag. Die Graphik unterteilt diese Vollkummulierer noch in drei Gruppen. Die jenigen die nur eine Liste wählen, die die nur einen Spitzenkandidaten wählen und die die nur einen anderen Kandidaten wählen (Listenplatz 2 oder darunter). Diejenigen, die nur eine Liste wählen, könnten ihren Wählerwillen auch mit dem reinen Listenwahlrecht ausdrücken, wie es vor 2011 in Bremen galt. In Bremen sind es gut ein Drittel in Bremerhaven etwas mehr als 40%. Die Mehrheit macht also in der ein oder anderen Weise vom personalisierten Wahlrecht Gebrauch.\nAbbildung 4 zeigt auch die Aufteilung in Kummulierer und Panaschierer, unterteilt aber die Panaschierer. Sie zeigt das 20% bis über 30% der Wählenden sogar parteiübergreifend Panaschieren.\n\n\nCode\nStimmzettel_Stats |&gt; filter(num_valid &gt; 0) |&gt; group_by(Wahlbezirk, Jahr) |&gt; \n  count(only_party, only_person, wt = n) |&gt; \n  mutate(Anteil = paste0(format(100*n/sum(n),digits=3,decimal.mark = \",\"),\"%\")) |&gt; \n  mutate(`Wähler` = factor(paste0(only_party, only_person),levels = c(\"FALSETRUE\",\"FALSEFALSE\",\"TRUEFALSE\"), \n                         labels = c(\"Personenwähler\",\"Beides\",\"Listenwähler\")) |&gt; fct_rev()) |&gt; \n  ggplot(aes(Jahr, n, fill = `Wähler`, alpha=(Jahr==2023))) + geom_col() + \n  geom_text(aes(label = Anteil), position = position_stack(vjust = 0.5), size = 3) +\n  scale_alpha_manual(values=c(0.6,1)) +\n  scale_x_continuous(breaks = c(2011,2015,2019,2023)) +\n  scale_y_continuous(labels = scales::label_number(big.mark = \".\", decimal.mark = \",\")) +\n  scale_fill_manual(values = c(\"#3498db\",\"#8e44ad\",\"#e74c3c\")) +\n  facet_wrap(~Wahlbezirk, ncol = 2, scales = \"free_y\") +\n  labs(x=\"\", y=\"Wähler\", caption=\"Daten: Landeswahlleiter Bremen, Grafik: Jan Lorenz\") +\n  guides(fill=guide_legend(nrow=1,byrow=TRUE), alpha = \"none\") +\n  theme_minimal(base_size = 14) +\n  theme(legend.position = \"bottom\", legend.title = element_blank())\n\n\n\n\n\n\n\n\nAbbildung 2: Anzahl und Anteil von Listen- und Personenwählern. Listenwähler: Alle Stimmen gehen an Listen (aber ggf. an verschiedene; Personwähler: Alle Stimmen gehen an Personen (aber ggf. an verschiedene).\n\n\n\n\n\n\n\nCode\nStimmzettel_Stats |&gt; filter(num_valid &gt; 0) |&gt; \n  group_by(Wahlbezirk, Jahr) |&gt; \n  count(only_lead & full_cum, no_lead & full_cum, full_cum, wt = n) |&gt; \n  mutate(Anteil = paste0(format(100*n/sum(n),digits=3,decimal.mark = \",\"),\"%\")) |&gt; \n  mutate(`Vollkummulierer` = \n           factor(paste0(`only_lead & full_cum`, `no_lead & full_cum`, full_cum),\n                  levels = c(\"FALSEFALSETRUE\",\"TRUEFALSETRUE\",\"FALSETRUETRUE\",\"FALSEFALSEFALSE\"), \n                  labels = c(\"Nur eine Partei\",\"Nur ein Spitzenkandidat\",\"Nur ein anderer Kandidat\",\"Panschierer\") |&gt; \n                    fct_rev())) |&gt; \n  ggplot(aes(Jahr, n, fill = `Vollkummulierer`, alpha=(Jahr==2023))) + geom_col() + \n  geom_text(aes(label = Anteil), position = position_stack(vjust = 0.5), size = 3) + \n  scale_alpha_manual(values=c(0.6,1)) +\n  scale_x_continuous(breaks = c(2011,2015,2019,2023)) +\n  scale_y_continuous(labels = scales::label_number(big.mark = \".\", decimal.mark = \",\")) +\n  scale_fill_manual(values = c(\"#fdae6b\",\"#fd8d3c\",\"#d94801\",\"#41ad5d\")) +\n  facet_wrap(~Wahlbezirk, ncol = 2, scales = \"free_y\") +\n  labs(x=\"\", y=\"Wähler\", caption=\"Daten: Landeswahlleiter Bremen, Grafik: Jan Lorenz\") +\n  guides(fill=guide_legend(nrow=2,byrow=TRUE), alpha = \"none\") +\n  theme_minimal(base_size = 14) +\n  theme(legend.position = \"bottom\", legend.title = element_blank())\n\n\n\n\n\n\n\n\nAbbildung 3: Anzahl und Anteil von Kumulierern wobei die Kummulierer noch aufgeilt werden in diejenigen, die nur eine Liste, nur einen Spitzenkandidaten, oder nur einen anderen Kandidaten wählen. Mit Kummulierern sind hier nur die Vollkummulierer gemeint, also nicht diejenigen die mindestens zwei Stimmen verschieden abgeben, aber durchaus einen Wahlvorschlag bis zu viermal kummuliert haben können.\n\n\n\n\n\n\n\nCode\nStimmzettel_Stats |&gt; filter(num_valid &gt; 0) |&gt; group_by(Wahlbezirk, Jahr) |&gt; \n  count(one_party,full_cum, wt = n) |&gt; \n  mutate(Anteil = paste0(format(100*n/sum(n),digits=3,decimal.mark = \",\"),\"%\")) |&gt; \n  mutate(`Wähler` = factor(paste0(one_party,full_cum),levels = c(\"FALSEFALSE\",\"TRUEFALSE\",\"TRUETRUE\"), \n                         labels = c(\"parteiübergreifende\\nPanaschierer\",\"parteitreue\\nPanaschierer\",\"Vollkummulierer\")) |&gt; fct_rev()) |&gt; \n  ggplot(aes(Jahr, n, fill = `Wähler`, alpha=(Jahr==2023))) + geom_col() + \n  geom_text(aes(label = Anteil), position = position_stack(vjust = 0.5), size = 3) +\n  scale_alpha_manual(values=c(0.6,1)) +\n  scale_x_continuous(breaks = c(2011,2015,2019,2023)) +\n  scale_y_continuous(labels = scales::label_number(big.mark = \".\", decimal.mark = \",\")) +\n  scale_fill_manual(values = c(\"#f16913\",\"#addd8e\",\"#238443\")) +\n  facet_wrap(~Wahlbezirk, ncol = 2, scales = \"free_y\") +\n  labs(x=\"\", y=\"Wähler\", caption=\"Daten: Landeswahlleiter Bremen, Grafik: Jan Lorenz\") +\n  guides(fill=guide_legend(nrow = 1,byrow=TRUE), alpha = \"none\") +\n  theme_minimal(base_size = 14) +\n  theme(legend.position = \"bottom\", legend.title = element_blank())\n\n\n\n\n\n\n\n\nAbbildung 4: Anzahl und Anteil von Kummulierern und Panaschierern wobei die Panaschierenden in parteitreue und parteiübergreifende unterteilt werden. Kumulierer: Alle Stimmen gehen an einen Wahlvorschlag (Liste oder Kandidat). Panaschierer: Mindestens zwei Stimmen gehen an unterschiedliche Wahlvorschläge. Parteitreu: Alle Stimmen gehen an Wahlvorschläge von der gleichen Partei (verschiedene Kandidaten oder die Liste)."
+  },
+  {
+    "objectID": "index_2.html#mandatesverteilung-parteien",
+    "href": "index_2.html#mandatesverteilung-parteien",
+    "title": "Wahlen Bremen",
+    "section": "5.1 Mandatesverteilung Parteien",
+    "text": "5.1 Mandatesverteilung Parteien\nDie seit 2011 geltenden personalisierten Wahlsysteme haben alle ein dreistufiges Zuteilungsverfahren, welches in den beiden Wahlgebieten unabhängig voneinander angewendet wird. Tabelle 4 zeigt alle Mandatesverteilungen für die Parteien und ihre jeweilige Listen und Personenbank. Die Methode der Zuteilung ist in Kurzform:\n\nZuteilung an Parteien. Die Listenstimmen und Personenstimmen aller Parteien werden zusammengezählt und den Parteien werden proportional Mandate zugeordnete. Dabei werden alle Parteien übergangen die weniger als 5% der abgegebenen Stimmen erhalten haben. Die Zuteilung erfolgt nach dem Divisorverfahren mit Standardrundung (Sainte-Laguë-Verfahren). Diese Verfahren berechnet zunächst den proportionalen Ideal-Anpruch an Mandaten einer Partei (siehe auch Tabelle 4) und rundet dann so, dass die Gesamtzahl der Mandate aus Tabelle 3 entspricht. (Dazu wird der Divisor angepasst so dass die Standardrundung eine passende Gesamtzahl bietet, daher der Name Divisor-Verfahren.)\nZuteilung an Listen und Personenbank. Die Mandate für jede Partei werden in zwei Kontingente – eine Listenbank und eine Personenbank – aufgeteilt. Dies geschieht proportional zu den Listen- und Personenstimmenanteilen der Partei auch nach dem Divisorverfahren mit Standardrundung.\nZuteilung an Kandidaten. Die Listenbank wird mit Kandidaten von nach Listenplatz besetzt, die Personenbank mit Kandidaten der Liste sortiert nach den meisten Personenstimmen (Stimmenrang), die die Kandidaten erhalten haben. In den Jahren 2011 und 2015 wurde zuerst die Listenbank besetzt und danach die Personenbank, wobei alle Kandidaten die bereits einen Listensitz hatten übersprungen werden. Bei den Wahlen 2019 und 2023 war es umgedreht, zuerst die Personenbank und dann die Listenbank. Letzteres hat zur folge, dass es in der Regel schwierigier ist für Kandidaten auf unteren Listenplätzen eine Mandat von der Personenbank zu erringen.\n\nDie Zuteilungsmethode mit proportionaler Listen- und Personenbank hat nicht intendierte negative Auswirkungen:\n\nEs besteht die Möglichkeit eines negativen Stimmengewichts für die Kandidatenauswahl. Das heißt ein Kandidat wird nicht gewählt, wäre aber gewählt, wenn alle oder ein Teil seiner Wähler auf die Stimmabgabe verzichtet hätten. Dies ist nicht nur eine theoretische Möglichkeit. Diese Personenstimmenparadox genannte Phänomen ist bisher bei allen Wahlen aufgetreten (2023 allerdings nur bei den paralleln Beiratswahlen).\nFür Kandidaten auf “mittleren” (halbsicheren) Listenplätzen besteht daher die Gefahr, dass Personenstimmen ihre Wahl gefährenden können, insbesondere wenn sie nur mit eine kleineren Anzahl von Personenstimmen rechnen können. Sie haben also keinerlei Anreiz um Stimmen zu werben, was der grundsätzlichen Idee einer Wahl zuwider läuft. Der Grund für diese Problem ist, dass Personenstimmen die Personenbank zuungunsten der Listenbank vergrößeren können. Eine zusätzliche Personenstimme kann also das Listenmandate für einen Kandidaten zur Personenbank kippen lassen, ohne dass es dafür ausreicht in der Stimmenrangliste soweit vorzurücken, dass ein Personenmandat errungen wird.\n\n\n\n\nTabelle 4: Mandatsverteilungen and Parteien sowie deren Listen- und Personenbank aller Wahlen seit 2011.\n\n\n\n2023201920152011\n\n\n\n\n\nBremen\n\n\n\n\n\n\n\n\n\nStimmen\nMandate\nMandate (ideal)\n\n\n\n\nCDU - 21 Mandate (ideal 20.95)\n\n\nListe\n170.910\n12\n12.12\n\n\nPerson\n125.248\n9\n8.88\n\n\nSPD - 23 Mandate (ideal 23.26)\n\n\nListe\n120.152\n8\n8.40\n\n\nPerson\n208.683\n15\n14.60\n\n\nGRÜNE - 9 Mandate (ideal 9.09)\n\n\nListe\n89.584\n6\n6.28\n\n\nPerson\n38.858\n3\n2.72\n\n\nDIE LINKE - 9 Mandate (ideal 9.02)\n\n\nListe\n60.996\n4\n4.30\n\n\nPerson\n66.563\n5\n4.70\n\n\nFDP - 4 Mandate (ideal 3.93)\n\n\nListe\n39.792\n3\n2.87\n\n\nPerson\n15.740\n1\n1.13\n\n\nBIW - 6 Mandate (ideal 5.74)\n\n\nListe\n62.704\n5\n4.63\n\n\nPerson\n18.499\n1\n1.37\n\n\n\n\n\n\n\n\n\n\nBremerhaven\n\n\n\n\n\n\n\n\n\nStimmen\nMandate\nMandate (ideal)\n\n\n\n\nCDU - 3 Mandate (ideal 3.28)\n\n\nListe\n21.842\n2\n1.87\n\n\nPerson\n13.288\n1\n1.13\n\n\nSPD - 4 Mandate (ideal 4.45)\n\n\nListe\n28.745\n2\n2.41\n\n\nPerson\n18.959\n2\n1.59\n\n\nGRÜNE - 2 Mandate (ideal 2.03)\n\n\nListe\n13.537\n1\n1.24\n\n\nPerson\n8.229\n1\n0.76\n\n\nDIE LINKE - 1 Mandate (ideal 0.94)\n\n\nListe\n7.456\n1\n0.74\n\n\nPerson\n2.647\n0\n0.26\n\n\nFDP - 1 Mandate (ideal 0.8)\n\n\nListe\n5.460\n1\n0.63\n\n\nPerson\n3.152\n0\n0.37\n\n\nBIW - 4 Mandate (ideal 3.49)\n\n\nListe\n17.677\n2\n1.89\n\n\nPerson\n19.722\n2\n2.11\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBremen\n\n\n\n\n\n\n\n\n\nStimmen\nMandate\nMandate (ideal)\n\n\n\n\nSPD - 19 Mandate (ideal 18.47)\n\n\nListe\n154.532\n9\n9.33\n\n\nPerson\n159.998\n10\n9.67\n\n\nCDU - 20 Mandate (ideal 20.18)\n\n\nListe\n176.074\n10\n10.25\n\n\nPerson\n167.456\n10\n9.75\n\n\nGRÜNE - 13 Mandate (ideal 13.01)\n\n\nListe\n156.797\n9\n9.20\n\n\nPerson\n64.712\n4\n3.80\n\n\nDIE LINKE - 9 Mandate (ideal 8.72)\n\n\nListe\n100.628\n6\n6.10\n\n\nPerson\n47.916\n3\n2.90\n\n\nFDP - 4 Mandate (ideal 4.43)\n\n\nListe\n44.972\n2\n2.39\n\n\nPerson\n30.448\n2\n1.61\n\n\nAfD - 4 Mandate (ideal 4.19)\n\n\nListe\n53.176\n3\n2.98\n\n\nPerson\n18.102\n1\n1.02\n\n\n\n\n\n\n\n\n\n\nBremerhaven\n\n\n\n\n\n\n\n\n\nStimmen\nMandate\nMandate (ideal)\n\n\n\n\nSPD - 4 Mandate (ideal 3.93)\n\n\nListe\n31.623\n2\n2.49\n\n\nPerson\n19.234\n2\n1.51\n\n\nCDU - 4 Mandate (ideal 3.63)\n\n\nListe\n28.642\n2\n2.44\n\n\nPerson\n18.352\n2\n1.56\n\n\nGRÜNE - 3 Mandate (ideal 2.61)\n\n\nListe\n23.850\n2\n2.12\n\n\nPerson\n9.969\n1\n0.88\n\n\nDIE LINKE - 1 Mandate (ideal 1.33)\n\n\nListe\n12.455\n1\n0.72\n\n\nPerson\n4.812\n0\n0.28\n\n\nFDP - 1 Mandate (ideal 0.91)\n\n\nListe\n7.800\n1\n0.66\n\n\nPerson\n3.935\n0\n0.34\n\n\nAfD - 1 Mandate (ideal 1.43)\n\n\nListe\n13.364\n1\n0.72\n\n\nPerson\n5.102\n0\n0.28\n\n\nBIW - 1 Mandate (ideal 1.16)\n\n\nListe\n6.444\n0\n0.43\n\n\nPerson\n8.624\n1\n0.57\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBremen\n\n\n\n\n\n\n\n\n\nStimmen\nMandate\nMandate (ideal)\n\n\n\n\nSPD - 24 Mandate (ideal 23.9)\n\n\nListe\n142.682\n10\n10.40\n\n\nPerson\n186.590\n14\n13.60\n\n\nGRÜNE - 12 Mandate (ideal 11.54)\n\n\nListe\n84.334\n6\n6.37\n\n\nPerson\n74.637\n6\n5.63\n\n\nCDU - 16 Mandate (ideal 16.25)\n\n\nListe\n118.389\n8\n8.46\n\n\nPerson\n105.407\n8\n7.54\n\n\nDIE LINKE - 7 Mandate (ideal 7.28)\n\n\nListe\n65.135\n5\n4.55\n\n\nPerson\n35.107\n2\n2.45\n\n\nFDP - 5 Mandate (ideal 4.94)\n\n\nListe\n36.662\n3\n2.70\n\n\nPerson\n31.347\n2\n2.30\n\n\nAfD - 4 Mandate (ideal 4.1)\n\n\nListe\n43.448\n3\n3.08\n\n\nPerson\n12.984\n1\n0.92\n\n\n\n\n\n\n\n\n\n\nBremerhaven\n\n\n\n\n\n\n\n\n\nStimmen\nMandate\nMandate (ideal)\n\n\n\n\nSPD - 6 Mandate (ideal 5.79)\n\n\nListe\n31.717\n4\n3.51\n\n\nPerson\n22.520\n2\n2.49\n\n\nGRÜNE - 2 Mandate (ideal 1.9)\n\n\nListe\n9.984\n1\n1.12\n\n\nPerson\n7.852\n1\n0.88\n\n\nCDU - 4 Mandate (ideal 4.07)\n\n\nListe\n22.781\n2\n2.39\n\n\nPerson\n15.352\n2\n1.61\n\n\nDIE LINKE - 1 Mandate (ideal 1.2)\n\n\nListe\n9.253\n1\n0.82\n\n\nPerson\n1.990\n0\n0.18\n\n\nBIW - 1 Mandate (ideal 1.1)\n\n\nListe\n4.682\n0\n0.45\n\n\nPerson\n5.652\n1\n0.55\n\n\nFDP - 1 Mandate (ideal 0.93)\n\n\nListe\n5.248\n1\n0.60\n\n\nPerson\n3.497\n0\n0.40\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBremen\n\n\n\n\n\n\n\n\n\nStimmen\nMandate\nMandate (ideal)\n\n\n\n\nSPD - 30 Mandate (ideal 30.36)\n\n\nListe\n206.420\n14\n14.11\n\n\nPerson\n232.571\n16\n15.89\n\n\nCDU - 16 Mandate (ideal 15.74)\n\n\nListe\n130.416\n9\n9.17\n\n\nPerson\n97.206\n7\n6.83\n\n\nGRÜNE - 17 Mandate (ideal 17.42)\n\n\nListe\n163.776\n11\n11.05\n\n\nPerson\n88.087\n6\n5.95\n\n\nDIE LINKE - 5 Mandate (ideal 4.48)\n\n\nListe\n44.465\n3\n3.43\n\n\nPerson\n20.359\n2\n1.57\n\n\n\n\n\n\n\n\n\n\nBremerhaven\n\n\n\n\n\n\n\n\n\nStimmen\nMandate\nMandate (ideal)\n\n\n\n\nSPD - 6 Mandate (ideal 6.18)\n\n\nListe\n48.636\n4\n4.40\n\n\nPerson\n17.726\n2\n1.60\n\n\nCDU - 4 Mandate (ideal 3.62)\n\n\nListe\n26.457\n3\n2.72\n\n\nPerson\n12.404\n1\n1.28\n\n\nGRÜNE - 4 Mandate (ideal 3.92)\n\n\nListe\n29.376\n3\n2.79\n\n\nPerson\n12.754\n1\n1.21\n\n\nBIW - 1 Mandate (ideal 1.29)\n\n\nListe\n7.782\n1\n0.56\n\n\nPerson\n6.035\n0\n0.44"
+  },
+  {
+    "objectID": "index_2.html#footnotes",
+    "href": "index_2.html#footnotes",
+    "title": "Wahlen Bremen",
+    "section": "Fußnoten",
+    "text": "Fußnoten\n\n\n“In diesem Text wird unsystematisch oder auch mal nicht gegendert. In allgemeinen Erläuterungen und herausgehobenen stellen wird auf verschiedene Weisen gegendert, zum Beispiel bei Kandidierenden, Wählenden, Kandidat/innen, Wähler/innen oder auch in der Doppelschreibung. In eher technischen Abschnitten zu Wahlsystemen wird auf gendern verzichtet, um die Sätze nicht zu lang oder komplex zu gestalten. Mit den Kandidaten und Wählern sind dann alle Geschlechter gemeint.” ↩︎\nMit 15 Sitzen repräsentiert ein Sitz 6.67% der Sitze also schon mehr als 5%. Die 5%-Hürde wird also fast durch die natürliche Hürde überlagert.↩︎"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#wahl-bremensien",
+    "href": "Präsentation_Wissen_um_11_2023.html#wahl-bremensien",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Wahl-“Bremensien”1",
+    "text": "Wahl-“Bremensien”1\n\nBremer können alle 4 Jahre ihr Parlament wählen\nTeilzeit-Parlament (auch in HH)\nDas Bürgerschaft hat die Richtlinienkompetenz und nicht der Regierungschef\nKein “Kanzlerprinzip”, Bürgermeister \\(\\neq\\) Ministerpräsident:\nSenatsmitglieder brauchen Vertrauen der Bürgerschaft nicht ihres Präsidenten\nTrennung Amt und Mandat: Regierungsmitglieder nicht im Parlament (auch in HH)\n\n\n\nQuellen: Landesverfassung Bremisches Abgeordneten Gesetz\nVorbemerkung: In diesem Vortrag wird von Kandidatinnen und Kandidaten, Wählerinnen und Wählern und anderen Menschen mit vielerlei möglichen Geschlechtsidentitäten die Rede sein. Oft werde ich sie aber nur Kandidaten, Wähler, usw. nennen.\nBremische Besonderheiten. Hier bezogen auf Wahlen zur Bremischen Bürgerschaft im Vergleich zu anderen Landtags- und Bundestagswahlen."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#die-bremische-bürgerschaft",
+    "href": "Präsentation_Wissen_um_11_2023.html#die-bremische-bürgerschaft",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Die Bremische Bürgerschaft",
+    "text": "Die Bremische Bürgerschaft\n\n\n\n\nZwei Wahlgebiete\n\nBremen (Stadt) 72 Abgeordnete\nBremerhaven 15 Abgeordnete\n\nTechnisch zwei unabhängige Wahlen:\nEigene Listen, eigene 5% Sperrklausel\n\n\n\nFun-Fact Bremerhaven: 1 einzelner von 15 Abgeordneten entspricht 100/15 = 6.67% also bereits mehr 5%. Die natürliche Sperrklausel kann also sogar über 5% liegen.1\n\n\n\n\n\n\n\n\n\n\n\n\nDas passiert zum Beispiel wenn 15 Parteien jeweils 6% bekommen, Partei XY 5.5% und Partei YZ 4.5%. Partei YZ scheitert an der 5%-Hürde, aber auch Partei XY bekommt kein Mandat da, die 15 Mandate an die Parteien mit 6% gehen."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#wählen-5-stimmen-irgendwie-aufteilen",
+    "href": "Präsentation_Wissen_um_11_2023.html#wählen-5-stimmen-irgendwie-aufteilen",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Wählen: 5 Stimmen irgendwie aufteilen",
+    "text": "Wählen: 5 Stimmen irgendwie aufteilen"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#wählen-listenstimmen-und-personenstimmen",
+    "href": "Präsentation_Wissen_um_11_2023.html#wählen-listenstimmen-und-personenstimmen",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Wählen: Listenstimmen und Personenstimmen",
+    "text": "Wählen: Listenstimmen und Personenstimmen"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#auszählen",
+    "href": "Präsentation_Wissen_um_11_2023.html#auszählen",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Auszählen",
+    "text": "Auszählen\n\n\n\nAuf dem Stimm-Zettel hat jede Partei und jede Person eine ID-Nummer\n\nDie erste(n) Stelle(n) bezeichnen die Liste\nDie letzten beiden Stellen bezeichnen den Listenplatz einer Person, Listenplatz 0 steht für eine Listenstimme\n\nStimm-Zettel werden digital erfasst (je 5 ID-Nummern)\n\nBeispiele:\n200 \\(\\to\\) 02 00 \\(\\to\\) Liste 2, Listenstimme\n417 \\(\\to\\) 04 17 \\(\\to\\) Liste 4, Person auf Listenplatz 17\nWahlergebnis: Tabelle mit Stimmen für alle IDs.\n\n\n\n\n\n\n\n\n\n7 Beispiele für digitalisierte Stimm-Zettel\n\n\nStimme 1\nStimme 2\nStimme 3\nStimme 4\nStimme 5\n\n\n\n\n127\n127\n127\n127\n127\n\n\n101\n101\n107\n107\n107\n\n\n100\n200\n300\n500\n500\n\n\n235\n235\n235\n235\n235\n\n\n301\n301\n301\n302\n302\n\n\n901\n901\n901\n901\n901\n\n\n700\n700\n700\n700\n700\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWahlergebnis Bremen 2019\n\n\nBeispiel für die ersten 5 IDs\n\n\nID\nPartei\nName\nStimmen\n\n\n\n\n100\nSPD\nListenstimmen\n154532\n\n\n101\nSPD\nSieling\n65550\n\n\n102\nSPD\nBogedan\n7037\n\n\n103\nSPD\nMäurer\n16913\n\n\n104\nSPD\nQuante-Brandt\n2620"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#mandate-zuteilen",
+    "href": "Präsentation_Wissen_um_11_2023.html#mandate-zuteilen",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Mandate zuteilen",
+    "text": "Mandate zuteilen\n\n\nDie Mandate werden nach dem Prinzip der Verhältniswahl auf die Parteien verteilt.1\nParteien unter 5% Stimmenanteil fallen weg.\nDie Mandate einer jeden Partei werden nach dem Prinzip der Verhältniswahl in zwei Kontingente unterteilt:\n\nein Listen-Mandat-Kontingent\nein Personen-Mandat-Kontingent\n\nAus der Liste jeder Partei wird eine Personen-Stimmen-Rangliste gebildet. Die Personen mit den meisten Stimmen erhalten die Personen-Mandate vergeben\nDie Listen-Mandate erhalten die ersten Personen der unveränderten Liste sofern sie nicht schon ein Personen-Mandat haben.\n\n\nBei allen Zuteilungen nach dem Prinzip der Verhältniswahl wird das Divisor-Verfahren mit Standard-Rundung verwendet (auch Saint-Laguë genannt)."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#jede-stimme-hat-mehrere-funktionen",
+    "href": "Präsentation_Wissen_um_11_2023.html#jede-stimme-hat-mehrere-funktionen",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Jede Stimme hat mehrere Funktionen!",
+    "text": "Jede Stimme hat mehrere Funktionen!\nListen-Stimmen zählen für\n\ndie Partei\ndas Listen-Mandats-Kontingent der Partei\n\nPersonen-Stimmen zählen für\n\ndie Partei\nfür das Direkt-Mandat-Kontingent welches nach Personen-Stimmen-Rangliste vergeben wird\nfür die Position der Person auf der Rangliste"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#beispiel-bremen-stadt",
+    "href": "Präsentation_Wissen_um_11_2023.html#beispiel-bremen-stadt",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Beispiel: Bremen (Stadt)",
+    "text": "Beispiel: Bremen (Stadt)\n2019 - Verhältniswahl\n\n\n\nStimmanteile der Parteien\n\n\n\n\n\n\n\n\n\nPartei\nStimmen\nProzent\n\n\n\n\nSPD\n314.530\n24.93%\n\n\nCDU\n343.530\n27.23%\n\n\nGRÜNE\n221.509\n17.56%\n\n\nDIE LINKE\n148.544\n11.77%\n\n\nFDP\n75.420\n5.98%\n\n\nAfD\n71.278\n5.65%\n\n\nBIW\n20.691\n1.64%\n\n\nDie PARTEI\n24.324\n1.93%\n\n\nPIRATEN\n9.675\n0.77%\n\n\nBGE\n5.939\n0.47%\n\n\nFREIE WÄHLER\n12.714\n1.01%\n\n\nMENSCHLICHE WELT\n2.559\n0.20%\n\n\nDie Humanisten\n6.637\n0.53%\n\n\nV-Partei³\n4.269\n0.34%\n\n\n\n\n\n\n\n\n\n5%-Hürde, Sitzverteilung\n\n\n\n\n\n\n\n\n\nPartei\nStimmen\nProzent\nSitze\n\n\n\n\nSPD\n314.530\n24.93%\n19\n\n\nCDU\n343.530\n27.23%\n20\n\n\nGRÜNE\n221.509\n17.56%\n13\n\n\nDIE LINKE\n148.544\n11.77%\n9\n\n\nFDP\n75.420\n5.98%\n4\n\n\nAfD\n71.278\n5.65%\n4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPersonen- und Listen-Kontingente\n\n\n\n\n\n\n\n\n\n\nStimmen\nProzent\nSitze\n\n\n\n\nSPD - 19\n\n\nListen\n154.532\n49.13%\n9\n\n\nPersonen\n159.998\n50.87%\n10\n\n\nCDU - 20\n\n\nListen\n176.074\n51.25%\n10\n\n\nPersonen\n167.456\n48.75%\n10\n\n\nGRÜNE - 13\n\n\nListen\n156.797\n70.79%\n9\n\n\nPersonen\n64.712\n29.21%\n4\n\n\nDIE LINKE - 9\n\n\nListen\n100.628\n67.74%\n6\n\n\nPersonen\n47.916\n32.26%\n3\n\n\nFDP - 4\n\n\nListen\n44.972\n59.63%\n2\n\n\nPersonen\n30.448\n40.37%\n2\n\n\nAfD - 4\n\n\nListen\n53.176\n74.60%\n3\n\n\nPersonen\n18.102\n25.40%\n1"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#vergabe-an-personen",
+    "href": "Präsentation_Wissen_um_11_2023.html#vergabe-an-personen",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Vergabe an Personen",
+    "text": "Vergabe an Personen\nBeispiel: Bremerhaven 2019\n\n\n\n\n\n\n\n\n\n\n\nStimmen\nProzent\nSitze\n\n\n\n\nSPD - 4\n\n\nListen\n31.623\n62.18%\n2\n\n\nPersonen\n19.234\n37.82%\n2\n\n\nCDU - 4\n\n\nListen\n28.642\n60.95%\n2\n\n\nPersonen\n18.352\n39.05%\n2\n\n\nGRÜNE - 3\n\n\nListen\n23.850\n70.52%\n2\n\n\nPersonen\n9.969\n29.48%\n1\n\n\nDIE LINKE - 1\n\n\nListen\n12.455\n72.13%\n1\n\n\nPersonen\n4.812\n27.87%\n0\n\n\nFDP - 1\n\n\nListen\n7.800\n66.47%\n1\n\n\nPersonen\n3.935\n33.53%\n0\n\n\nAfD - 1\n\n\nListen\n13.364\n72.37%\n1\n\n\nPersonen\n5.102\n27.63%\n0\n\n\nBIW - 1\n\n\nListen\n6.444\n42.77%\n0\n\n\nPersonen\n8.624\n57.23%\n1\n\n\n\n\n\n\n\n\nSchritt 4: Vergabe der Mandate an Personen\nBeispiel SPD\n\n\n\n\n\n\n\n\nID\nName\nStimmen\nPersonen-Rang\n\n\n\n\n101\nGünthner, Martin\n6669\n1\n\n\n102\nBrünjes, Janina\n1786\n3\n\n\n103\nZager, Jörg\n1332\n5\n\n\n104\nJäschke, Petra\n1392\n4\n\n\n105\nWelt, Holger\n3173\n2\n\n\n106\nWittig, Lisa\n1008\n7\n\n\n107\nSchildt, Frank\n1122\n6\n\n\n108\nGottschlich, Marek\n546\n10\n\n\n109\nAwiszus, Swen\n451\n11\n\n\n110\nTürk, Ralf\n769\n9\n\n\n111\nKurutlu, Vahit\n986\n8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPersonenmandat\nListenmandat"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#alternative-personenmandatsvergabe",
+    "href": "Präsentation_Wissen_um_11_2023.html#alternative-personenmandatsvergabe",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Alternative Personenmandatsvergabe",
+    "text": "Alternative Personenmandatsvergabe\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nErst Personen-Mandate\n(gilt zurzeit\n\n\nID\nName\nRang\n\n\n\n\n101\nGünthner, Martin\n1\n\n\n102\nBrünjes, Janina\n3\n\n\n103\nZager, Jörg\n5\n\n\n104\nJäschke, Petra\n4\n\n\n105\nWelt, Holger\n2\n\n\n106\nWittig, Lisa\n7\n\n\n107\nSchildt, Frank\n6\n\n\n108\nGottschlich, Marek\n10\n\n\n109\nAwiszus, Swen\n11\n\n\n110\nTürk, Ralf\n9\n\n\n111\nKurutlu, Vahit\n8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nErst Listen-Mandate\n(galt bis 2015)\n\n\nID\nName\nRang\n\n\n\n\n101\nGünthner, Martin\n1\n\n\n102\nBrünjes, Janina\n3\n\n\n103\nZager, Jörg\n5\n\n\n104\nJäschke, Petra\n4\n\n\n105\nWelt, Holger\n2\n\n\n106\nWittig, Lisa\n7\n\n\n107\nSchildt, Frank\n6\n\n\n108\nGottschlich, Marek\n10\n\n\n109\nAwiszus, Swen\n11\n\n\n110\nTürk, Ralf\n9\n\n\n111\nKurutlu, Vahit\n8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNur nach Liste\n(galt bis 2007)\n\n\nID\nName\nRang\n\n\n\n\n101\nGünthner, Martin\n1\n\n\n102\nBrünjes, Janina\n3\n\n\n103\nZager, Jörg\n5\n\n\n104\nJäschke, Petra\n4\n\n\n105\nWelt, Holger\n2\n\n\n106\nWittig, Lisa\n7\n\n\n107\nSchildt, Frank\n6\n\n\n108\nGottschlich, Marek\n10\n\n\n109\nAwiszus, Swen\n11\n\n\n110\nTürk, Ralf\n9\n\n\n111\nKurutlu, Vahit\n8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNur Personenstimmen\n(Volksbegehren 2018)\n\n\nID\nName\nRang\n\n\n\n\n101\nGünthner, Martin\n1\n\n\n102\nBrünjes, Janina\n3\n\n\n103\nZager, Jörg\n5\n\n\n104\nJäschke, Petra\n4\n\n\n105\nWelt, Holger\n2\n\n\n106\nWittig, Lisa\n7\n\n\n107\nSchildt, Frank\n6\n\n\n108\nGottschlich, Marek\n10\n\n\n109\nAwiszus, Swen\n11\n\n\n110\nTürk, Ralf\n9\n\n\n111\nKurutlu, Vahit\n8\n\n\n\n\n\n\n\n\nFun-Fact (oder auch Sad-Fact): 104 Petra Jäschke wäre sowohl nur nach Personenstimmen wie auch nur nach Listenplatz gewählt. Durch die Kombination von beidem gewinnt sie kein Mandat."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#personenstimmen-paradox",
+    "href": "Präsentation_Wissen_um_11_2023.html#personenstimmen-paradox",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Personenstimmen-Paradox",
+    "text": "Personenstimmen-Paradox\nPersonenstimmen können einer Person schaden!\n\n\nAnnahme: Alle Wählerinnen und Wähler von Petra Jäschke (ID 104) bleiben zu Hause.\n\nPetra Jäschke hätte 0 Stimmen.\nDie SPD hätte 1.392 Stimmen weniger. Der Stimmenanteil würde von 25% auf 24,5% sinken.\nDies würde nichts an der Sitzverteilung an die Parteien ändern.\nDas Personen-Mandat-Kontingent hätte 1.392 Stimmen weniger.\n\n\n\n\n\n\n\n\n\n\nMit Jäschkes Stimmen\n\n\n\nStimmen\nProzent\nSitze\n\n\n\n\nSPD\n\n\nListen\n31.623\n62.18%\n2\n\n\nPersonen\n19.234\n37.82%\n2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOhne Jäschkes Stimmen\n\n\n\nStimmen\nProzent\nSitze\n\n\n\n\nSPD\n\n\nListen\n31.623\n63.93%\n3\n\n\nPersonen\n17.842\n36.07%\n1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOhne Jäschkes 1.392 Stimmen\n\n\nID\nName\nStimmen\nRang\n\n\n\n\n101\nGünthner, Martin\n6669\n1\n\n\n102\nBrünjes, Janina\n1786\n3\n\n\n103\nZager, Jörg\n1332\n4\n\n\n104\nJäschke, Petra\n0\n11\n\n\n105\nWelt, Holger\n3173\n2\n\n\n106\nWittig, Lisa\n1008\n6\n\n\n107\nSchildt, Frank\n1122\n5\n\n\n108\nGottschlich, Marek\n546\n9\n\n\n109\nAwiszus, Swen\n451\n10\n\n\n110\nTürk, Ralf\n769\n8\n\n\n111\nKurutlu, Vahit\n986\n7\n\n\n\n\n\n\n\n\n\nDas Personen-Stimmen-Paradox ist bisher bei jeder Wahl praktisch aufgetreten. Die Reform 2019 hat daran nichts geändert."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#wähler-typen",
+    "href": "Präsentation_Wissen_um_11_2023.html#wähler-typen",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Wähler-Typen",
+    "text": "Wähler-Typen\n\n\nWahlbeteiligung schwankt mehr bei Listen-Stimmen.\n\n\n\n\n\n\n\n\n\n\n\nAnzahl der Personenwähler wächst langsam.\n\n\n\n\n\n\n\n\n\n\n\n\nVollkummulierer: ⦻⦻⦻⦻⦻\nPanaschierer verteilen"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#vollkummuliererspitzenkandidaten",
+    "href": "Präsentation_Wissen_um_11_2023.html#vollkummuliererspitzenkandidaten",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Vollkummulierer/Spitzenkandidaten",
+    "text": "Vollkummulierer/Spitzenkandidaten"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#fragen-zum-wählen",
+    "href": "Präsentation_Wissen_um_11_2023.html#fragen-zum-wählen",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Fragen zum Wählen",
+    "text": "Fragen zum Wählen\nIst es sinnvoll eine Spitzenkandidatin oder einen Spitzenkandidaten zu wählen?\n\nSie können nicht bestimmen wer Bürgermeister wird!\nSie wählen auch ihre oder seine Partei\nSie wählen auch das Personen-Mandat-Kontingent\nDie Personen-Stimme selbst ist eher unerheblich wegen Listenplatz 1\n\n\nVoll kumulieren oder panaschieren?\n\nWollen Sie Kandidaten auf schlechten Listenplätzen hochwählen, macht es eventuell Sinn sich auf den oder die mit den besten Chancen zu konzentrieren\nBeim letzten Personen-Mandat sind oft wenige Stimmen entscheidend!"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#man-muss-nicht-strategisch-überlegen",
+    "href": "Präsentation_Wissen_um_11_2023.html#man-muss-nicht-strategisch-überlegen",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Man muss nicht strategisch überlegen",
+    "text": "Man muss nicht strategisch überlegen\n\nStimmen haben auch symbolischen Wert!\nPanaschieren ist eine tolle Möglichkeit den Wählerwillen differenziert auszudrücken."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#kandidaten-profile---anzahl-wähler",
+    "href": "Präsentation_Wissen_um_11_2023.html#kandidaten-profile---anzahl-wähler",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Kandidaten Profile - Anzahl Wähler",
+    "text": "Kandidaten Profile - Anzahl Wähler\nEin Wähler von Kandidatin XY gibt ihr mindestens 1 oder mehr Stimmen.\n\n\n\n\n\n\n\n\nID\nName\nPartei\nStimmen\nWähler\nStimmen pro Wähler\n\n\n\n\n101\nDr. Sieling, Carsten\nSPD\n65.550\n26.340\n2,49\n\n\n201\nMeyer-Heder, Carsten\nCDU\n104.219\n33.076\n3,15\n\n\n301\nDr. Schaefer, Maike\nGRÜNE\n20.750\n10.860\n1,91\n\n\n401\nVogt, Kristina\nDIE LINKE\n21.285\n9.743\n2,18"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#kandidaten-profile---extremfälle-2019",
+    "href": "Präsentation_Wissen_um_11_2023.html#kandidaten-profile---extremfälle-2019",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Kandidaten Profile - Extremfälle 2019",
+    "text": "Kandidaten Profile - Extremfälle 2019\n\n\n\n\n\n\n\n\nWahlgebiet\nID\nName\nPartei\nStimmen\nWähler\nStimmen pro Wähler\n\n\n\n\nBremen\n714\nBaum, Viktor\nBIW\n1.547\n398\n3,89\n\n\nBremerhaven\n207\nÖzdal, Turhal\nCDU\n2.982\n799\n3,73\n\n\nBremen\n130\nSeyrek, Mehmet Ali\nSPD\n3.742\n1.126\n3,32\n\n\nBremen\n225\nDr. Yazıcı, Oğuzhan\nCDU\n3.169\n983\n3,22\n\n\nBremen\n201\nMeyer-Heder, Carsten\nCDU\n104.219\n33.076\n3,15\n\n\nBremen\n240\nFischer, Jens Ulrich\nCDU\n190\n144\n1,32\n\n\nBremen\n106\nAulepp, Sascha Karolin\nSPD\n1.638\n1.259\n1,30\n\n\nBremen\n310\nDr. Eschen, Solveig\nGRÜNE\n1.095\n849\n1,29\n\n\nBremen\n104\nQuante-Brandt, Eva\nSPD\n2.620\n2.062\n1,27\n\n\nBremen\n140\nIttekkot, David\nSPD\n198\n156\n1,27"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#ähnlichkeit-von-parteien-durch-gemeinsame-wähler",
+    "href": "Präsentation_Wissen_um_11_2023.html#ähnlichkeit-von-parteien-durch-gemeinsame-wähler",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Ähnlichkeit von Parteien durch gemeinsame Wähler",
+    "text": "Ähnlichkeit von Parteien durch gemeinsame Wähler\n\n\n\n\n\n\n\n\n\n\nX\nY\nGemeinsame Wähler\nX-Wähler wählen Y\nY-Wähler wählen X\n\n\n\n\nSPD\nCDU\n9.242\n11.11%\n11.16%\n\n\nSPD\nGRÜNE\n20.364\n24.48%\n30.37%\n\n\nSPD\nDIE LINKE\n10.880\n13.08%\n24.71%\n\n\nSPD\nFDP\n3.596\n4.32%\n14.56%\n\n\nSPD\nAfD\n880\n1.06%\n5.19%\n\n\nSPD\nBIW\n802\n0.96%\n12.37%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nX\nY\nGemeinsame Wähler\nX-Wähler wählen Y\nY-Wähler wählen X\n\n\n\n\nCDU\nGRÜNE\n9.314\n11.24%\n13.89%\n\n\nCDU\nDIE LINKE\n2.512\n3.03%\n5.71%\n\n\nCDU\nFDP\n9.901\n11.95%\n40.10%\n\n\nCDU\nAfD\n1.872\n2.26%\n11.04%\n\n\nCDU\nBIW\n1.185\n1.43%\n18.27%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nX\nY\nGemeinsame Wähler\nX-Wähler wählen Y\nY-Wähler wählen X\n\n\n\n\nGRÜNE\nDIE LINKE\n15.436\n23.02%\n35.06%\n\n\nGRÜNE\nFDP\n4.226\n6.30%\n17.11%\n\n\nGRÜNE\nAfD\n456\n0.68%\n2.69%\n\n\nGRÜNE\nBIW\n471\n0.70%\n7.26%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nX\nY\nGemeinsame Wähler\nX-Wähler wählen Y\nY-Wähler wählen X\n\n\n\n\nDIE LINKE\nFDP\n1.533\n3.48%\n6.21%\n\n\nDIE LINKE\nAfD\n472\n1.07%\n2.78%\n\n\nDIE LINKE\nBIW\n469\n1.07%\n7.23%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nX\nY\nGemeinsame Wähler\nX-Wähler wählen Y\nY-Wähler wählen X\n\n\n\n\nAfD\nFDP\n884\n5.21%\n3.58%\n\n\nAfD\nBIW\n1.384\n8.16%\n21.34%"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#die-politische-landschaft-2019",
+    "href": "Präsentation_Wissen_um_11_2023.html#die-politische-landschaft-2019",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Die politische Landschaft 2019",
+    "text": "Die politische Landschaft 2019\n\n\n\n\n\n\n\n\n\n\n\n\nDie Positionen wurden multidimensionaler Skalierung berechnet. Zugrunde liegen als Distanzmatrix die paarweisen symmetrischen Wahrscheinlichkeiten, dass ein Wähler aus einer der beiden Parteien nicht die andere Partei wählt. Die Methode erzeugt Positionen die diese Distanzen bestmöglich im 2-dimensionalen Raum abbilden."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#die-politische-landschaft-2015",
+    "href": "Präsentation_Wissen_um_11_2023.html#die-politische-landschaft-2015",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Die politische Landschaft 2015",
+    "text": "Die politische Landschaft 2015\n\n\n\n\n\n\n\n\n\n\n\n\nDie Positionen wurden multidimensionaler Skalierung berechnet. Zugrunde liegen als Distanzmatrix die paarweisen symmetrischen Wahrscheinlichkeiten, dass ein Wähler aus einer der beiden Parteien nicht die andere Partei wählt. Die Methode erzeugt Positionen die diese Distanzen bestmöglich im 2-dimensionalen Raum abbilden."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#die-politische-landschaft-2011",
+    "href": "Präsentation_Wissen_um_11_2023.html#die-politische-landschaft-2011",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Die politische Landschaft 2011",
+    "text": "Die politische Landschaft 2011\n\n\n\n\n\n\n\n\n\n\n\n\nDie Positionen wurden multidimensionaler Skalierung berechnet. Zugrunde liegen als Distanzmatrix die paarweisen symmetrischen Wahrscheinlichkeiten, dass ein Wähler aus einer der beiden Parteien nicht die andere Partei wählt. Die Methode erzeugt Positionen die diese Distanzen bestmöglich im 2-dimensionalen Raum abbilden."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#politische-landschaft-bremen-2019-parteien",
+    "href": "Präsentation_Wissen_um_11_2023.html#politische-landschaft-bremen-2019-parteien",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Politische Landschaft Bremen 2019 Parteien",
+    "text": "Politische Landschaft Bremen 2019 Parteien"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#parteienlandschaft-mit-wählern",
+    "href": "Präsentation_Wissen_um_11_2023.html#parteienlandschaft-mit-wählern",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Parteienlandschaft mit Wählern",
+    "text": "Parteienlandschaft mit Wählern\n\n\n\n\n\n\n\n\n\n\n\nJeder Wähler wird auf den Mittelwert der Positionen der 5 gewählten Parteien gesetzt. Dann wird gezählt wieviele Wähler in jedem Sechseck liegen."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#wählerlandschaft-mit-kandidaten",
+    "href": "Präsentation_Wissen_um_11_2023.html#wählerlandschaft-mit-kandidaten",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Wählerlandschaft mit Kandidaten",
+    "text": "Wählerlandschaft mit Kandidaten\n\n\n\n\n\n\n\n\n\n\n\nJeder Kandidat wird auf den Mittelwert der Positionen seiner Wähler gesetzt."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#runde-2-wähler-und-kandidaten-update",
+    "href": "Präsentation_Wissen_um_11_2023.html#runde-2-wähler-und-kandidaten-update",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Runde 2: Wähler und Kandidaten Update",
+    "text": "Runde 2: Wähler und Kandidaten Update\n\n\n\n\n\n\n\n\n\n\n\nDie Wähler Positionen wurden aus den neuen Positionen der Parteien und den neuen Positionen der Kandidaten berechnet und daraufhin wurden die Kandidat Positionen neu berechnen."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#runde-3-wähler-und-kandidaten-update",
+    "href": "Präsentation_Wissen_um_11_2023.html#runde-3-wähler-und-kandidaten-update",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Runde 3: Wähler und Kandidaten Update",
+    "text": "Runde 3: Wähler und Kandidaten Update\n\n\n\n\n\n\n\n\n\n\n\nDie Wähler Positionen wurden aus den neuen Positionen der Parteien und den neuen Positionen der Kandidaten berechnet und daraufhin wurden die Kandidat Positionen neu berechnen."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#runde-4-und-5-wähler-und-kandidaten-update",
+    "href": "Präsentation_Wissen_um_11_2023.html#runde-4-und-5-wähler-und-kandidaten-update",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Runde 4 und 5: Wähler und Kandidaten Update",
+    "text": "Runde 4 und 5: Wähler und Kandidaten Update\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDie Wähler Positionen wurden aus den neuen Positionen der Parteien und den neuen Positionen der Kandidaten berechnet und daraufhin wurden die Kandidat Positionen neu berechnen."
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#was-wäre-noch-möglich",
+    "href": "Präsentation_Wissen_um_11_2023.html#was-wäre-noch-möglich",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Was wäre noch möglich",
+    "text": "Was wäre noch möglich\n\nGibt es Unterschiede der Kandidaten-Typen in bezug auf:\n\nStadtteil\nGeschlecht\nAlter\nBeruf\n\nIst der politische Raum ähnlich, wenn er mit den Daten des Wahl-o-mat oder mit Parteiprogramm-Texten generiert wird?\n…\n\nSchicken Sie mir gerne Ihre Fragen an die Daten und die politische Landschaft Bremens!\n\n✉️ post@janlo.de"
+  },
+  {
+    "objectID": "Präsentation_Wissen_um_11_2023.html#wieviele-personenmandate-wird-es-in-bremen-geben",
+    "href": "Präsentation_Wissen_um_11_2023.html#wieviele-personenmandate-wird-es-in-bremen-geben",
+    "title": "Wahlen in Bremen mit 5 Stimmen",
+    "section": "Wieviele Personenmandate wird es in Bremen geben?",
+    "text": "Wieviele Personenmandate wird es in Bremen geben?\n\n\nAnnahmen für die Schätzung\nLetzte Umfrage von Infratest dimap1. Personenstimmen-Anteile von 2019 übernommen. Muss nicht so kommen!\nWie finde ich Kandidierende?\n\nhttps://www.kandidierendencheck.de/ von abgeordnetenwatch.de \n\nWahl-o-mat für Personen\nNur 10 Fragen\n\nParteien Webseiten mit den Kandidierenden\n\n\n\n\n\n\n\n\n\n\n\nProzent\nSitze\n\n\n\n\nCDU - 27% - 20 Sitze\n\n\nPersonen\n50.9\n10\n\n\nListe\n49.1\n10\n\n\nSPD - 30% - 23 Sitze\n\n\nPersonen\n48.8\n11\n\n\nListe\n51.2\n12\n\n\nGRÜNE - 13% - 10 Sitze\n\n\nPersonen\n29.2\n3\n\n\nListe\n70.8\n7\n\n\nFDP - 6% - 5 Sitze\n\n\nPersonen\n40.4\n2\n\n\nListe\n59.6\n3\n\n\nLINKE - 10% - 7 Sitze\n\n\nPersonen\n32.3\n2\n\n\nListe\n67.7\n5\n\n\nBIW - 9% - 7 Sitze\n\n\nPersonen\n25.4\n2\n\n\nListe\n74.6\n5\n\n\n\n\n\n\n\n\n\n\nN = 1450, Befragung per Telefon und per Online-Panel, 01.05.–03.05., Auftraggeber ARD"
+  }
+]
