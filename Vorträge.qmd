@@ -1,0 +1,30 @@
+---
+language: "_language-de.yml"
+title: "Vorträge"
+---
+
+## Vortrag im Haus der Wissenschaft 2024
+
+```{=html}
+<iframe class="slide-deck" style="border:1px solid lightgray;" width="100%" height="500" src="Präsentation_Wissen_um_11_2024.html"></iframe>
+```
+
+[Präsentation im Vollbild](Präsentation_Wissen_um_11_2024.qmd){.internal target="_blank"} anzeigen lassen. 
+
+Das Haus der Wissenschaft hat eine Video-Aufzeichung auf YouTube bereit gestellt.
+
+{{< video https://www.youtube.com/watch?v=X9r_FR-qdoQ >}}
+
+
+## Vortrag im Haus der Wissenschaft 2023
+
+```{=html}
+<iframe class="slide-deck" style="border:1px solid lightgray;" width="100%" height="500" src="Präsentation_Wissen_um_11_2023.html"></iframe>
+```
+
+[Präsentation im Vollbild](Präsentation_Wissen_um_11_2023.qmd){.internal target="_blank"} anzeigen lassen. 
+
+Das Haus der Wissenschaft hat eine Video-Aufzeichung auf YouTube bereit gestellt. (Hinweis: Die Präsentation oben musste wegen Format wechseln leicht angepasst werden und weicht deshalb teilweise vom Video ab. Die Inhalte sind die gleichen.)
+
+{{< video https://www.youtube.com/watch?v=r6VW4HGNXr0 >}}
+

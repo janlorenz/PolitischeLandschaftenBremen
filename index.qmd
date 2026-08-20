@@ -1,0 +1,294 @@
+---
+language: "_language-de.yml"
+title: "Politische Landschaften Bremen"
+author: "Jan Lorenz"
+institute: "Constructor University Bremen"
+date: "last-modified"
+date-format: "D. MMMM YYYY"
+abstract: |
+    In der unten eingebunden Präsentation wird unter anderem das 5-Stimmen-Wahlsystem in Bremen erläutert. Weiterhin werden dort Darstellungen der politischen Landschaften in Bremen gezeigt, die aus den Stimm-Zettel-Daten der Bürgerschaftswahlen in Bremen zusammengestellt wurden. Außerdem werden in den folgenden Abschnitte zusätzlich (interaktive) Tabellen für alle Wahlvorschläge der Wahlen 2019, 2015 und 2011 bereitgestellt, die neben Stimmen und Stimmanteilen auch die Anzahl der Wählerinnen und Wähler zeigen. (Ein Wähler ist jemand der dem Wahlvorschlag mindestens eine Stimme gibt.) Diese Statistik ist aus dem veröffentlichten Wahlergebnis nicht abzulesen! Außerdem wird die Kennzahl "Stimmen pro Wähler" berechnet. Diese zeigt die durchschnittliche Anzahl der Stimmen die ein Wahlvorschlag von seinen Wählern bekommen hat. Als letztes werden Tabellen für den paarweisen Vergleich von Wahlvorschlägen gezeigt. Dadurch lässt sich zum Beispiel ablesen, wieviele gemeinsame Wähler SPD und CDU oder eine Kandidatin und ihre Partei haben. 
+format: 
+  html:
+    toc: true                   # This creates the table of context menu
+    toc-depth: 2                # Increase if you want to have subsections in the table of context menu
+    number-sections: true
+    code-fold: true  
+---
+
+```{r}
+#| warning: false
+library(tidyverse)
+library(gt)
+library(plotly)
+
+load("data/Stimmzettel_s_Wahlvorschlaege_w.RData")
+load("data/d_sqm.RData")
+# Notiz: Beide Datendateien können nicht Teil des öffentlichen Repositorium sein, weil
+# die Stimmzetteldaten als nicht vollständig anonyme Mikrodaten gelten und deshalb nur unter einem 
+# Vertrag vom statistischen Landesamt zur Verfügung gestellt werden der Deanonymisierungsversuche (die in diesem 
+# Fall das Wahlgeheimnis verletzen würde) verbietet, mit Strafen belegt und die Weitergabe verbietet.
+#
+# Datenprobleme:
+# Im Vergleich zum offiziellen Wahlergebnis fehlen in meinem Datensatz für Bremen 2019
+# 905 gültige und 13 ungültige Stimmhefte, dies könnten 1 oder zwei Wahlurnen sein
+# Ich habe Statistik Bremen auf den Fehler hingewiesen. Die wollen das klären, aber müssen zur Zeit eine Wahl
+# organisieren
+```
+
+
+[**Hinweis: Diese Seite enthält keine Analysen der Wahl 2023.**]{style='color:red;'}
+
+
+## Tabellen zu den Wahlvorschlägen
+
+Im folgenden einige ergänzende Daten aus Anlass der bevorstehenden Bürgerschaftswahl am 14.5.2023. 
+
+
+### Parteien 
+
+```{r}
+PP <- d_mds |> filter(type == "list") |> 
+  group_by(year, district) |> 
+  mutate(`Stimmen gesamt (%)` = party_votes/sum(party_votes)) |> 
+  group_by(year, district, Partei) |> 
+  mutate(`Personen-Stimmen (%)` = person_party_votes/sum(party_votes)) |> 
+  select(Jahr = year, Wahlgebiet=district, ID=id, Partei, `Stimmen gesamt`= party_votes, `Stimmen gesamt (%)`,
+         `Personen-Stimmen` = person_party_votes, `Personen-Stimmen (%)`, `Wähler gesamt` = party_voters,
+         `Stimmen pro Wähler gesamt` = party_votes_per_voter) |>
+  group_by()
+format_Parteien_table <- function(df) df |> gt() |> 
+  fmt_percent(c(ends_with("(%)"))) |> 
+  fmt_number(starts_with("Stimmen pro Wähler"), decimals = 2)
+```
+
+::: {.panel-tabset}
+
+### Bremen 2019
+```{r}
+format_Parteien_table(PP |> filter(Wahlgebiet == "Bremen", Jahr == 2019) |> select(-Jahr, -Wahlgebiet))
+```
+
+### Bremen 2015
+```{r}
+format_Parteien_table(PP |> filter(Wahlgebiet == "Bremen", Jahr == 2015) |> select(-Jahr, -Wahlgebiet))
+```
+
+### Bremen 2011
+```{r}
+format_Parteien_table(PP |> filter(Wahlgebiet == "Bremen", Jahr == 2011) |> select(-Jahr, -Wahlgebiet))
+```
+
+:::
+
+
+::: {.panel-tabset}
+
+### Bremerhaven 2019
+```{r}
+format_Parteien_table(PP |> filter(Wahlgebiet == "Bremerhaven", Jahr == 2019) |> select(-Jahr, -Wahlgebiet))
+```
+
+### Bremerhaven 2015
+```{r}
+format_Parteien_table(PP |> filter(Wahlgebiet == "Bremerhaven", Jahr == 2015) |> select(-Jahr, -Wahlgebiet))
+```
+
+### Bremerhaven 2011
+```{r}
+format_Parteien_table(PP |> filter(Wahlgebiet == "Bremerhaven", Jahr == 2011) |> select(-Jahr, -Wahlgebiet))
+```
+:::
+
+
+### Kandidatinnen und Kandidaten
+
+[Hinweis:]{style='color:red;'} Benutzen Sie die Sortierfunktion (mehrfach klicken auf $\updownarrow$) und die Filterfunktion (Texteingabe unter dem Spaltentitel) um für Sie interessante Listen zu erzeugen! Die Tabelle ist "paginiert", d.h. sie ist in mehrer Seiten aufgeteilt. Links zu den folgenden Seiten finden Sie am Ende der Tabelle. 
+
+```{r}
+KK <- d_mds |> filter(type == "candidate") |> 
+  group_by(year, district, Partei) |> 
+  mutate(`Anteil Stimmen Partei (%)` = votes/sum(votes)) |> 
+  select(Jahr = year, Wahlgebiet=district, ID=id, Partei, Name = displayname, `Stimmen`= votes, 
+         `Anteil Stimmen Partei (%)`, `Wähler` = voters,
+         `Stimmen pro Wähler` = votes_per_voter, Geburtsjahr, `Stadt- oder Ortsteil`, Beruf, Geschlecht) |>
+  group_by()
+```
+
+::: {.column-screen-inset}
+::: {.panel-tabset }
+
+### Bremen 2019
+```{r}
+format_Parteien_table(KK |> filter(Wahlgebiet == "Bremen", Jahr == 2019) |> select(-Jahr, -Wahlgebiet)) |> 
+  opt_interactive(use_filters = TRUE) |> cols_width(ID ~ px(60), Partei ~ px(100), Name ~ px(250))
+```
+
+### Bremen 2015
+```{r}
+format_Parteien_table(KK |> filter(Wahlgebiet == "Bremen", Jahr == 2015) |> select(-Jahr, -Wahlgebiet)) |> 
+  opt_interactive(use_filters = TRUE) |> cols_width(ID ~ px(60), Partei ~ px(100), Name ~ px(250))
+```
+
+### Bremen 2011
+```{r}
+format_Parteien_table(KK |> filter(Wahlgebiet == "Bremen", Jahr == 2011) |> select(-Jahr, -Wahlgebiet)) |> 
+  opt_interactive(use_filters = TRUE) |> cols_width(ID ~ px(60), Partei ~ px(100), Name ~ px(250))
+```
+
+### Bremerhaven 2019
+```{r}
+format_Parteien_table(KK |> filter(Wahlgebiet == "Bremerhaven", Jahr == 2019) |> select(-Jahr, -Wahlgebiet)) |> 
+  opt_interactive(use_filters = TRUE) |> cols_width(ID ~ px(60), Partei ~ px(100), Name ~ px(250))
+```
+
+### Bremerhaven 2015
+```{r}
+format_Parteien_table(KK |> filter(Wahlgebiet == "Bremerhaven", Jahr == 2015) |> select(-Jahr, -Wahlgebiet)) |> 
+  opt_interactive(use_filters = TRUE) |> cols_width(ID ~ px(60), Partei ~ px(100), Name ~ px(250))
+```
+
+### Bremerhaven 2011
+```{r}
+format_Parteien_table(KK |> filter(Wahlgebiet == "Bremerhaven", Jahr == 2011) |> select(-Jahr, -Wahlgebiet)) |> 
+  opt_interactive(use_filters = TRUE) |> cols_width(ID ~ px(60), Partei ~ px(100), Name ~ px(250))
+```
+
+:::
+:::
+
+## Gemeinsame Wählerinnen und Wähler (paarweiser Vergleich)
+
+Für jedes Paar von Wahlvorschlägen (Partei oder Kandidierende) können die gemeinsamen Wähler gezählt werden. Dies sind diejenigen die beiden Wahlvorschlägen mindestens eine Stimme gegeben haben. Dann lässt sich sowohl für Wahlvorschlag X wie auch für Wahlvorschlag Y der prozentuall Anteil der gemeinsamen Wähler an der Gesamtzahl der Wähler bestimmen. 
+
+### Parteien 
+
+In die folgende Tabelle werden nur die Parteien berücksichtigt und es werden sowohl die Listenstimmen wie auch die Personenstimmen gezählt. Grundsätzlich werden nur Paare angezeigt, die mehr als zehn gemeinsame Wählerinnen und Wähler haben.
+
+[Hinweis:]{style='color:red;'} Benutzen Sie die Sortierfunktion (mehrfach klicken auf $\updownarrow$) und die Filterfunktion (Texteingabe unter dem Spaltentitel) um für Sie interessante Listen zu erzeugen! Die Tabelle ist "paginiert", d.h. sie ist in mehrer Seiten aufgeteilt. Links zu den folgenden Seiten finden Sie am Ende der Tabelle. 
+
+::: {.column-page-inset}
+::: {.panel-tabset}
+
+### Bremen 2019
+
+```{r}
+pair_tbl_filter_gt <- function(district, year, type) pair_tbl |> 
+  filter(`Gemeinsame Wähler` > 10, Wahlgebiet == district, Jahr == year, Vergleich == type) |> 
+  select(-Jahr, -Wahlgebiet, -Vergleich) |> 
+  gt() |> fmt_percent(
+    columns = c(`X-Wähler wählen Y`, `Y-Wähler wählen X`),
+    decimals = 1
+  ) |>   cols_width(
+    `Gemeinsame Wähler` ~ px(150),
+    `X-Wähler wählen Y` ~ px(150),
+    `Y-Wähler wählen X` ~ px(150)
+  ) |> opt_interactive(
+    use_filters = TRUE,
+    use_highlight = TRUE,
+    use_resizers = TRUE,
+    use_page_size_select = TRUE
+  )
+pair_tbl_filter_gt("Bremen", 2019, "parties")
+```
+
+### Bremen 2015
+
+```{r}
+pair_tbl_filter_gt("Bremen", 2015, "parties")
+```
+
+### Bremen 2011
+
+```{r}
+pair_tbl_filter_gt("Bremen", 2011, "parties")
+```
+
+### Bremerhaven 2019
+
+```{r}
+pair_tbl_filter_gt("Bremerhaven", 2019, "parties")
+```
+
+### Bremerhaven 2015
+
+```{r}
+pair_tbl_filter_gt("Bremerhaven", 2015, "parties")
+```
+
+### Bremerhaven 2011
+
+```{r}
+pair_tbl_filter_gt("Bremerhaven", 2011, "parties")
+```
+:::
+:::
+
+### Kandidierende und Parteien 
+
+In die folgende Tabelle werden alle Wahlvorschläge berücksichtigt. Bei den Parteien werden aber im Gegensatz zur Tabelle oben nur die Listensgtimmen gezählt. Ein paarweiser Vergleich eines Kandidierenden mit seiner Partei zeigt also wieviele Wähler sowohl die Liste als auch die kandidierende Person gewählt haben. Grundsätzlich werden nur Paare angezeigt, die mehr als zehn gemeinsame Wählerinnen und Wähler haben.
+
+[Hinweis:]{style='color:red;'} Benutzen Sie die Sortierfunktion (mehrfach klicken auf $\updownarrow$) und die Filterfunktion (Texteingabe unter dem Spaltentitel) um für Sie interessante Listen zu erzeugen! Die Tabelle ist "paginiert", d.h. sie ist in mehrer Seiten aufgeteilt. Links zu den folgenden Seiten finden Sie am Ende der Tabelle. 
+
+::: {.column-page-inset}
+::: {.panel-tabset}
+
+### Bremen 2019
+
+```{r}
+pair_tbl_filter_gt("Bremen", 2019, "partiescandidates")
+```
+
+### Bremen 2015
+
+```{r}
+pair_tbl_filter_gt("Bremen", 2015, "partiescandidates")
+```
+
+### Bremen 2011
+
+```{r}
+pair_tbl_filter_gt("Bremen", 2011, "partiescandidates")
+```
+
+### Bremerhaven 2019
+
+```{r}
+pair_tbl_filter_gt("Bremerhaven", 2019, "partiescandidates")
+```
+
+### Bremerhaven 2015
+
+```{r}
+pair_tbl_filter_gt("Bremerhaven", 2015, "partiescandidates")
+```
+
+### Bremerhaven 2011
+
+```{r}
+pair_tbl_filter_gt("Bremerhaven", 2011, "partiescandidates")
+```
+:::
+:::
+
+## Datenquellen  {.appendix}
+
+
+Die Stimmzettel der einzelnen Wählenden, die hier benutzt wurden, werden bei der Auszählung digital erfasst und sind unter Angabe des Forschungsinteressen und unter einer vertraglichen "Vereinbarung zur Nutzung faktisch anonymisierter Mikrodaten" beim Landeswahlleiter erhältlich. Für diese Auswertungen wurden diese Daten für die Wahlen 2011, 2015 und 2019 verwendet sowie Listen der Kandidierenden aller antretenden Listen vor. Der Nutzungs-Vertrag verbietet die öffentliche Bereitstellung der Daten um das Wahlgeheimnis zu schützen. Obwohl alle Stimmzettel selbstverständlich nicht einzelnen Personen zugeordnet sind, wird vom Statischen Landesamt wohl eine gewisse Gefahr gesehen, dass einzelne Stimmen de-anonymisiert werden könnten. 
+
+Detailierte Wahlergebnisse, allerdings ohne die Informationen zu den einzelnen Stimmzetteln werden vom Landeswahlleiter zusammengestellt für die  Wahlen 
+[2019](https://www.wahlen.bremen.de/bremer-wahlen/ergebnisse/wahl-am-26-05-2019-7278), [2015](https://www.wahlen.bremen.de/bremer-wahlen/ergebnisse/wahl-am-10-05-2015-13190) und [2011](https://www.wahlen.bremen.de/bremer-wahlen/ergebnisse/wahl-am-22-05-2011-7235).
+
+Für die Bürgerschaftswahlen ist die Online-Datenbank aus der Auszählung mit Stimmen der Kandidierenden weiterhin verfügbar. Diese lassen sich über die Gemeinde (Bremen oder Bremerhaven), die Stadtteile, Ortsteile, bis in die jeweiligen Wahlurnen auschlüsseln:
+
+- [Bürgerschaftwahl 2015](https://www.wahlen-bremen.de/Wahlen/2015_05_10/04010000/html5/index.html)
+- [Bürgerschaftwahl 2019](https://www.wahlen-bremen.de/Wahlen/2019_05_26/04010000/html5/index.html)
+
+Der Landeswahlleiter stellt auch recht detailierte Wahl-Atlanten zur Verfügung in denen Stimmanteile der Parteien sowie Wahlbeteiligung und einige Sozialindikatoren in den Stadt- und Ortsteilen verglichen werden können. 
+
+
+
+## Daten-Inkonsistenzen  {.appendix}
+
+
+Im Vergleich zum offiziellen Wahlergebnis fehlen in meinem Datensatz für Bremen 2019
+905 gültige und 13 ungültige Stimmhefte, dies könnten 1 oder zwei Wahlurnen sein. Statistik Bremen wurde auf den Fehler hingewiesen. Dies soll geklärt werde. Zur Zeit müsse aber eine Wahl organisiert werden. 

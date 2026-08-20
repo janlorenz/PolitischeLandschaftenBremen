@@ -1,0 +1,523 @@
+---
+language: "_language-de.yml"
+title: "Wahlen Bremen"
+author:
+  - name: Jan Lorenz
+    orcid: 0000-0002-5547-7848
+    corresponding: true
+    email: jlorenz@constructor.university
+    url: http://janlo.de
+    affiliations: Constructor University Bremen
+date: 2024-10-04
+date-modified: "last-modified"
+date-format: "D.MM.YYYY"
+number-sections: true
+toc: true
+toc-depth: 2
+toc-expand: 2
+format: 
+  html:
+    echo: true
+    code-fold: true
+    code-links:
+      - text: GitHub
+        icon: github
+        href: http://github.com/janlorenz/Bremen_Political_Space
+---
+
+# Daten
+
+```{r}
+#| include: true
+#| message: false
+library(tidyverse)
+library(glue)
+library(arrow)
+library(plotly)
+library(gt)
+library(ggiraph)
+library(patchwork)
+Kandidaten_Stats <- read_parquet("data/Kandidaten_Stats.parquet")
+Listen_Stats <- read_parquet("data/Listen_Stats.parquet")
+Wahlvorschläge <- read_parquet("data/Wahlvorschläge.parquet")
+Stimmzettel_Stats <- read_parquet("data/Stimmzettel_Stats.parquet") # Not in repo! Require non-disclosure agreement. 
+Relevanzschwellen <- read_parquet("data/Relevanzschwellen.parquet")
+Mandate_Parteien <- read_parquet("data/Mandate_Parteien.parquet")
+Mandate_ListePersonen <- read_parquet("data/Mandate_ListePersonen.parquet")
+Mandate_Kandidaten <- read_parquet("data/Mandate_Kandidaten.parquet")
+ParteiFarben <- tibble(Partei = c("SPD","CDU","GRÜNE","FDP","DIE LINKE","BIW","AfD"), 
+                       Farbe = c("#ff0000", "#000000", "#009933","#e6e600","#990033", "#ff9900", "#0099ff"),
+                       Textfarbe = c("white","white","white","black","white","black","white"))
+Jahre <- unique(Listen_Stats$Jahr)
+```
+
+Grundlage dieser Analysen sind die Stimmzetteldaten der Wahlen zur Bremischen Bürgerschaft in den Jahren `r paste(Jahre[1:length(Jahre)-1], sep=", ")`, and `r tail(Jahre,1)` für die Wahlbezirke Bremen und Bremenhaven. Dies sind `r sum(Stimmzettel_Stats$n)  |> format(big.mark=".", decimal.mark =",")` Stimmzettel von denen `r sum(Stimmzettel_Stats$n[!is.na(Stimmzettel_Stats$Stimme1)]) |> as.integer() |> format(big.mark=".", decimal.mark =",")` gültig sind. Die Aufgliederung nach Jahr und Wahlbezirk zeigt @tbl-n. Als Metadaten gehen in die Analyse Daten über alle Wahlvorschläge ein. Dies sind die zur Wahl stehenden Listen und deren Kandidatinnen und Kandidaten^["In diesem Text wird unsystematisch oder auch mal nicht gegendert. In allgemeinen Erläuterungen und herausgehobenen stellen wird auf verschiedene Weisen gegendert, zum Beispiel bei Kandidierenden, Wählenden, Kandidat/innen, Wähler/innen oder auch in der Doppelschreibung. In eher technischen Abschnitten zu Wahlsystemen wird auf gendern verzichtet, um die Sätze nicht zu lang oder komplex zu gestalten. Mit den Kandidaten und Wählern sind dann alle Geschlechter gemeint." 
+] mit den Daten *Name*, *Geburtsjahr*, *Beruf*, und *Stadt-/Ortsteil* so wie sie auch auf dem Stimmzettel stehen. 
+
+Im Gegensatz zum amtlichen Wahlergebnis, enthält der Stimmzettel-Datensatz die fünf Stimmen für jeden Stimmzettel. Das amtliche Wahlergebnis aggregiert bereits die Stimmenanzahl für jeden Wahlvorschlag. Dieser Datensatz ist beim Landeswahlleiter mit einer Vertraulichkeitsvereinbarung erhältlich sofern ein Forschungsinteresse besteht. Diese schützt das Wahlgeheimnis der Wählenden in besonderer Form. Die Stimmzettel enthalten durch die geheime Wahl naturgemäß keine namentliche Kennzeichnung. Der bereitgestellt Datensatz enthält auch keine weitere Kennzeichnung von Wahlgebiet oder Wahlurne. Bei Kenntnis einiger Stimmen eines Wählenden ergäbe sich aber gegebenenfalls eine Deanonymisierung-Möglichkeit und somit die Möglichkeit deren andere Stimmen zu erfahren. Deanonymisierungsversuche sind durch die Vertraulichkeitsvereinbarung verboten. Außerdem liegt dem Autor das dazu notwendige Wissen nicht vor. Für andere Personen wäre dies aber durchaus möglich, da ein erstaunlich großer Anteil der Stimmzettel einzigartig sind wie @tbl-einzigartig zeigt.
+
+Die folgenden Analysen sind größtenteils beschreibend und fokussieren besonders auf Kennzahlen, die nur aus den Stimmzetteldaten ablesbar sind. Die Daten werden aber so weit aggregiert dass keine Gefährdung des Wahlgeheimnis besteht. 
+
+```{r}
+#| label: tbl-n
+#| tbl-cap: "Stimmzettel im Datensatz"
+Stimmzettel_Stats |> 
+  summarize(Stimmzettel = sum(n), 
+            Gültige = sum(if_else(is.na(Stimme1), 0, n)), 
+            `Anteil Ungültig` = 1 - Gültige/Stimmzettel,
+            .by = c(Jahr, Wahlbezirk)) |>
+  pivot_wider(names_from = c(Wahlbezirk), values_from = c(Stimmzettel, Gültige, `Anteil Ungültig`)) |> 
+  gt() |> 
+  tab_spanner(label = "Bremen", ends_with("Bremen")) |> 
+  tab_spanner(label = "Bremerhaven", ends_with("Bremerhaven")) |> 
+  cols_label(
+    starts_with("Stimm") ~ "Stimmzettel",
+    starts_with("Gü") ~ "Gültige",
+    starts_with("Anteil Ungültig") ~ "Anteil Ungültig"
+  ) |> 
+  fmt_percent(starts_with("Anteil Ungültig")) |> 
+  fmt_integer(c(starts_with("Stimm"), starts_with("Gü")), sep_mark = ".")
+```
+
+```{r}
+#| label: tbl-einzigartig
+#| tbl-cap: "Einzigartie Stimmzettel im Datensatz"
+Stimmzettel_Stats |> 
+  filter(!is.na(Stimme1)) |> 
+  summarize(Gültige = sum(n), 
+            Einzigartige = sum(if_else(n == 1, 1, 0)),
+            `Anteil Einzigartige` = Einzigartige/Gültige,
+            .by = c(Jahr, Wahlbezirk)) |>
+  pivot_wider(names_from = c(Wahlbezirk), values_from = c(Gültige, Einzigartige, `Anteil Einzigartige`)) |> 
+  gt() |> 
+  tab_spanner(label = "Bremen", ends_with("Bremen")) |> 
+  tab_spanner(label = "Bremerhaven", ends_with("Bremerhaven")) |> 
+  cols_label(
+    starts_with("Gü") ~ "Gültige",
+    starts_with("Ein") ~ "Einzigartige",
+    starts_with("An") ~ "Anteil Einzigartige"
+  ) |> 
+  fmt_percent(starts_with("Anteil ")) |> 
+  fmt_integer(c(starts_with("Gü"), starts_with("Ein")), sep_mark = ".")
+```
+
+
+# Stimmenarten und Wähler-Typen 
+
+## Stimmenverteilung für Listen, Spitzenkandidat/innen und andere Personen
+
+@fig-Stimmenart zeigt die Gesamtzahl der Listen- und Personenstimmen wie sie auch aus dem amtlichen Wahlergebnis hervorgehen. Der Anteil der Personenstimmen liegt in Bremen stets über 40% und tendiert zu etwa 45%. In Bremerhaven wurde 2023 zum ersten Mal ein Wert über 40% erreicht. Der Anteil der Personenstimmen schwankt insbesondere mit der Wahlbeteiligung (abzulesen an der Höhe der Gesamtbalken). Bei hoher Wahlbeteiligung sinkt der Anteil der Personenstimmen. Dies deutet darauf hin, dass die bei eine hohen Wahlbeteilgung zusätzlich motivierten Wähler mehr Listenstimmen abgeben. Dies ist sehr plausibel weil es sich tendenziell um nicht so stark politisch interessierte handeln dürfte die weniger Wissen über einzelne Kandidierende haben. Insbesondere in Bremen ist die Gesamtzahl der Personenstimmen ziemlich gleich bleibend. Wenn überhaupt gibt es eine leicht steigende tendenz insbesondere in Bremerhaven. 
+
+```{r}
+#| label: fig-Stimmenart
+#| fig-cap: Die farblichen Balken zeigen die absolute Anzahl der Personenstimmen und Listenstimmen bei der jeweiligen Wahl im jeweiligen Wahlbezirk. Die Prozentzahlen beziehen sich auf den Anteil an allen Stimmen.  
+#| fig-height: 4
+Wahlvorschläge |> 
+  mutate(Typ2 = ifelse(Kennnummer %% 100 == 1, "Spitzenkandidat/in", str_replace(Typ, "Person", "Andere Kandidat/in")) |> 
+           fct_inorder()) |> 
+  summarize(Stimmen = sum(Stimmen), .by = c(Jahr, Wahlbezirk,Typ2)) |> 
+  mutate(Anteil = paste0(format(100*Stimmen/sum(Stimmen), digits=3, decimal.mark = ","),"%"), 
+         .by = c(Jahr, Wahlbezirk)) |> 
+  mutate(Typ = factor(Typ2)) |> 
+  ggplot(aes(Jahr, Stimmen, fill = Typ, alpha=(Jahr==2023))) + geom_col() + 
+  geom_text(aes(label = Anteil), position = position_stack(vjust = 0.5), size = 3, alpha = 1) + 
+  scale_alpha_manual(values=c(0.6,1)) +
+  scale_x_continuous(breaks = c(2011,2015,2019,2023)) +
+  scale_y_continuous(labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
+  scale_fill_manual(values = c("#9b59b6", "#2ca25f","#58d68d")) +
+  facet_wrap(~Wahlbezirk, ncol = 2, scales = "free_y") +
+  labs(x="", y="Stimmen", caption="Daten: Landeswahlleiter Bremen, Grafik: Jan Lorenz") +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE), alpha = "none") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom", legend.title = element_blank())
+```
+
+## Wähler-Typen
+
+Die folgenden Aufteilungen zeigen die Aufteilung auf verschiedene Wähler-Typen. Diese Informationen sind nur durch den Stimmzetteldatensatz erfassbar. 
+
+@fig-PersonenListenWaehler zeigt das ca. ein Drittel der Wählenden nur Personen wählt die Hälfte oder etwas weniger nur Listen wählt. 
+
+@fig-Kummulierer zeigt das knapp 37% bis 50% der Wählenden panaschieren. Das heißt eine (knappe) Mehrheit der Wählenden gibt alle Stimmen an den gleichen Wahlvorschlag. Die Graphik unterteilt diese Vollkummulierer noch in drei Gruppen. Die jenigen die nur eine Liste wählen, die die nur einen Spitzenkandidaten wählen und die die nur einen anderen Kandidaten wählen (Listenplatz 2 oder darunter). Diejenigen, die nur eine Liste wählen, könnten ihren Wählerwillen auch mit dem reinen Listenwahlrecht ausdrücken, wie es vor 2011 in Bremen galt. In Bremen sind es gut ein Drittel in Bremerhaven etwas mehr als 40%. Die Mehrheit macht also in der ein oder anderen Weise vom personalisierten Wahlrecht Gebrauch.   
+
+@fig-Panaschierer zeigt auch die Aufteilung in Kummulierer und Panaschierer, unterteilt aber die Panaschierer. Sie zeigt das 20% bis über 30% der Wählenden sogar parteiübergreifend Panaschieren. 
+
+```{r}
+#| label: fig-PersonenListenWaehler
+#| fig-cap: "Anzahl und Anteil von Listen- und Personenwählern. Listenwähler: Alle Stimmen gehen an Listen (aber ggf. an verschiedene; Personwähler: Alle Stimmen gehen an Personen (aber ggf. an verschiedene)."
+#| fig-height: 4
+Stimmzettel_Stats |> filter(num_valid > 0) |> group_by(Wahlbezirk, Jahr) |> 
+  count(only_party, only_person, wt = n) |> 
+  mutate(Anteil = paste0(format(100*n/sum(n),digits=3,decimal.mark = ","),"%")) |> 
+  mutate(`Wähler` = factor(paste0(only_party, only_person),levels = c("FALSETRUE","FALSEFALSE","TRUEFALSE"), 
+                         labels = c("Personenwähler","Beides","Listenwähler")) |> fct_rev()) |> 
+  ggplot(aes(Jahr, n, fill = `Wähler`, alpha=(Jahr==2023))) + geom_col() + 
+  geom_text(aes(label = Anteil), position = position_stack(vjust = 0.5), size = 3) +
+  scale_alpha_manual(values=c(0.6,1)) +
+  scale_x_continuous(breaks = c(2011,2015,2019,2023)) +
+  scale_y_continuous(labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
+  scale_fill_manual(values = c("#3498db","#8e44ad","#e74c3c")) +
+  facet_wrap(~Wahlbezirk, ncol = 2, scales = "free_y") +
+  labs(x="", y="Wähler", caption="Daten: Landeswahlleiter Bremen, Grafik: Jan Lorenz") +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE), alpha = "none") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom", legend.title = element_blank())
+```
+
+```{r}
+#| label: fig-Kummulierer
+#| fig-cap: "Anzahl und Anteil von Kumulierern wobei die Kummulierer noch aufgeilt werden in diejenigen, die nur eine Liste, nur einen Spitzenkandidaten, oder nur einen anderen Kandidaten wählen. Mit Kummulierern sind hier nur die Vollkummulierer gemeint, also nicht diejenigen die mindestens zwei Stimmen verschieden abgeben, aber durchaus einen Wahlvorschlag bis zu viermal kummuliert haben können.  "
+#| fig-height: 4
+Stimmzettel_Stats |> filter(num_valid > 0) |> 
+  group_by(Wahlbezirk, Jahr) |> 
+  count(only_lead & full_cum, no_lead & full_cum, full_cum, wt = n) |> 
+  mutate(Anteil = paste0(format(100*n/sum(n),digits=3,decimal.mark = ","),"%")) |> 
+  mutate(`Vollkummulierer` = 
+           factor(paste0(`only_lead & full_cum`, `no_lead & full_cum`, full_cum),
+                  levels = c("FALSEFALSETRUE","TRUEFALSETRUE","FALSETRUETRUE","FALSEFALSEFALSE"), 
+                  labels = c("Nur eine Partei","Nur ein Spitzenkandidat","Nur ein anderer Kandidat","Panschierer") |> 
+                    fct_rev())) |> 
+  ggplot(aes(Jahr, n, fill = `Vollkummulierer`, alpha=(Jahr==2023))) + geom_col() + 
+  geom_text(aes(label = Anteil), position = position_stack(vjust = 0.5), size = 3) + 
+  scale_alpha_manual(values=c(0.6,1)) +
+  scale_x_continuous(breaks = c(2011,2015,2019,2023)) +
+  scale_y_continuous(labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
+  scale_fill_manual(values = c("#fdae6b","#fd8d3c","#d94801","#41ad5d")) +
+  facet_wrap(~Wahlbezirk, ncol = 2, scales = "free_y") +
+  labs(x="", y="Wähler", caption="Daten: Landeswahlleiter Bremen, Grafik: Jan Lorenz") +
+  guides(fill=guide_legend(nrow=2,byrow=TRUE), alpha = "none") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom", legend.title = element_blank())
+```
+
+
+
+```{r}
+#| label: fig-Panaschierer
+#| fig-cap: "Anzahl und Anteil von Kummulierern und Panaschierern wobei die Panaschierenden in parteitreue und parteiübergreifende unterteilt werden. Kumulierer: Alle Stimmen gehen an einen Wahlvorschlag (Liste oder Kandidat). Panaschierer: Mindestens zwei Stimmen gehen an unterschiedliche Wahlvorschläge. Parteitreu: Alle Stimmen gehen an Wahlvorschläge von der gleichen Partei (verschiedene Kandidaten oder die Liste)."
+#| fig-height: 4 
+Stimmzettel_Stats |> filter(num_valid > 0) |> group_by(Wahlbezirk, Jahr) |> 
+  count(one_party,full_cum, wt = n) |> 
+  mutate(Anteil = paste0(format(100*n/sum(n),digits=3,decimal.mark = ","),"%")) |> 
+  mutate(`Wähler` = factor(paste0(one_party,full_cum),levels = c("FALSEFALSE","TRUEFALSE","TRUETRUE"), 
+                         labels = c("parteiübergreifende\nPanaschierer","parteitreue\nPanaschierer","Vollkummulierer")) |> fct_rev()) |> 
+  ggplot(aes(Jahr, n, fill = `Wähler`, alpha=(Jahr==2023))) + geom_col() + 
+  geom_text(aes(label = Anteil), position = position_stack(vjust = 0.5), size = 3) +
+  scale_alpha_manual(values=c(0.6,1)) +
+  scale_x_continuous(breaks = c(2011,2015,2019,2023)) +
+  scale_y_continuous(labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
+  scale_fill_manual(values = c("#f16913","#addd8e","#238443")) +
+  facet_wrap(~Wahlbezirk, ncol = 2, scales = "free_y") +
+  labs(x="", y="Wähler", caption="Daten: Landeswahlleiter Bremen, Grafik: Jan Lorenz") +
+  guides(fill=guide_legend(nrow = 1,byrow=TRUE), alpha = "none") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom", legend.title = element_blank())
+```
+
+# Kandidatinnen und Kandidaten
+
+
+
+```{r}
+Mandate_Kandidaten |> left_join(Kandidaten_Stats, by = join_by(`Name Partei/Wählervereinigung`, Kurzform, Listenplatz, Titel, Name, Vorname, Geschlecht, Geburtsjahr, Beruf, `Stadt- oder Ortsteil`, Jahr, Wahlbezirk, `Liste Nr.`, Kennnummer, Typ, Stimmen, Wähler, Stimmen_pro_Wähler)) |> 
+  ggplot(aes(x =  Jahr, y = Stimmen_pro_Wähler)) + 
+  geom_jitter(aes(color = Mandat_erstPerson)) + 
+  #geom_smooth(aes(color = Mandat_erstPerson)) +
+  geom_smooth() +
+  facet_wrap(~Wahlbezirk)
+```
+
+```{r}
+Mandate_Kandidaten |> left_join(Kandidaten_Stats, by = join_by(`Name Partei/Wählervereinigung`, Kurzform, Listenplatz, Titel, Name, Vorname, Geschlecht, Geburtsjahr, Beruf, `Stadt- oder Ortsteil`, Jahr, Wahlbezirk, `Liste Nr.`, Kennnummer, Typ, Stimmen, Wähler, Stimmen_pro_Wähler)) |> 
+  ggplot(aes(x =  Jahr, y = Stimmen_pro_Wähler)) + 
+  geom_boxplot(aes(color = Mandat_erstPerson)) + 
+  facet_wrap(~Wahlbezirk)
+```
+```{r}
+Mandate_Kandidaten |> left_join(Kandidaten_Stats, by = join_by(`Name Partei/Wählervereinigung`, Kurzform, Listenplatz, Titel, Name, Vorname, Geschlecht, Geburtsjahr, Beruf, `Stadt- oder Ortsteil`, Jahr, Wahlbezirk, `Liste Nr.`, Kennnummer, Typ, Stimmen, Wähler, Stimmen_pro_Wähler)) |> 
+  ggplot(aes(x =  factor(Jahr), y = Stimmen_pro_Wähler, fill = Mandat_erstPerson, color = Geschlecht)) + 
+  geom_boxplot() + 
+  facet_wrap(~Wahlbezirk)
+```
+
+```{r}
+Mandate_Kandidaten |> left_join(Kandidaten_Stats, by = join_by(`Name Partei/Wählervereinigung`, Kurzform, Listenplatz, Titel, Name, Vorname, Geschlecht, Geburtsjahr, Beruf, `Stadt- oder Ortsteil`, Jahr, Wahlbezirk, `Liste Nr.`, Kennnummer, Typ, Stimmen, Wähler, Stimmen_pro_Wähler)) |> 
+  ggplot(aes(x =  factor(Jahr), y = Stimmen_pro_Wähler, color = Geschlecht)) + 
+  geom_boxplot() + 
+  facet_wrap(~Wahlbezirk)
+```
+
+
+# Listenplatz, Stimmenrang und Wählerrang
+
+```{r}
+Mandate_Kandidaten |> 
+  filter(Jahr == 2023) |> 
+  filter(Kurzform %in% ParteiFarben$Partei) |> 
+  ggplot(aes(Listenplatz, Stimmenrang, color = Kurzform)) + 
+  geom_point() +
+  coord_fixed() +
+  scale_y_reverse() +
+  facet_grid(~Kurzform)
+```
+
+
+```{r}
+df <- Mandate_Kandidaten |> left_join(ParteiFarben, join_by("Kurzform" == "Partei")) |> 
+  mutate(Stimmenrang_keep = Stimmenrang, Wählerrang_keep = Wählerrang) |> 
+  pivot_longer(c(Stimmen, Wähler), names_to = "Zählung", values_to = "Anzahl") |> 
+  mutate(Rang = if_else(Zählung == "Wähler", Wählerrang_keep, Stimmenrang_keep)) |> 
+  mutate(Fullname = paste0(if_else(is.na(Titel), "", paste0(Titel, " ")), Vorname, " ", Name)) |> 
+  # mutate(Fullname = paste0(if_else(is.na(Titel), "", paste0(Titel, " ")), Vorname, " ", Name, "\n",
+  #        "Listenplatz: ",Listenplatz, "\n",
+  #        "Stimmenrang: ",Stimmenrang_keep, " (", format(Stimmen, big.mark=".", decimal.mark=","), " Stimmen) \n",
+  #        "Wählerrang: ", Wählerrang_keep, " (", format(Wähler, big.mark=".", decimal.mark=","), " Wähler)")) |> 
+  filter(Jahr == 2023, Wahlbezirk == "Bremen") |> 
+  filter(Kurzform == "SPD")
+scatter <- df |> 
+  ggplot(aes(y = Listenplatz, x = Rang, 
+             tooltip = Fullname, 
+             data_id = Fullname, 
+             color = Farbe, 
+             alpha = Geschlecht )) +
+  geom_vline_interactive(aes(xintercept = Liste, tooltip = paste0(Liste," Listenbank")), color = "lightgray") +
+  geom_vline_interactive(aes(xintercept = Liste+Person,tooltip = paste0(Liste+Person," Mandate insgesamt")), 
+                         color = "darkgray") +
+  geom_hline_interactive(aes(yintercept = Person, tooltip = paste0(Person," Personenbank")), color = "blue") +
+  geom_hline_interactive(aes(yintercept = Liste+Person,tooltip = paste0(Liste+Person," Mandate insgesamt")), 
+                         color = "blue4") +
+  geom_point_interactive() +
+  facet_wrap(~Zählung, ncol = 1) +
+  coord_fixed() +
+  scale_x_continuous(minor_breaks = c(), breaks = c()) + 
+  scale_y_reverse(minor_breaks = c(), breaks = c()) +
+  scale_color_identity() +
+  scale_alpha_discrete(range = c(0.3, 1)) +
+  theme_minimal()
+bars <- df |> 
+  ggplot(aes(x = Anzahl, y = fct_inorder(Fullname) |> fct_rev(), data_id = Fullname)) +
+  geom_col_interactive() +
+  scale_x_log10() +
+  coord_cartesian(xlim=c(10, NA)) +
+  facet_wrap(~Zählung, nrow = 1, scales = "free")
+
+scatter + bars
+girafe(ggobj = scatter + bars)
+```
+
+
+
+# Mandatsverteilung
+
+In den verschiedenen Jahren waren die den beiden Wahlgebieten zugeteilten Mandate leicht unterschiedlich (@tbl-Mandate).
+
+```{r}
+#| label: tbl-Mandate
+#| tbl-cap: "Mandate in den zwei Wahlgebieten."
+Relevanzschwellen |> select(Jahr, Wahlbezirk, Sitze) |> 
+  pivot_wider(names_from = Wahlbezirk, values_from = Sitze) |> 
+  mutate(Total = Bremen + Bremerhaven) |> 
+  gt()
+```
+
+Nach 2003 wurde die Gesamtzahl der Sitze von vormals 100 um ein Sechstel auf 83 reduziert und proportional zur Bevölkerung auf Bremen und Bremerhaven aufgeteilt. Seitdem musste diese Aufteilung aufgrund des sinkenden Anteils der Bremerhavener Bevölkerung angepasst werden. Die 15 Sitze für Bremerhaven wollte man nicht unterschreiten^[Mit 15 Sitzen repräsentiert ein Sitz 6.67% der Sitze also schon mehr als 5%. Die 5%-Hürde wird also fast durch die natürliche Hürde überlagert.]. Deshalb wurde der Anteil der Sitze aus Bremen sukkzessive erhöht. 
+
+## Mandatesverteilung Parteien
+
+Die seit 2011 geltenden personalisierten Wahlsysteme haben alle ein dreistufiges Zuteilungsverfahren, welches in den beiden Wahlgebieten unabhängig voneinander angewendet wird. @tbl-Mandate_ListePersonen zeigt alle Mandatesverteilungen für die Parteien und ihre jeweilige Listen und Personenbank. Die Methode der Zuteilung ist in Kurzform:
+
+1. **Zuteilung an Parteien.** Die Listenstimmen und Personenstimmen aller Parteien werden zusammengezählt und den Parteien werden proportional Mandate zugeordnete. Dabei werden alle Parteien übergangen die weniger als 5% der abgegebenen Stimmen erhalten haben. Die Zuteilung erfolgt nach dem Divisorverfahren mit Standardrundung (Sainte-Laguë-Verfahren). Diese Verfahren berechnet zunächst den proportionalen Ideal-Anpruch an Mandaten einer Partei (siehe auch @tbl-Mandate_ListePersonen) und rundet dann so, dass die Gesamtzahl der Mandate aus @tbl-Mandate entspricht. (Dazu wird der Divisor angepasst so dass die Standardrundung eine passende Gesamtzahl bietet, daher der Name Divisor-Verfahren.)
+2. **Zuteilung an Listen und Personenbank.** Die Mandate für jede Partei werden in zwei Kontingente -- eine Listenbank und eine Personenbank -- aufgeteilt. Dies geschieht proportional zu den Listen- und Personenstimmenanteilen der Partei auch nach dem Divisorverfahren mit Standardrundung. 
+3. **Zuteilung an Kandidaten.** Die Listenbank wird mit Kandidaten von nach Listenplatz besetzt, die Personenbank mit Kandidaten der Liste sortiert nach den meisten Personenstimmen (Stimmenrang), die die Kandidaten erhalten haben. In den Jahren 2011 und 2015 wurde zuerst die Listenbank besetzt und danach die Personenbank, wobei alle Kandidaten die bereits einen Listensitz hatten übersprungen werden. Bei den Wahlen 2019 und 2023 war es umgedreht, zuerst die Personenbank und dann die Listenbank. Letzteres hat zur folge, dass es in der Regel schwierigier ist für Kandidaten auf unteren Listenplätzen eine Mandat von der Personenbank zu erringen. 
+
+Die Zuteilungsmethode mit proportionaler Listen- und Personenbank hat nicht intendierte negative Auswirkungen:
+
+- Es besteht die Möglichkeit eines negativen Stimmengewichts für die Kandidatenauswahl. Das heißt ein Kandidat wird nicht gewählt, wäre aber gewählt, wenn alle oder ein Teil seiner Wähler auf die Stimmabgabe verzichtet hätten. Dies ist nicht nur eine theoretische Möglichkeit. Diese *Personenstimmenparadox* genannte Phänomen ist bisher bei allen Wahlen aufgetreten (2023 allerdings nur bei den paralleln Beiratswahlen). 
+- Für Kandidaten auf "mittleren" (halbsicheren) Listenplätzen besteht daher die Gefahr, dass Personenstimmen ihre Wahl gefährenden können, insbesondere wenn sie nur mit eine kleineren Anzahl von Personenstimmen rechnen können. Sie haben also keinerlei Anreiz um Stimmen zu werben, was der grundsätzlichen Idee einer Wahl zuwider läuft. Der Grund für diese Problem ist, dass Personenstimmen die Personenbank zuungunsten der Listenbank vergrößeren können. Eine zusätzliche Personenstimme kann also das Listenmandate für einen Kandidaten zur Personenbank kippen lassen, ohne dass es dafür ausreicht in der Stimmenrangliste soweit vorzurücken, dass ein Personenmandat errungen wird. 
+
+
+:::::: {#tbl-Mandate_ListePersonen}
+
+::::: {.panel-tabset}
+
+## 2023
+
+:::: {.columns}
+
+::: {.column width='50%'}
+#### Bremen  {.unnumbered}
+
+```{r}
+#| echo: false
+special_tab_style <- function(gt,df,i,n) if (i <= n) {gt |> 
+  tab_style(style = list(cell_fill(color = df$Farbe[c(TRUE,FALSE)][i]), 
+                         cell_text(color = df$Textfarbe[c(TRUE,FALSE)][i])), 
+            locations = cells_row_groups(i))
+} else {
+  gt
+}
+Tab_Mandate_ListePersonen <- function(MLP_ext) {
+  Num_Parteien = nrow(MLP_ext)/2
+  MLP_ext |> 
+    mutate(
+      Ideal_Mandate_Partei_rounded = round(Ideal_Mandate_Partei, digits = 2), 
+      Partei_Header = glue("{Partei} - {Mandate_Partei} Mandate (ideal {Ideal_Mandate_Partei_rounded})")) |> 
+    select(Typ, Partei_Header, Stimmen, Mandate, `Mandate (ideal)` = Ideal_Mandate) |> 
+    group_by(Partei_Header) |> 
+    gt(rowname_col = "Typ") |> 
+    fmt_integer("Stimmen", sep_mark = ".") |> 
+    fmt_number(`Mandate (ideal)`, decimals = 2) |> 
+    tab_style(
+      style = list(cell_text(weight = "bold")),
+      locations = cells_body(columns = Mandate)) |>  
+    tab_options(data_row.padding = px(2)) |> 
+    special_tab_style(MLP_ext, 1, Num_Parteien) |>  
+    special_tab_style(MLP_ext, 2, Num_Parteien) |>  
+    special_tab_style(MLP_ext, 3, Num_Parteien) |>  
+    special_tab_style(MLP_ext, 4, Num_Parteien) |>  
+    special_tab_style(MLP_ext, 5, Num_Parteien) |>  
+    special_tab_style(MLP_ext, 6, Num_Parteien) |>  
+    special_tab_style(MLP_ext, 7, Num_Parteien) |>  
+    special_tab_style(MLP_ext, 8, Num_Parteien) 
+  # Works for up to 8 parties, ugly code, maybe better ways with advanced knowledge of gt
+}
+Mandate_ListePersonen_extended <- Mandate_ListePersonen |> 
+  left_join(Mandate_Parteien, 
+            by = join_by(Jahr, Wahlbezirk, Partei),
+            suffix = c("","_Partei")) |> 
+  left_join(ParteiFarben, by = join_by(Partei))
+Mandate_ListePersonen_extended |> 
+  filter(Jahr == 2023, Wahlbezirk == "Bremen") |> 
+  mutate(Partei = fct_inorder(Partei)) |> 
+  Tab_Mandate_ListePersonen()
+```
+
+:::
+
+::: {.column width='50%'}
+#### Bremerhaven {.unnumbered}
+
+```{r}
+#| echo: false
+Mandate_ListePersonen_extended |> 
+  filter(Jahr == 2023, Wahlbezirk == "Bremerhaven") |> 
+  mutate(Partei = fct_inorder(Partei)) |> 
+  Tab_Mandate_ListePersonen()
+```
+
+:::
+
+::::
+
+## 2019
+
+:::: {.columns}
+
+::: {.column width='50%'}
+#### Bremen  {.unnumbered}
+
+```{r}
+#| echo: false
+Mandate_ListePersonen_extended |> 
+  filter(Jahr == 2019, Wahlbezirk == "Bremen") |> 
+  mutate(Partei = fct_inorder(Partei)) |> 
+  Tab_Mandate_ListePersonen()
+```
+
+:::
+
+::: {.column width='50%'}
+#### Bremerhaven {.unnumbered}
+
+```{r}
+#| echo: false
+Mandate_ListePersonen_extended |> 
+  filter(Jahr == 2019, Wahlbezirk == "Bremerhaven") |> 
+  mutate(Partei = fct_inorder(Partei)) |> 
+  Tab_Mandate_ListePersonen()
+```
+
+:::
+
+::::
+
+## 2015
+
+:::: {.columns}
+
+::: {.column width='50%'}
+#### Bremen  {.unnumbered}
+
+```{r}
+#| echo: false
+Mandate_ListePersonen_extended |> 
+  filter(Jahr == 2015, Wahlbezirk == "Bremen") |> 
+  mutate(Partei = fct_inorder(Partei)) |> 
+  Tab_Mandate_ListePersonen()
+```
+
+:::
+
+::: {.column width='50%'}
+#### Bremerhaven {.unnumbered}
+
+```{r}
+#| echo: false
+Mandate_ListePersonen_extended |> 
+  filter(Jahr == 2015, Wahlbezirk == "Bremerhaven") |> 
+  mutate(Partei = fct_inorder(Partei)) |> 
+  Tab_Mandate_ListePersonen()
+```
+
+:::
+
+::::
+
+## 2011
+
+:::: {.columns}
+
+::: {.column width='50%'}
+#### Bremen  {.unnumbered}
+
+```{r}
+#| echo: false
+Mandate_ListePersonen_extended |> 
+  filter(Jahr == 2011, Wahlbezirk == "Bremen") |> 
+  mutate(Partei = fct_inorder(Partei)) |> 
+  Tab_Mandate_ListePersonen()
+```
+
+:::
+
+::: {.column width='50%'}
+#### Bremerhaven {.unnumbered}
+
+```{r}
+#| echo: false
+Mandate_ListePersonen_extended |> 
+  filter(Jahr == 2011, Wahlbezirk == "Bremerhaven") |> 
+  mutate(Partei = fct_inorder(Partei)) |> 
+  Tab_Mandate_ListePersonen()
+```
+
+:::
+
+::::
+
+:::::
+
+Mandatsverteilungen and Parteien sowie deren Listen- und Personenbank aller Wahlen seit 2011. 
+::::::
+
+
+
+
+
+
+
+
+
+
+
+

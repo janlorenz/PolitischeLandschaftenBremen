@@ -1,0 +1,28 @@
+project: 
+  type: website
+  render: 
+    - index.qmd
+    - index_2.qmd
+    - Vorträge.qmd
+    - Präsentation_Wissen_um_11_2023.qmd
+    - Präsentation_Wissen_um_11_2024.qmd
+    
+website:
+  title: "Politische Landschaften in Bremen"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Start
+      - href: index_2.qmd
+        text: "Start 2"
+      - href: Vorträge.qmd
+        text: Vorträge
+
+format: 
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    code-fold: true  
+

@@ -1,0 +1,1286 @@
+---
+lang: de
+title: "[Wahlen in Bremen mit 5 Stimmen]{style='font-size:73px;'}"
+subtitle: "[Wie werden sie vergeben und wer wird zusammen gewählt?]{style='font-size:42px;'}"
+author: "[**Jan Lorenz**]{style='font-size:42px;color:blue;'}"
+date: 2023-05-06
+date-format: "D. MMMM YYYY"
+institute: "Haus der Wissenschaft Bremen, Wissen um 11"
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    controls: true
+    menu: true
+    smaller: true
+    slide-number: true
+    logo: "figs/CU_Logotype_RGB_navy_blue_red.png"
+    footer: "Jan Lorenz | <http://janlo.de> | Assistant Professor in Social Data Science | Mastodon [@janlo@datasci.social](http://datasci.social/@janlo) | Twitter: [@jalorenz](http://twitter.com/jalorenz)"
+execute: 
+  cache: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(ggrepel)
+library(gt)
+library(gtExtras)
+library(ggparliament)
+library(ggbump)
+library(ComplexUpset)
+
+# Daten
+load("data/d_sqm.RData")
+load("data/Stimmzettel_s_Wahlvorschlaege_w.RData")
+Umfragen <- tibble(Partei = c("CDU", "SPD", "GRÜNE", "FDP", "LINKE", "AfD", "BIW", "Sonstige"),
+                   INSA = c(30, 30, 15, 7, 6, 0, 7, 5 ),
+                   Infratest = c(27,30,13,6,10,0,9,5),
+                   ForschungsgruppeWahlen = c(27,30,13,6,9,0,9,6),
+                   Wahl2019 = c(26.7, 24.9,17.4,5.9,11.3,6.1,2.4, 5.2))
+Umfrage =list(INSA = "N = 500, Befragung per Telefon und per Online-Panel, 21.04.–28.04., Auftraggeber BIW", 
+              Infratest = "N = 1450, Befragung per Telefon und per Online-Panel, 01.05.–03.05., Auftraggeber ARD", 
+              ForschungsgruppeWahlen = "N = 1024, Befragung per Telefon und per Online-Panel, 27.04.–04.05., Auftraggeber ZDF")
+partycols <- tibble(Partei = c("SPD","CDU","GRÜNE","FDP","DIE LINKE","BIW","AfD"), 
+                    Farbe = c("#ff0000", "#000000", "#009933","#e6e600","#990033", "#ff9900", "#0099ff" ))
+
+# Funktionen
+zuteilen_nach_hoechstzahlen <- function(N, Stimmen, divisorfolge="saintlague", ersterdivisor=NA, output="Mandate") {
+	Stimmen <- Stimmen/sum(Stimmen)
+	divisoren <- switch(divisorfolge, 
+		saintlague= (1:N)-0.5,
+		hillhuntington= sqrt((0:(N-1)) * (1:N)), 
+		dhondt=1:N, 
+		adams=0:N)
+	if (is.numeric(ersterdivisor)) {divisoren[1] = ersterdivisor}
+	hoechstzahlen <- purrr::as_vector(purrr::map(Stimmen, function(x) x / divisoren))
+	partei_labels <- rep(1:length(Stimmen), each=N)
+	mandate <- partei_labels[order(hoechstzahlen, decreasing = TRUE)[1:N]]
+	switch(output, 
+		Mandate =	tabulate(mandate, nbins = length(Stimmen)), # Hauptoutput für Mandatsverteilung
+		Letztmandat = 1:length(Stimmen)==mandate[N],
+		Zweitletztmandat = 1:length(Stimmen)==mandate[N-1],
+		Hoechstzahl_Letztmandat = hoechstzahlen[order(hoechstzahlen, decreasing = TRUE)][N],
+		Hoechstzahl_Zweitletztmandat = hoechstzahlen[order(hoechstzahlen, decreasing = TRUE)][N-1]
+	)
+}
+
+```
+
+
+## Wahl-"Bremensien"^[Bremische Besonderheiten. Hier bezogen auf Wahlen zur Bremischen Bürgerschaft im Vergleich zu anderen Landtags- und Bundestagswahlen.] 
+
+
+::: {.incremental}
+- Bremer können alle 4 Jahre ihr Parlament wählen
+- Teilzeit-Parlament (auch in HH)
+- Das Bürgerschaft hat die Richtlinienkompetenz und nicht der Regierungschef
+- Kein "Kanzlerprinzip", Bürgermeister $\neq$ Ministerpräsident:  
+Senatsmitglieder brauchen Vertrauen der Bürgerschaft nicht ihres Präsidenten
+- Trennung Amt und Mandat: Regierungsmitglieder nicht im Parlament (auch in HH)
+:::
+
+::: aside
+Quellen: [Landesverfassung](https://www.transparenz.bremen.de/metainformationen/landesverfassung-der-freien-hansestadt-bremen-in-der-fassung-der-bekanntmachung-vom-12-august-2019-167402?asl=bremen203_tpgesetz.c.55340.de&template=20_gp_ifg_meta_detail_d)
+[Bremisches Abgeordneten Gesetz](https://www.transparenz.bremen.de/metainformationen/gesetz-ueber-die-rechtsverhaeltnisse-der-mitglieder-der-bremischen-buergerschaft-bremisches-abgeordnetengesetz-vom-16-oktober-1978-150857?asl=bremen203_tpgesetz.c.55340.de&template=20_gp_ifg_meta_detail_d)
+
+Vorbemerkung: In diesem Vortrag wird von Kandidatinnen und Kandidaten, Wählerinnen und Wählern und anderen Menschen mit vielerlei möglichen Geschlechtsidentitäten die Rede sein. Oft werde ich sie aber nur Kandidaten, Wähler, usw. nennen.
+:::
+
+## Die Bremische Bürgerschaft
+
+```{r}
+#| include: false
+c(rep(6,15),5.5,4.5)  |> zuteilen_nach_hoechstzahlen(N = 15, Stimmen = _)
+```
+
+
+:::{layout-ncol=2}
+- Zwei Wahlgebiete
+    - **Bremen** (Stadt) [**72**]{style='color:red;'} Abgeordnete
+    - **Bremerhaven** [**15**]{style='color:red;'} Abgeordnete
+- Technisch zwei unabhängige Wahlen:   
+  Eigene Listen, eigene 5% Sperrklausel    
+
+**Fun-Fact Bremerhaven**: 1 einzelner von 15 Abgeordneten entspricht 100/15 = 6.67% also bereits mehr 5%. Die *natürliche Sperrklausel* kann also sogar über 5% liegen.^[Das passiert zum Beispiel wenn 15 Parteien jeweils 6% bekommen, Partei XY 5.5% und Partei YZ 4.5%. Partei YZ scheitert an der 5%-Hürde, aber auch Partei XY bekommt kein Mandat da, die 15 Mandate an die Parteien mit 6% gehen.]
+:::
+
+```{r}
+#| fig-align: center
+#| fig-height: 2
+HB <- tibble(party_short = c("Bremen","Bremerhaven"), seats = c(72,15)) 
+parliament_data(HB, type = "semicircle",
+                parl_rows = 5,
+                party_seats = HB$seats) |> 
+ggplot(aes(x = x, y = y, shape = party_short)) +
+  geom_parliament_seats(size = 5) + 
+  theme_ggparliament() + 
+  coord_fixed() +
+  scale_shape_manual(values = c(19,21)) +
+  theme_void(base_size = 24) +
+  theme(legend.title=element_blank())
+```
+
+
+
+
+
+# Das 5-Stimmen Wahlsystem
+
+## Wählen: 5 Stimmen irgendwie aufteilen 
+
+![](figs/Stimm-Zettel_Muster.jpg)
+
+## Wählen: Listenstimmen und Personenstimmen
+
+![](figs/Stimm-Zettel_Liste1_Muster.jpg)
+
+## Auszählen
+
+:::: {.columns}
+
+::: {.column width='60%'}
+- Auf dem Stimm-Zettel hat jede Partei und jede Person eine ID-Nummer
+    - Die erste(n) Stelle(n) bezeichnen die Liste
+    - Die letzten beiden Stellen bezeichnen den Listenplatz einer Person, Listenplatz 0 steht für eine Listenstimme
+- Stimm-Zettel werden digital erfasst (je 5 ID-Nummern)
+
+Beispiele: 
+
+200 $\to$ [02]{style="border: 1px solid; padding: 0px 2px 0px 2px"} [00]{style="border: 1px solid; padding: 0px 2px 0px 2px"} $\to$ Liste 2, Listenstimme
+
+417 $\to$ [04]{style="border: 1px solid; padding: 0px 2px 0px 2px"} [17]{style="border: 1px solid; padding: 0px 2px 0px 2px"} $\to$ Liste 4, Person auf Listenplatz 17 
+
+**Wahlergebnis:** Tabelle mit Stimmen für alle IDs.
+:::
+
+::: {.column width='40%'}
+```{r}
+set.seed(16)
+s |> filter(n>20) |> sample_n(7) |> select(starts_with("vote_")) |> 
+  set_names(paste("Stimme",1:5)) |> 
+  gt() |> 
+  tab_header(title = "7 Beispiele für digitalisierte Stimm-Zettel") |> 
+  cols_align(align = "center")
+```
+
+```{r}
+Result <- w |> 
+  filter(district == "Bremen", year == 2019) |> 
+  select(ID = id, Partei = Kurzform, Name, Stimmen = votes) |> 
+  bind_rows(p |> filter(district == "Bremen", year == 2019)|> 
+              select(ID = party_id,Partei = Kurzform, Stimmen = list_votes) |> 
+              mutate(Name = "Listenstimmen")) 
+Result |> filter(ID <= 104) |> arrange(ID) |> 
+  gt() |> 
+  tab_header(title = "Wahlergebnis Bremen 2019", subtitle = "Beispiel für die ersten 5 IDs")
+```
+:::
+::::
+
+
+## Mandate zuteilen
+
+::: {}
+1. Die Mandate werden nach dem Prinzip der **Verhältniswahl** auf die Parteien verteilt.^[Bei allen Zuteilungen nach dem Prinzip der Verhältniswahl wird das [Divisor-Verfahren mit Standard-Rundung](https://de.wikipedia.org/wiki/Sainte-Lagu%C3%AB-Verfahren) verwendet (auch Saint-Laguë genannt). ]   
+Parteien unter 5% Stimmenanteil fallen weg. 
+2. Die Mandate einer jeden Partei werden nach dem Prinzip der Verhältniswahl in zwei Kontingente unterteilt: 
+    a. ein **Listen-Mandat-Kontingent**
+    b. ein **Personen-Mandat-Kontingent**
+3. Aus der Liste jeder Partei wird eine **Personen-Stimmen-Rangliste** gebildet. Die Personen mit den meisten Stimmen erhalten die Personen-Mandate vergeben
+4. Die Listen-Mandate erhalten die ersten Personen der unveränderten Liste sofern sie nicht schon ein Personen-Mandat haben.
+:::
+
+
+## Jede Stimme hat mehrere Funktionen!
+
+
+**Listen-Stimmen** zählen für
+
+1. die Partei
+2. das Listen-Mandats-Kontingent der Partei
+
+
+**Personen-Stimmen** zählen für
+
+1. die Partei
+2. für das Direkt-Mandat-Kontingent welches nach Personen-Stimmen-Rangliste vergeben wird
+3. für die Position der Person auf der Rangliste
+
+
+## Beispiel: Bremen (Stadt)
+
+2019 - Verhältniswahl
+
+```{r}
+#| include: false
+Bre19 <- d_mds |> filter(district == "Bremen", year == 2019) |> 
+  summarize(Stimmen = sum(votes), .by = c("Partei","Farbe")) |> 
+  mutate(Prozent = Stimmen/sum(Stimmen)) |> filter(Prozent > 0.05) |> 
+  mutate(Sitze = zuteilen_nach_hoechstzahlen(69,Stimmen))
+Bre19listpers <- d_mds |> filter(district == "Bremen", year == 2019, Partei %in% Bre19$Partei) |> 
+  summarize(Stimmen = sum(votes), .by = c("Partei","type","Farbe")) |> 
+  mutate(Prozent = Stimmen/sum(Stimmen), .by = c("Partei")) |>  
+  mutate(Stimmenart = factor(type, levels = c("list", "candidate"), labels = c("Listen","Personen"))) |> 
+  arrange(match(Partei,Bre19$Partei), Stimmenart) |> 
+  left_join(Bre19 |> select(Partei, Sitze), by = "Partei") |> 
+  mutate(SitzePartei = Sitze) |> 
+  mutate(Sitze = zuteilen_nach_hoechstzahlen(max(Sitze),Stimmen), .by = "Partei")
+```
+
+:::: {.columns}
+
+::: {.column width='33%'}
+1) Stimmanteile der Parteien
+
+```{r}
+d_mds |> filter(district == "Bremen", year == 2019) |> 
+  summarize(Stimmen = sum(votes), .by = c("Partei")) |> 
+  mutate(Prozent = Stimmen/sum(Stimmen)) |> 
+  mutate(Partei = factor(Partei, labels = Partei, levels = Partei)) |> arrange(Partei) |> gt() |> 
+  fmt_integer("Stimmen", sep_mark = ".") |> 
+  fmt_percent("Prozent") |> 
+  data_color("Partei",
+             method = "factor",
+             palette = c(Bre19$Farbe,"grey","grey","grey","grey","grey","grey","grey","grey")) |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(3)  # Optionally tighten row padding to save vertical space
+  )
+```
+:::
+
+::: {.column width='33%'}
+2) 5%-Hürde, Sitzverteilung
+
+```{r}
+Bre19 |> select(-Farbe) |> mutate(Partei = factor(Partei, levels = Bre19$Partei)) |> gt() |> 
+  fmt_integer("Stimmen", sep_mark = ".") |> 
+  fmt_percent("Prozent") |> 
+  data_color("Partei",
+             method = "factor",
+             palette = Bre19$Farbe) |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = Sitze)) |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(3)  # Optionally tighten row padding to save vertical space
+  )
+```
+
+```{r}
+#| fig-width: 3
+#| fig-height: 3
+#| fig-align: center
+Bre19listpers |> slice(7,8,1,2,5,6,3,4,9,10,11,12) |> 
+  parliament_data(type = "semicircle",
+                  parl_rows = 5,
+                  party_seats = Bre19listpers$Sitze[c(7,8,1,2,5,6,3,4,9,10,11,12)]) |> 
+  ggplot(aes(x = x, y = y, color = Farbe, alpha = Stimmenart)) +
+  geom_parliament_seats(size = 4) + 
+  theme_ggparliament() + 
+  coord_fixed() +
+  scale_colour_identity() +
+  scale_alpha_manual(values = c(0.3,1)) +
+  theme_void(base_size = 12) +
+  theme(legend.position = "bottom", legend.title = element_blank()) +
+  guides(color = "none")
+```
+:::
+
+::: {.column width='33%'}
+3) Personen- und Listen-Kontingente
+
+```{r}
+Bre19listpers |> select(-Farbe, -type) |> mutate(Partei = factor(Partei, levels = Bre19$Partei)) |> 
+  group_by(Partei, SitzePartei) |> gt(rowname_col = "Stimmenart") |> 
+  fmt_integer("Stimmen", sep_mark = ".") |> 
+  fmt_percent("Prozent") |> 
+  data_color("Partei",
+             method = "factor",
+             palette = Bre19$Farbe) |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = Sitze)) |> 
+  tab_style(style = list(cell_fill(color = Bre19$Farbe[1]), cell_text(color = "white")), locations = cells_row_groups(1)) |> 
+  tab_style(style = list(cell_fill(color = Bre19$Farbe[2]), cell_text(color = "white")), locations = cells_row_groups(2)) |> 
+  tab_style(style = list(cell_fill(color = Bre19$Farbe[3]), cell_text(color = "white")), locations = cells_row_groups(3)) |> 
+  tab_style(style = list(cell_fill(color = Bre19$Farbe[4]), cell_text(color = "white")), locations = cells_row_groups(4)) |> 
+  tab_style(style = list(cell_fill(color = Bre19$Farbe[5])), locations = cells_row_groups(5)) |> 
+  tab_style(style = list(cell_fill(color = Bre19$Farbe[6]), cell_text(color = "white")), locations = cells_row_groups(6)) |> 
+  tab_options(data_row.padding = px(2))  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+:::
+
+::::
+
+## Vergabe an Personen
+
+Beispiel: Bremerhaven 2019
+    
+:::: {.columns}
+
+::: {.column width='33%'}
+```{r}
+Bhv19 <- d_mds |> filter(district == "Bremerhaven", year == 2019) |> 
+  summarize(Stimmen = sum(votes), .by = c("Partei","Farbe")) |> 
+  mutate(Prozent = Stimmen/sum(Stimmen)) |> filter(Prozent > 0.05) |> 
+  mutate(Sitze = zuteilen_nach_hoechstzahlen(15,Stimmen))
+Bhv19listpers <- d_mds |> filter(district == "Bremerhaven", year == 2019, Partei %in% Bhv19$Partei) |> 
+  summarize(Stimmen = sum(votes), .by = c("Partei","type","Farbe")) |> 
+  mutate(Prozent = Stimmen/sum(Stimmen), .by = c("Partei")) |>  
+  mutate(Stimmenart = factor(type, levels = c("list", "candidate"), labels = c("Listen","Personen"))) |> 
+  arrange(match(Partei,Bhv19$Partei), Stimmenart) |> 
+  left_join(Bhv19 |> select(Partei, Sitze), by = "Partei") |> 
+  mutate(SitzePartei = Sitze) |> 
+  mutate(Sitze = zuteilen_nach_hoechstzahlen(max(Sitze),Stimmen), .by = "Partei")
+Bhv19listpers |> select(-Farbe, -type) |> mutate(Partei = factor(Partei, levels = Bhv19$Partei)) |> 
+  group_by(Partei, SitzePartei) |> gt(rowname_col = "Stimmenart") |> 
+  fmt_integer("Stimmen", sep_mark = ".") |> 
+  fmt_percent("Prozent") |> 
+  data_color("Partei",
+             method = "factor",
+             palette = Bhv19$Farbe) |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = Sitze)) |> 
+  tab_style(style = list(cell_fill(color = Bhv19$Farbe[1]), cell_text(color = "white")), locations = cells_row_groups(1)) |> 
+  tab_style(style = list(cell_fill(color = Bhv19$Farbe[2]), cell_text(color = "white")), locations = cells_row_groups(2)) |> 
+  tab_style(style = list(cell_fill(color = Bhv19$Farbe[3]), cell_text(color = "white")), locations = cells_row_groups(3)) |> 
+  tab_style(style = list(cell_fill(color = Bhv19$Farbe[4]), cell_text(color = "white")), locations = cells_row_groups(4)) |> 
+  tab_style(style = list(cell_fill(color = Bhv19$Farbe[5])), locations = cells_row_groups(5)) |> 
+  tab_style(style = list(cell_fill(color = Bhv19$Farbe[6]), cell_text(color = "white")), locations = cells_row_groups(6)) |> 
+  tab_style(style = list(cell_fill(color = Bhv19$Farbe[7])), locations = cells_row_groups(7)) |> 
+  tab_options(data_row.padding = px(1))  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(1), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(1)
+  )
+```
+:::
+
+::: {.column width='37%'}
+Schritt 4: Vergabe der Mandate an Personen 
+
+**Beispiel SPD**
+
+```{r}
+Bhv19SPD <- d_mds |> filter(district == "Bremerhaven", year == 2019, Partei == "SPD") |> 
+  select(ID = id, Name = displayname, Stimmen = votes) |> filter(ID != 100) |> 
+  mutate(`Listen-Rang` = 1:n(), `Personen-Rang` = n() + 1 - rank(Stimmen),
+         Personenmandat = `Personen-Rang` <= 2, 
+         Listenmandat = ID %% 100 <= 2 + sum(`Personen-Rang` <= 2 & ID %% 100 <= 2) & !Personenmandat, 
+         Mandatart = case_when(Personenmandat ~ "Personen",
+                               Listenmandat ~ "Liste",
+                               .default = ""))
+Bhv19SPD |> select(-`Listen-Rang`) |> gt() |> cols_hide(c("Personenmandat","Listenmandat","Mandatart")) |> 
+  data_color(rows = Personenmandat, palette = c("lightcyan4")) |> 
+  data_color(rows = Listenmandat, palette = "lightcyan3")  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+
+```{r}
+tibble(x="Personenmandat", y="Listenmandat") |> gt() |> 
+  data_color("x", palette = c("lightcyan4")) |> 
+  data_color("y", palette = c("lightcyan3")) |> 
+  tab_options(column_labels.hidden = TRUE)
+```
+:::
+
+:::  {.column width='30%'}
+```{r}
+#| fig-height: 16.45
+Bhv19SPDlong <- Bhv19SPD |> filter(ID != 100) |>
+  mutate(`Listen-Rang` = 1:n(), `Personen-Rang` = n() + 1 - rank(Stimmen)) |>
+  pivot_longer(c(`Listen-Rang`,`Personen-Rang`)) |>
+  mutate(Rang = if_else(name == "Listen-Rang", 0, 1),
+         Name = paste(ID,Name))
+Bhv19SPDlong |>
+  ggplot(aes(Rang, value, color = Name)) +
+  geom_point(size = 10) +
+  geom_text(data = Bhv19SPDlong %>% filter(Rang == 1),
+            aes(x = Rang, label = Name), size = 18, hjust = 0, nudge_x = 0.15, color = "black") +
+  geom_bump(linewidth = 3, smooth = 8) +
+  xlim(c(0,4.5)) + #ylim(-3,11) +
+  scale_y_reverse(limits = c(11,-1)) +
+  # scale_y_continuous() +
+  scale_color_manual(values = scales::brewer_pal(palette = "Paired")(11)) +
+  theme_void() +
+  guides(color = "none")
+```
+:::
+
+::::
+
+## Alternative Personenmandatsvergabe
+
+:::: {.columns}
+
+::: {.column width='25%'}
+```{r}
+Bhv19SPD <- d_mds |> filter(district == "Bremerhaven", year == 2019, Partei == "SPD") |> 
+  select(ID = id, Name = displayname, Stimmen = votes) |> filter(ID != 100) |> 
+  mutate(`Listen-Rang` = 1:n(), `Rang` = n() + 1 - rank(Stimmen),
+         Personenmandat = `Rang` <= 2, 
+         Listenmandat = ID %% 100 <= 2 + sum(`Rang` <= 2 & ID %% 100 <= 2) & !Personenmandat, 
+         Mandatart = case_when(Personenmandat ~ "Personen",
+                               Listenmandat ~ "Liste",
+                               .default = ""))
+Bhv19SPD |> select(-`Listen-Rang`) |> gt() |> cols_hide(c("Stimmen","Personenmandat","Listenmandat","Mandatart")) |> 
+  data_color(rows = Personenmandat, palette = c("lightcyan4")) |> 
+  data_color(rows = Listenmandat, palette = "lightcyan3") |> 
+    tab_header(title = md("**Erst Personen-Mandate**  
+(gilt zurzeit")
+  ) |> tab_options(table.border.top.style = "transparent")  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+:::
+
+::: {.column width='25%'}
+```{r}
+Bhv19SPD <- d_mds |> filter(district == "Bremerhaven", year == 2019, Partei == "SPD") |> 
+  select(ID = id, Name = displayname, Stimmen = votes) |> filter(ID != 100) |> 
+  mutate(`Listen-Rang` = 1:n(), `Rang` = n() + 1 - rank(Stimmen),
+         Listenmandat = `Listen-Rang` <= 2, 
+         Personenmandat = Rang <= 2 + sum(`Listen-Rang` <= 2 & Rang <= 4) & !Listenmandat, 
+         Mandatart = case_when(Personenmandat ~ "Personen",
+                               Listenmandat ~ "Liste",
+                               .default = ""))
+Bhv19SPD |> select(-`Listen-Rang`) |> gt() |> cols_hide(c("Stimmen","Personenmandat","Listenmandat","Mandatart")) |> 
+  data_color(rows = Personenmandat, palette = c("lightcyan4")) |> 
+  data_color(rows = Listenmandat, palette = "lightcyan3") |> 
+    tab_header(title = md("**Erst Listen-Mandate**  
+(galt bis 2015)")
+  ) |> tab_options(table.border.top.style = "transparent")  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+:::
+
+
+::: {.column width='25%'}
+```{r}
+Bhv19SPD <- d_mds |> filter(district == "Bremerhaven", year == 2019, Partei == "SPD") |> 
+  select(ID = id, Name = displayname, Stimmen = votes) |> filter(ID != 100) |> 
+  mutate(`Listen-Rang` = 1:n(), `Rang` = n() + 1 - rank(Stimmen),
+         Listenmandat = ID %% 100 <= 4)
+Bhv19SPD |> select(-`Listen-Rang`) |> gt() |> cols_hide(c("Stimmen","Listenmandat")) |> 
+  data_color(rows = Listenmandat, palette = "lightcyan3") |> 
+    tab_header(title = md("**Nur nach Liste**  
+(galt bis 2007)")
+  ) |> tab_options(table.border.top.style = "transparent")  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+:::
+
+::: {.column width='25%'}
+```{r}
+Bhv19SPD <- d_mds |> filter(district == "Bremerhaven", year == 2019, Partei == "SPD") |> 
+  select(ID = id, Name = displayname, Stimmen = votes) |> filter(ID != 100) |> 
+  mutate(Rang = n() + 1 - rank(Stimmen),
+         Personenmandat = Rang <= 4)
+Bhv19SPD |> gt() |> cols_hide(c("Stimmen","Personenmandat")) |> 
+  data_color(rows = Personenmandat, palette = "lightcyan4") |> 
+    tab_header(title = md("**Nur Personenstimmen**  
+(Volksbegehren 2018)")
+  ) |> tab_options(table.border.top.style = "transparent")  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+:::
+
+::::
+
+[**Fun-Fact** (oder auch Sad-Fact): 104 Petra Jäschke wäre sowohl nur nach Personenstimmen wie auch nur nach Listenplatz gewählt. Durch die Kombination von beidem gewinnt sie kein Mandat.]{style='color:red;'}
+
+
+
+## Personenstimmen-Paradox
+
+[**Personenstimmen können einer Person schaden!**]{style='color:red;'}
+
+
+:::: {.columns}
+
+::: {.column width='50%'}
+**Annahme:** Alle Wählerinnen und Wähler von Petra Jäschke (ID 104) bleiben zu Hause.
+
+- Petra Jäschke hätte 0 Stimmen.
+- Die SPD hätte **1.392** Stimmen weniger. Der Stimmenanteil würde von 25% auf 24,5% sinken.   
+Dies würde nichts an der Sitzverteilung an die Parteien ändern. 
+- Das Personen-Mandat-Kontingent hätte 1.392 Stimmen weniger. 
+:::
+
+::: {.column width='25%'}
+
+```{r}
+d_mds |> filter(district == "Bremerhaven", year == 2019, Partei == "SPD") |> 
+  summarize(Stimmen = sum(votes), .by = c("Partei","Farbe","type")) |> 
+  mutate(Prozent = Stimmen/sum(Stimmen),
+         Stimmenart = if_else(type == "list", "Listen", "Personen")) |>  
+  mutate(Sitze = zuteilen_nach_hoechstzahlen(4,Stimmen)) |> 
+  select(Partei, Stimmenart, Stimmen, Prozent, Sitze) |>  group_by(Partei) |> 
+  gt(rowname_col = "Stimmenart") |> 
+  fmt_integer("Stimmen", sep_mark = ".") |> 
+  fmt_percent("Prozent") |> 
+  data_color("Partei",
+             method = "factor",
+             palette = Bhv19$Farbe) |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = Sitze)) |> 
+  tab_style(style = list(cell_fill(color = Bhv19$Farbe[1]), cell_text(color = "white")), locations = cells_row_groups(1)) |> tab_header(title = md("**Mit Jäschkes Stimmen**")) |> 
+   tab_options(table.border.top.style = "transparent")  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+
+```{r}
+d_mds |> filter(district == "Bremerhaven", year == 2019, Partei == "SPD") |> 
+  mutate(votes = replace(votes, displayname == "Jäschke, Petra", 0)) |> 
+  summarize(Stimmen = sum(votes), .by = c("Partei","Farbe","type")) |> 
+  mutate(Prozent = Stimmen/sum(Stimmen),
+         Stimmenart = if_else(type == "list", "Listen", "Personen")) |>  
+  mutate(Sitze = zuteilen_nach_hoechstzahlen(4,Stimmen)) |> 
+  select(Partei, Stimmenart, Stimmen, Prozent, Sitze) |>  group_by(Partei) |> 
+  gt(rowname_col = "Stimmenart") |> 
+  fmt_integer("Stimmen", sep_mark = ".") |> 
+  fmt_percent("Prozent") |> 
+  data_color("Partei",
+             method = "factor",
+             palette = Bhv19$Farbe) |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = Sitze)) |> 
+  tab_style(style = list(cell_fill(color = Bhv19$Farbe[1]), cell_text(color = "white")), locations = cells_row_groups(1)) |> tab_header(title = md("**Ohne Jäschkes Stimmen**")) |> 
+   tab_options(table.border.top.style = "transparent")  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+:::
+
+::: {.column width='25%'}
+```{r}
+Bhv19SPD <- d_mds |> filter(district == "Bremerhaven", year == 2019, Partei == "SPD") |> 
+  mutate(votes = replace(votes, displayname == "Jäschke, Petra", 0)) |> 
+  select(ID = id, Name = displayname, Stimmen = votes) |> filter(ID != 100) |> 
+  mutate(`Listen-Rang` = 1:n(), `Rang` = n() + 1 - rank(Stimmen),
+         Personenmandat = `Rang` <= 1, 
+         Listenmandat = ID %% 100 <= 3 + sum(`Rang` <= 2 & ID %% 100 <= 2) & !Personenmandat, 
+         Mandatart = case_when(Personenmandat ~ "Personen",
+                               Listenmandat ~ "Liste",
+                               .default = ""))
+Bhv19SPD |> select(-`Listen-Rang`) |> gt() |> cols_hide(c("Personenmandat","Listenmandat","Mandatart")) |> 
+  data_color(rows = Personenmandat, palette = c("lightcyan4")) |> 
+  data_color(rows = Listenmandat, palette = "lightcyan3") |> 
+    tab_header(title = md("**Ohne Jäschkes 1.392 Stimmen**")
+  ) |> tab_options(table.border.top.style = "transparent")
+```
+:::
+
+::::
+
+. . . 
+
+**Das Personen-Stimmen-Paradox ist bisher bei jeder Wahl praktisch aufgetreten.** Die Reform 2019 hat daran nichts geändert. 
+
+
+# Wie benutzen die Bremer ihre Stimmen?
+
+Die folgenden Analysen benutzen die Datensätze aller Stimmzettel.  
+Diese bekommt man vom statistischen Landesamt nur mit einem *Vertrag zur Nutzung faktisch anonymisierter Mikrodaten*.
+
+
+## Wähler-Typen 
+
+:::: {.columns}
+
+::: {.column width='33%'}
+
+Wahlbeteiligung schwankt mehr bei Listen-Stimmen. 
+
+```{r}
+#| fig-width: 3
+#| fig-height: 5
+d_mds |>
+  filter(type == "list") |> 
+  summarize(across(c(votes, person_party_votes), sum), .by = c(district, year)) |> 
+  pivot_longer(c(votes,person_party_votes)) |> 
+  mutate(Anteil = paste0(format(100*value/sum(value),digits=3,decimal.mark = ","),"%"), .by = c(district, year)) |> 
+  mutate(Stimmen = factor(name,levels = c("person_party_votes","votes"), 
+                         labels = c("Personen","Listen")) |> fct_rev()) |> 
+  ggplot(aes(year, value, fill = Stimmen, alpha=(year==2019))) + geom_col() + 
+  geom_text(aes(label = Anteil), position = position_stack(vjust = 0.5), size = 3, alpha = 1) +
+  scale_alpha_manual(values=c(0.6,1)) +
+  scale_x_continuous(breaks = c(2011,2015,2019)) +
+  scale_y_continuous(labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
+  scale_fill_manual(values = c("#9b59b6","#58d68d")) +
+  facet_wrap(~district, ncol = 1, scales = "free_y") +
+  labs(x="", y="") +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE), alpha = "none") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top", legend.title = element_blank())
+```
+:::
+
+::: {.column width='33%'}
+::: {.fragment}
+Anzahl der Personenwähler wächst langsam.
+
+```{r}
+#| fig-width: 3
+#| fig-height: 5
+s |> filter(num_valid > 0) |> group_by(district, year) |> 
+  count(only_party, only_person, wt = n) |> 
+  mutate(Anteil = paste0(format(100*n/sum(n),digits=3,decimal.mark = ","),"%")) |> 
+  mutate(`Wähler` = factor(paste0(only_party, only_person),levels = c("FALSETRUE","FALSEFALSE","TRUEFALSE"), 
+                         labels = c("Personenwähler","Beides","Listenwähler")) |> fct_rev()) |> 
+  ggplot(aes(year, n, fill = `Wähler`, alpha=(year==2019))) + geom_col() + 
+  geom_text(aes(label = Anteil), position = position_stack(vjust = 0.5), size = 3) +
+  scale_alpha_manual(values=c(0.6,1)) +
+  scale_x_continuous(breaks = c(2011,2015,2019)) +
+  scale_y_continuous(labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
+  scale_fill_manual(values = c("#3498db","#8e44ad","#e74c3c")) +
+  facet_wrap(~district, ncol = 1, scales = "free_y") +
+  labs(x="", y="") +
+  guides(fill=guide_legend(ncol=1,byrow=TRUE), alpha = "none") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top", legend.title = element_blank())
+```
+:::
+:::
+
+::: {.column width='33%'}
+::: {.fragment}
+
+Vollkummulierer: ⦻⦻⦻⦻⦻   
+Panaschierer verteilen
+
+```{r}
+#| fig-width: 3
+#| fig-height: 5
+s |> filter(num_valid > 0) |> group_by(district, year) |> 
+  count(one_party,full_cum, wt = n) |> 
+  mutate(Anteil = paste0(format(100*n/sum(n),digits=3,decimal.mark = ","),"%")) |> 
+  mutate(`Wähler` = factor(paste0(one_party,full_cum),levels = c("FALSEFALSE","TRUEFALSE","TRUETRUE"), 
+                         labels = c("parteiübergreifende\nPanaschierer","parteitreue\nPanaschierer","Vollkummulierer")) |> fct_rev()) |> 
+  ggplot(aes(year, n, fill = `Wähler`, alpha=(year==2019))) + geom_col() + 
+  geom_text(aes(label = Anteil), position = position_stack(vjust = 0.5), size = 3) +
+  scale_alpha_manual(values=c(0.6,1)) +
+  scale_x_continuous(breaks = c(2011,2015,2019)) +
+  scale_y_continuous(labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
+  scale_fill_manual(values = c("#d35400","#f39c12","#2ecc71")) +
+  facet_wrap(~district, ncol = 1, scales = "free_y") +
+  labs(x="", y="") +
+  guides(fill=guide_legend(ncol=1,byrow=TRUE), alpha = "none") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top", legend.title = element_blank())
+```
+:::
+:::
+
+::::
+
+## Vollkummulierer/Spitzenkandidaten
+
+```{r}
+#| fig-width: 8
+#| fig-height: 7
+s |> filter(num_valid > 0) |> 
+  group_by(district, year) |> 
+  count(only_lead & full_cum, no_lead & full_cum, full_cum, wt = n) |> 
+  mutate(Anteil = paste0(format(100*n/sum(n),digits=3,decimal.mark = ","),"%")) |> 
+  mutate(`Vollkummulierer` = 
+           factor(paste0(`only_lead & full_cum`, `no_lead & full_cum`, full_cum),
+                  levels = c("FALSEFALSETRUE","TRUEFALSETRUE","FALSETRUETRUE","FALSEFALSEFALSE"), 
+                  labels = c("Nur eine Partei","Nur ein Spitzenkandidat","Nur ein anderer Kandidat","Kein Vollkumulierer") |> 
+                    fct_rev())) |> 
+  ggplot(aes(year, n, fill = `Vollkummulierer`, alpha=(year==2019))) + geom_col() + 
+  geom_text(aes(label = Anteil), position = position_stack(vjust = 0.5), size = 3) +
+  scale_alpha_manual(values=c(0.6,1)) +
+  scale_x_continuous(breaks = c(2011,2015,2019)) +
+  scale_y_continuous(labels = scales::label_number(big.mark = ".", decimal.mark = ",")) +
+  scale_fill_manual(values = c("#d35400","#f39c12","#2ecc71","lightgray")) +
+  facet_wrap(~district, ncol = 2, scales = "free_y") +
+  labs(x="", y="") +
+  guides(fill=guide_legend(ncol=1,byrow=TRUE), alpha = "none") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top")
+```
+
+
+## Fragen zum Wählen
+
+[**Ist es sinnvoll eine Spitzenkandidatin oder einen Spitzenkandidaten zu wählen?**]{style='color:red;'}
+
+- Sie können nicht bestimmen wer Bürgermeister wird!
+- Sie wählen auch ihre oder seine Partei
+- Sie wählen auch das Personen-Mandat-Kontingent 
+- Die Personen-Stimme selbst ist eher unerheblich wegen Listenplatz 1
+
+::: {.fragment}
+[**Voll kumulieren oder panaschieren?**]{style='color:red;'}
+
+- Wollen Sie Kandidaten auf schlechten Listenplätzen hochwählen, macht es eventuell Sinn sich auf den oder die mit den besten Chancen zu konzentrieren
+- Beim letzten Personen-Mandat sind oft wenige Stimmen entscheidend!
+:::
+
+## Man muss nicht strategisch überlegen
+
+- **Stimmen haben auch symbolischen Wert!**
+- **Panaschieren ist eine tolle Möglichkeit den Wählerwillen differenziert auszudrücken.**  
+
+
+# Profile Kandidaten und Parteien
+
+## Kandidaten Profile - Anzahl Wähler
+
+Ein **Wähler** von Kandidatin XY gibt ihr mindestens 1 oder mehr Stimmen. 
+
+```{r}
+X01s <- d_mds |> filter(district == "Bremen", year == 2019, 
+                (id == 101 | id == 201 | id == 301 | id == 401)) |> 
+  mutate(Name = fct_inorder(paste0(id," ",displayname," (",Partei,")")) |> fct_rev())
+X01s |> select(ID=id, Name=displayname, Partei, Stimmen = votes, Wähler = voters, 
+               `Stimmen pro Wähler` = votes_per_voter) |> gt() |> 
+  fmt_number(columns = `Stimmen pro Wähler`, decimals = 2, dec_mark = ",") |> 
+  fmt_integer(columns = c("Stimmen","Wähler"), sep_mark = ".") |> 
+  data_color(`Stimmen pro Wähler`,method = "numeric", palette = "ggsci::red_material") |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = Wähler)) 
+```
+
+. . .
+
+```{r}
+#| fig-width: 10
+#| fig-height: 3
+#| fig-align: center
+make_profile <- function(df) df |> select(id,Name,voters_1:voters_5) |> 
+  pivot_longer(c(voters_1,voters_2,voters_3,voters_4,voters_5)) |> 
+  mutate(Stimmen = word(name, 2, sep = "_"),
+         Stimmen = paste(Stimmen, if_else(Stimmen=="1","Stimme","Stimmen"))) |> 
+  mutate(`Anteil Wähler` = value/sum(value), .by = Name) |> 
+  ggplot(aes(x = `Anteil Wähler`, y = Name, fill = fct_rev(Stimmen))) + geom_col(color = "black") +
+  scale_x_continuous(labels = scales::percent) + 
+  scale_fill_manual(values = rev(c("white","grey80","grey60","grey40","grey20"))) +
+  labs(y="") +
+  theme_minimal(base_size = 16) +
+  theme(legend.title = element_blank())
+make_profile(X01s)
+```
+
+## Kandidaten Profile - Extremfälle 2019
+
+```{r}
+maxs <- d_mds |> filter(type == "candidate", year == 2019, id <= 800 ) |> 
+  filter(votes_per_voter > 3.14 | votes_per_voter < min(votes_per_voter)*1.04) |> 
+  arrange(desc(votes_per_voter)) |> 
+  mutate(Name = fct_inorder(paste0(id," ",displayname," (",Partei,")")) |> fct_rev())
+maxs |> select(Wahlgebiet = district, ID=id, Name=displayname, Partei, Stimmen = votes, Wähler = voters, 
+               `Stimmen pro Wähler` = votes_per_voter) |> gt() |> 
+  fmt_number(columns = `Stimmen pro Wähler`, decimals = 2, dec_mark = ",") |> 
+  fmt_integer(columns = c("Stimmen","Wähler"), sep_mark = ".") |> 
+  data_color(`Stimmen pro Wähler`,method = "numeric", palette = "ggsci::red_material") |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = Wähler)) |> 
+  tab_options(data_row.padding = px(1))
+```
+
+. . .
+
+```{r}
+#| fig-width: 10
+#| fig-height: 3
+#| fig-align: center
+make_profile(maxs)
+```
+
+
+## Ähnlichkeit von Parteien durch gemeinsame Wähler
+
+:::: {.columns}
+
+::: {.column width='50%'}
+```{r}
+this_pair_tbl <- pair_tbl |> filter(Vergleich == "parties", Wahlgebiet == "Bremen", Jahr == 2019, 
+                   X == "SPD") |> slice(1:6) |> 
+  select(X,Y,`Gemeinsame Wähler`, `X-Wähler wählen Y`, `Y-Wähler wählen X`) |> 
+  left_join(partycols, by = join_by(X == Partei)) |> rename(FarbeX = Farbe) |> 
+  left_join(partycols, by = join_by(Y == Partei)) |> rename(FarbeY = Farbe) 
+this_pair_tbl |> gt() |> cols_hide(c("FarbeX", "FarbeY")) |> 
+  fmt_percent(columns = c(`X-Wähler wählen Y`, `Y-Wähler wählen X`)) |> 
+  fmt_integer(columns = `Gemeinsame Wähler`, sep_mark = ".") |> 
+  data_color("X", method = "factor", palette = this_pair_tbl$FarbeX) |> 
+  data_color("Y", method = "factor", palette = this_pair_tbl$FarbeY[c(5,6,1,3,4,2)]) |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = `Gemeinsame Wähler`))  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+
+```{r}
+this_pair_tbl <- pair_tbl |> filter(Vergleich == "parties", Wahlgebiet == "Bremen", Jahr == 2019, 
+                   X == "CDU") |> slice(2:6) |> 
+  select(X,Y,`Gemeinsame Wähler`, `X-Wähler wählen Y`, `Y-Wähler wählen X`) |> 
+  left_join(partycols, by = join_by(X == Partei)) |> rename(FarbeX = Farbe) |> 
+  left_join(partycols, by = join_by(Y == Partei)) |> rename(FarbeY = Farbe) 
+this_pair_tbl |> gt() |> cols_hide(c("FarbeX", "FarbeY")) |> 
+  fmt_percent(columns = c(`X-Wähler wählen Y`, `Y-Wähler wählen X`)) |> 
+  fmt_integer(columns = `Gemeinsame Wähler`, sep_mark = ".") |> 
+  data_color("X", method = "factor", palette = this_pair_tbl$FarbeX) |> 
+  data_color("Y", method = "factor", palette = this_pair_tbl$FarbeY[c(4,5,2,3,1)]) |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = `Gemeinsame Wähler`))  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+:::
+
+::: {.column width='50%'}
+::: {.fragment}
+```{r}
+this_pair_tbl <- pair_tbl |> filter(Vergleich == "parties", Wahlgebiet == "Bremen", Jahr == 2019, 
+                   X == "GRÜNE") |> slice(3:6) |> 
+  select(X,Y,`Gemeinsame Wähler`, `X-Wähler wählen Y`, `Y-Wähler wählen X`) |> 
+  left_join(partycols, by = join_by(X == Partei)) |> rename(FarbeX = Farbe) |> 
+  left_join(partycols, by = join_by(Y == Partei)) |> rename(FarbeY = Farbe) 
+this_pair_tbl |> gt() |> cols_hide(c("FarbeX", "FarbeY")) |> 
+  fmt_percent(columns = c(`X-Wähler wählen Y`, `Y-Wähler wählen X`)) |> 
+  fmt_integer(columns = `Gemeinsame Wähler`, sep_mark = ".") |> 
+  data_color("X", method = "factor", palette = this_pair_tbl$FarbeX) |> 
+  data_color("Y", method = "factor", palette = this_pair_tbl$FarbeY[c(3,4,1,2)]) |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = `Gemeinsame Wähler`))  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+
+```{r}
+this_pair_tbl <- pair_tbl |> filter(Vergleich == "parties", Wahlgebiet == "Bremen", Jahr == 2019, 
+                   X == "DIE LINKE") |> slice(4:6) |> 
+  select(X,Y,`Gemeinsame Wähler`, `X-Wähler wählen Y`, `Y-Wähler wählen X`) |> 
+  left_join(partycols, by = join_by(X == Partei)) |> rename(FarbeX = Farbe) |> 
+  left_join(partycols, by = join_by(Y == Partei)) |> rename(FarbeY = Farbe) 
+this_pair_tbl |> gt() |> cols_hide(c("FarbeX", "FarbeY")) |> 
+  fmt_percent(columns = c(`X-Wähler wählen Y`, `Y-Wähler wählen X`)) |> 
+  fmt_integer(columns = `Gemeinsame Wähler`, sep_mark = ".") |> 
+  data_color("X", method = "factor", palette = this_pair_tbl$FarbeX) |> 
+  data_color("Y", method = "factor", palette = this_pair_tbl$FarbeY[c(2,3,1)]) |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = `Gemeinsame Wähler`))  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+
+```{r}
+this_pair_tbl <- pair_tbl |> filter(Vergleich == "parties", Wahlgebiet == "Bremen", Jahr == 2019, 
+                   X == "AfD") |> slice(5:6) |> 
+  select(X,Y,`Gemeinsame Wähler`, `X-Wähler wählen Y`, `Y-Wähler wählen X`) |> 
+  left_join(partycols, by = join_by(X == Partei)) |> rename(FarbeX = Farbe) |> 
+  left_join(partycols, by = join_by(Y == Partei)) |> rename(FarbeY = Farbe) 
+this_pair_tbl |> gt() |> cols_hide(c("FarbeX", "FarbeY")) |> 
+  fmt_percent(columns = c(`X-Wähler wählen Y`, `Y-Wähler wählen X`)) |> 
+  fmt_integer(columns = `Gemeinsame Wähler`, sep_mark = ".") |> 
+  data_color("X", method = "factor", palette = this_pair_tbl$FarbeX) |> 
+  data_color("Y", method = "factor", palette = this_pair_tbl$FarbeY[c(2,1)]) |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = `Gemeinsame Wähler`))  |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+:::
+:::
+
+::::
+
+# Die Politische Landschaft Bremens aus den Wahldaten extrahiert
+
+## Die politische Landschaft 2019
+```{r}
+#| layout-ncol: 2
+#| fig-width: 4.5
+#| fig-height: 4.5
+plot_mds <- function(df,mds_x,mds_y) df |> 
+  ggplot(aes(.data[[mds_x]],.data[[mds_y]],label = displayname, size = voters, color = Farbe,
+             shape = is.na(Name),
+             Partei = Partei)) +
+  geom_point(alpha = 0.6) +
+  geom_text_repel(size = 2.5) +
+  scale_size_area(max_size = 15) + 
+  scale_color_identity() +
+  scale_shape_manual(values = c(19)) +
+  coord_fixed() + 
+  theme_minimal() + 
+  labs(title = paste(df$district[1], df$year[1]), x="", y="") +
+  guides(size = "none", color = "none", shape="none", fill="none")
+d_mds |> filter(year == 2019, district == "Bremen", type == "list") |> 
+  plot_mds(mds_x = "mds2_x_parties", mds_y = "mds2_y_parties") + 
+  xlim(c(-0.45,0.45)) + ylim(c(-0.45,0.45))
+d_mds |> filter(year == 2019, district == "Bremerhaven", type == "list") |> 
+  plot_mds(mds_x = "mds2_x_parties", mds_y = "mds2_y_parties") + 
+  xlim(c(-0.45,0.5)) + ylim(c(-0.45,0.45))
+```
+
+::: aside
+Die Positionen wurden multidimensionaler Skalierung berechnet. Zugrunde liegen als Distanzmatrix die paarweisen symmetrischen Wahrscheinlichkeiten, dass ein Wähler aus einer der beiden Parteien nicht die andere Partei wählt. Die Methode erzeugt Positionen die diese Distanzen bestmöglich im 2-dimensionalen Raum abbilden. 
+:::
+
+
+## Die politische Landschaft 2015
+
+```{r}
+#| layout-ncol: 2
+#| fig-width: 4.5
+#| fig-height: 4.5
+d_mds |> filter(year == 2015, district == "Bremen", type == "list") |> 
+  plot_mds(mds_x = "mds2_x_parties", mds_y = "mds2_y_parties") + 
+  xlim(c(-0.45,0.45)) + ylim(c(-0.45,0.45))
+d_mds |> filter(year == 2015, district == "Bremerhaven", type == "list") |> 
+  mutate(hilf = mds2_x_parties,
+         mds2_x_parties = -mds2_y_parties,
+         mds2_y_parties = hilf) |> 
+  plot_mds(mds_x = "mds2_x_parties", mds_y = "mds2_y_parties") + 
+  xlim(c(-0.45,0.5)) + ylim(c(-0.45,0.45))
+```
+
+::: aside
+Die Positionen wurden multidimensionaler Skalierung berechnet. Zugrunde liegen als Distanzmatrix die paarweisen symmetrischen Wahrscheinlichkeiten, dass ein Wähler aus einer der beiden Parteien nicht die andere Partei wählt. Die Methode erzeugt Positionen die diese Distanzen bestmöglich im 2-dimensionalen Raum abbilden. 
+:::
+
+## Die politische Landschaft 2011
+
+```{r}
+#| layout-ncol: 2
+#| fig-width: 4.5
+#| fig-height: 4.5
+d_mds |> filter(year == 2011, district == "Bremen", type == "list") |> 
+  plot_mds(mds_x = "mds2_x_parties", mds_y = "mds2_y_parties") + 
+  xlim(c(-0.45,0.45)) + ylim(c(-0.45,0.45))
+d_mds |> filter(year == 2011, district == "Bremerhaven", type == "list") |> 
+  plot_mds(mds_x = "mds2_x_parties", mds_y = "mds2_y_parties") + 
+  xlim(c(-0.45,0.5)) + ylim(c(-0.45,0.45))
+```
+
+::: aside
+Die Positionen wurden multidimensionaler Skalierung berechnet. Zugrunde liegen als Distanzmatrix die paarweisen symmetrischen Wahrscheinlichkeiten, dass ein Wähler aus einer der beiden Parteien nicht die andere Partei wählt. Die Methode erzeugt Positionen die diese Distanzen bestmöglich im 2-dimensionalen Raum abbilden. 
+:::
+
+## Politische Landschaft Bremen 2019 Parteien
+
+```{r}
+distr = "Bremen"
+ye = 2019
+turn = 0
+ordering <- c("CDU","AfD","DIE LINKE","GRÜNE","SPD","FDP")
+
+v <- s |> filter(district == distr, year == ye) |> 
+  select(n, starts_with("vote"), num_valid) |> 
+  filter(num_valid > 0)
+d <- d_mds |> filter(district == distr, year == ye) |> 
+  select(id, name = displayname, voters, Farbe, type, x = mds2_x_parties, y = mds2_y_parties)
+
+# Step 1: 
+p <- d |> filter(id %% 100 == 0) |> # parties to remain fixed
+  arrange(voters) |> arrange(match(name, ordering)) |> head(length(ordering))
+p <- d |> filter(type == "list")
+
+# Step 2:
+w <- d |> anti_join(p |> select(id), by = join_by(id)) # candidate to adjust
+
+new_voter_positions <- function(voters,partiescands) voters |> 
+  left_join(partiescands |> select(id,x,y), by = join_by(vote_1 == id)) |>
+  left_join(partiescands |> select(id,x,y), by = join_by(vote_2 == id), suffix = c("_1","_2")) |> 
+  left_join(partiescands |> select(id,x,y), by = join_by(vote_3 == id)) |>
+  left_join(partiescands |> select(id,x,y), by = join_by(vote_4 == id), suffix = c("_3","_4")) |> 
+  left_join(partiescands |> select(id,x,y), by = join_by(vote_5 == id)) |> rename(x_5=x, y_5=y) |> 
+  mutate(x = case_when(
+    num_valid == 5 ~ 0.2 * (x_1+x_2+x_3+x_4+x_5),
+    num_valid == 4 ~ 0.25*(x_1+x_2+x_3+x_4),
+    num_valid == 3 ~ 1/3*(x_1+x_2+x_3),
+    num_valid == 2 ~ 0.5*(x_1+x_2),
+    num_valid == 1 ~ x_1
+  ),
+  y = case_when(
+    num_valid == 5 ~ 0.2 * (y_1+y_2+y_3+y_4+y_5),
+    num_valid == 4 ~ 0.25*(y_1+y_2+y_3+y_4),
+    num_valid == 3 ~ 1/3*(y_1+y_2+y_3),
+    num_valid == 2 ~ 0.5*(y_1+y_2),
+    num_valid == 1 ~ y_1
+  )) |> select(x,y) |> replace_na(list(x = 0, y = 0))
+pos_cand_x <- function(id, v) v |> filter(vote_1 == id | vote_2 == id | vote_3 == id | vote_4 == id | 
+                                              vote_5 == id) |> summarise(x = sum(x*n)/sum(n)) |> pull(x)
+pos_cand_y <- function(id, v) v |> filter(vote_1 == id | vote_2 == id | vote_3 == id | vote_4 == id | 
+                                              vote_5 == id) |> summarise(y = sum(y*n)/sum(n)) |> pull(y)
+
+v <- new_voter_positions(v |> mutate(across(starts_with("vote"), \(x) 100 * (x %/% 100))), p) |> 
+  bind_cols(v)
+
+# Fig: First voter positioning
+ggplot(p, aes(x,y)) + 
+  geom_point(aes(color = Farbe, size = voters, label = name),alpha = 0.6) +
+#  geom_hex(data = v |> uncount(n), bins = 20) +
+  scale_fill_distiller(type = "seq", direction = 1, palette = "Greys", trans = "sqrt") +
+  scale_color_identity() + 
+  scale_size_area(max_size = 15) + 
+  xlim(c(-0.35,0.45)) + coord_fixed() +
+  labs(x="", y="")+
+  theme(legend.title = element_blank()) +
+  guides(size = "none", color = "none", shape="none") + theme_minimal() 
+```
+
+## Parteienlandschaft mit Wählern
+
+
+```{r}
+# Fig: First voter positioning
+ggplot(p, aes(x,y)) + 
+  geom_point(aes(color = Farbe, size = voters, label = name),alpha = 0.6) +
+  geom_hex(data = v |> uncount(n), bins = 20) +
+  scale_fill_distiller(type = "seq", direction = 1, palette = "Greys", trans = "sqrt") +
+  scale_color_identity() + 
+  scale_size_area(max_size = 15) + 
+  xlim(c(-0.35,0.45)) + coord_fixed() +
+  labs(x="", y="")+
+  theme(legend.title = element_blank()) +
+  guides(size = "none", color = "none", shape="none") + theme_minimal() 
+```
+
+::: aside
+Jeder Wähler wird auf den Mittelwert der Positionen der 5 gewählten Parteien gesetzt. Dann wird gezählt wieviele Wähler in jedem Sechseck liegen. 
+:::
+
+
+## Wählerlandschaft mit Kandidaten
+
+
+```{r}
+# Fig: First candidate positions
+w1 <- w |> rowwise() |> mutate(x = pos_cand_x(id, v), y = pos_cand_y(id, v)) 
+
+# Fig: First voter positioning
+ggplot(p, aes(x,y)) + 
+  geom_point(aes(color = Farbe, size = voters, label = name),alpha = 0.6) +
+  geom_hex(data = v |> uncount(n), bins = 20) +
+  geom_point(data = w1, aes(color = Farbe, size = voters), shape = "square", max_size = 6, alpha = 0.6) +
+  scale_fill_distiller(type = "seq", direction = 1, palette = "Greys", trans = "sqrt") +
+  scale_color_identity() + 
+  scale_size_area(max_size = 15) + 
+  xlim(c(-0.35,0.45)) + coord_fixed() +
+  labs(x="", y="")+
+  theme(legend.title = element_blank()) +
+  guides(size = "none", color = "none", shape="none") + theme_minimal() 
+```
+
+::: aside
+Jeder Kandidat wird auf den Mittelwert der Positionen seiner Wähler gesetzt. 
+:::
+
+## Runde 2: Wähler und Kandidaten Update
+
+```{r}
+v2 <- new_voter_positions(v |> select(-x,-y), bind_rows(w1,p)) |> 
+  bind_cols(v |> select(-x,-y))
+w2 <- w |> rowwise() |> mutate(x = pos_cand_x(id, v2), y = pos_cand_y(id, v2)) 
+ggplot(p, aes(x,y)) + 
+  geom_point(aes(color = Farbe, size = voters, label = name),alpha = 0.6) +
+  geom_hex(data = v2 |> uncount(n), bins = 20) +
+  geom_point(data = w2, aes(color = Farbe, size = voters), shape = "square", max_size = 6, alpha = 0.6) +
+  scale_fill_distiller(type = "seq", direction = 1, palette = "Greys", trans = "sqrt") +
+  scale_color_identity() + 
+  scale_size_area(max_size = 15) + 
+  xlim(c(-0.35,0.45)) + coord_fixed() +
+  labs(x="", y="")+
+  theme(legend.title = element_blank()) +
+  guides(size = "none", color = "none", shape="none") + theme_minimal() 
+```
+
+::: aside
+Die Wähler Positionen wurden aus den neuen Positionen der Parteien und den neuen Positionen der Kandidaten  berechnet und daraufhin wurden die Kandidat Positionen neu berechnen. 
+:::
+
+## Runde 3: Wähler und Kandidaten Update
+
+```{r}
+v3 <- new_voter_positions(v |> select(-x,-y), bind_rows(w2,p)) |> 
+  bind_cols(v |> select(-x,-y))
+w3 <- w |> rowwise() |> mutate(x = pos_cand_x(id, v3), y = pos_cand_y(id, v3)) 
+ggplot(p, aes(x,y)) + 
+  geom_point(aes(color = Farbe, size = voters, label = name),alpha = 0.6) +
+  geom_hex(data = v3 |> uncount(n), bins = 20) +
+  geom_point(data = w3, aes(color = Farbe, size = voters), shape = "square", max_size = 6, alpha = 0.6) +
+  scale_fill_distiller(type = "seq", direction = 1, palette = "Greys", trans = "sqrt") +
+  scale_color_identity() + 
+  scale_size_area(max_size = 15) + 
+  xlim(c(-0.35,0.45)) + coord_fixed() +
+  labs(x="", y="")+
+  theme(legend.title = element_blank()) +
+  guides(size = "none", color = "none", shape="none") + theme_minimal() 
+```
+
+::: aside
+Die Wähler Positionen wurden aus den neuen Positionen der Parteien und den neuen Positionen der Kandidaten  berechnet und daraufhin wurden die Kandidat Positionen neu berechnen. 
+:::
+
+## Runde 4 und 5: Wähler und Kandidaten Update
+
+```{r}
+v4 <- new_voter_positions(v |> select(-x,-y), bind_rows(w3,p)) |> 
+  bind_cols(v |> select(-x,-y))
+w4 <- w |> rowwise() |> mutate(x = pos_cand_x(id, v4), y = pos_cand_y(id, v4))
+v5 <- new_voter_positions(v |> select(-x,-y), bind_rows(w4,p)) |> 
+  bind_cols(v |> select(-x,-y))
+w5 <- w |> rowwise() |> mutate(x = pos_cand_x(id, v4), y = pos_cand_y(id, v5)) 
+ggplot(p, aes(x,y)) + 
+  geom_point(aes(color = Farbe, size = voters, label = name),alpha = 0.6) +
+  geom_hex(data = v5 |> uncount(n), bins = 20) +
+  geom_point(data = w5, aes(color = Farbe, size = voters), shape = "square", max_size = 6, alpha = 0.6) +
+  geom_label_repel(data = w5 |> filter(name == "Wargalla, Kai-Lena" | 
+                                         name == "Dr. Yazıcı, Oğuzhan" |
+                                         name == "Mäurer, Ulrich"), mapping = aes(label = name), 
+                   box.padding = 2) +
+  scale_fill_distiller(type = "seq", direction = 1, palette = "Greys", trans = "sqrt") +
+  scale_color_identity() + 
+  scale_size_area(max_size = 15) + 
+  xlim(c(-0.35,0.45)) + coord_fixed() +
+  labs(x="", y="")+
+  theme(legend.title = element_blank()) +
+  guides(size = "none", color = "none", shape="none") + theme_minimal() 
+#save(v5,w5, file = "PolitischeLandschaft5Iterationen.RData")
+```
+
+::: aside
+Die Wähler Positionen wurden aus den neuen Positionen der Parteien und den neuen Positionen der Kandidaten berechnet und daraufhin wurden die Kandidat Positionen neu berechnen. 
+:::
+
+<!-- # Strategisches Wählen, strategische Hinweise zur Wahl -->
+<!-- ## Was ist strategisches Wählen? -->
+<!-- - Wählen als rationale Entscheidung bezogen auf das Ergebnis -->
+<!-- - Benutze Vorwissen über das wahrscheinliche Wahlverhalten der anderen -->
+<!-- ## Fazit zum strategischen Wählen -->
+<!-- - Strategisches Wählen ist keine Pficht! -->
+<!-- - Wenn alle strategisch wählen funktioniert es nicht. -->
+<!-- - Ist Ihre Einschätzung zum Wahlergebnis wirklich richtig? -->
+<!-- - Wählen hat auch symbolischen Wert! -->
+<!-- - Wahrscheinlich haben sie gar keinen genau definierten Ideal-Punkt ... -->
+
+## Was wäre noch möglich
+
+- Gibt es Unterschiede der Kandidaten-Typen in bezug auf:
+    - Stadtteil
+    - Geschlecht
+    - Alter
+    - Beruf
+- Ist der politische Raum ähnlich, wenn er mit den Daten des Wahl-o-mat oder mit Parteiprogramm-Texten generiert wird?
+- ...
+
+### Schicken Sie mir gerne Ihre Fragen an die Daten und die politische Landschaft Bremens!
+
+::: {style="text-align: center; font-size:36px;"}
+✉️ **post@janlo.de**
+:::
+
+## Wieviele Personenmandate wird es in Bremen geben?
+:::: {.columns}
+
+::: {.column width='70%'}
+**Annahmen für die Schätzung** 
+
+Letzte Umfrage von Infratest dimap^[`r Umfrage$Infratest`]. Personenstimmen-Anteile von 2019 übernommen. [**Muss nicht so kommen!**]{style='color:red;'}
+
+### Wie finde ich Kandidierende?
+
+- <https://www.kandidierendencheck.de/> von abgeordnetenwatch.de
+![](figs/Kandidierendencheck.png)
+    - Wahl-o-mat für Personen 
+    - Nur 10 Fragen
+- Parteien Webseiten mit den Kandidierenden
+:::
+
+::: {.column width='30%'}
+```{r}
+Umfragen |> filter(Infratest >= 5, Partei != "Sonstige") |> 
+  mutate(`Sitze 2019` = c(19,20,13,4,9,0),
+         `Sitze Infratest` = zuteilen_nach_hoechstzahlen(72, Infratest),
+         `Personen` = c(50.9, 48.8, 29.2, 40.4, 32.3, 25.4),
+         `Liste` = 100 - `Personen`) |> 
+  pivot_longer(c(`Personen`,`Liste`)) |> 
+  group_by(Partei) |> 
+  mutate(Sitze = zuteilen_nach_hoechstzahlen(max(`Sitze Infratest`), value)) |>
+  mutate(`Sitze Infratest` = paste(`Sitze Infratest`, "Sitze"),
+         `Infratest` = paste0(`Infratest`, "%"),
+         Prozent = value) |> 
+  select(Infratest, Mandatart = name, Prozent,`Sitze Infratest`, Sitze) |>  
+  group_by(Partei, Infratest, `Sitze Infratest`) |> 
+  gt("Mandatart") |> 
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_body(columns = Sitze, rows = Mandatart == "Personen")) |> 
+  tab_style(style = list(cell_fill(color = Bre19$Farbe[2]), cell_text(color = "white")), locations = cells_row_groups(1)) |> 
+  tab_style(style = list(cell_fill(color = Bre19$Farbe[1]), cell_text(color = "white")), locations = cells_row_groups(2)) |> 
+  tab_style(style = list(cell_fill(color = Bre19$Farbe[3]), cell_text(color = "white")), locations = cells_row_groups(3)) |> 
+  tab_style(style = list(cell_fill(color = Bre19$Farbe[5]), cell_text(color = "black")), locations = cells_row_groups(4)) |> 
+  tab_style(style = list(cell_fill(color = Bre19$Farbe[4]), cell_text(color = "white")), locations = cells_row_groups(5)) |> 
+  tab_style(style = list(cell_fill(color = "#ff9900"), cell_text(color = "black")), locations = cells_row_groups(6)) |> 
+tab_options(data_row.padding = px(2)) |> 
+  tab_options(
+    table.font.size = px(14), # Adjust font size (e.g., 12px, 14px, or '80%')
+    data_row.padding = px(2), # Optionally tighten row padding to save vertical space
+    row_group.padding = px(2)
+  )
+```
+:::
+
+::::
